@@ -1,94 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Visiting Invercharron House</title>
-<meta name="robots" content="noindex, nofollow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css">
-<link rel="stylesheet" href="visiting.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visiting Invercharron House</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="visiting.css">
 </head>
 <body>
 
-<!-- Password Gate -->
-<div id="password-gate" class="gate">
-<div class="gate-card">
-<div class="gate-crest">&#9830;</div>
-<h1>Invercharron House</h1>
-<p>Guest information is password protected.</p>
-<form id="password-form">
-<input type="password" id="password-input" placeholder="Enter password" autocomplete="off" autofocus>
-<button type="submit">Enter</button>
-<p id="password-error" class="gate-error" hidden>Incorrect password. Please try again.</p>
-</form>
-</div>
-</div>
+    <div id="protected-content">
 
-<!-- Protected Content -->
-<div id="protected-content" hidden>
+        <header class="hero hero-visiting">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="house-sketch">
+                    <svg viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <!-- Horns -->
+                        <path d="M38 32 Q28 18 18 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M62 32 Q72 18 82 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <!-- Shaggy fringe -->
+                        <path d="M32 38 Q36 28 40 36 Q44 26 48 34 Q52 24 56 34 Q60 26 64 36 Q68 28 68 38" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- Head shape -->
+                        <path d="M30 38 Q28 46 30 52 Q32 58 38 62 Q44 66 50 66 Q56 66 62 62 Q68 58 70 52 Q72 46 70 38" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- Ears -->
+                        <path d="M30 38 Q24 34 26 40 Q28 44 32 42" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                        <path d="M70 38 Q76 34 74 40 Q72 44 68 42" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                        <!-- Eyes peeking through fringe -->
+                        <circle cx="40" cy="44" r="1.5" fill="currentColor" opacity="0.6"/>
+                        <circle cx="60" cy="44" r="1.5" fill="currentColor" opacity="0.6"/>
+                        <!-- Nose -->
+                        <ellipse cx="50" cy="58" rx="6" ry="4" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                        <circle cx="47" cy="58" r="1" fill="currentColor" opacity="0.4"/>
+                        <circle cx="53" cy="58" r="1" fill="currentColor" opacity="0.4"/>
+                        <!-- Extra shaggy bits -->
+                        <path d="M34 42 Q36 38 38 42" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+                        <path d="M44 40 Q46 35 48 40" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+                        <path d="M52 40 Q54 35 56 40" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+                        <path d="M62 42 Q64 38 66 42" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+                        <!-- Chin fluff -->
+                        <path d="M42 64 Q44 70 46 66" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+                        <path d="M48 66 Q50 72 52 66" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+                        <path d="M54 64 Q56 70 58 66" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+                    </svg>
+                </div>
+                <h1>Welcome to Invercharron</h1>
+                <p class="subtitle">Your guide to visiting us in the Highlands</p>
+            </div>
+        </header>
 
-<header class="hero hero-visiting">
-<div class="hero-overlay"></div>
-<div class="hero-content">
-<div class="house-sketch">
-<svg viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-<!-- Horns -->
-<path d="M38 32 Q28 18 18 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-<path d="M62 32 Q72 18 82 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-<!-- Shaggy fringe -->
-<path d="M32 38 Q36 28 40 36 Q44 26 48 34 Q52 24 56 34 Q60 26 64 36 Q68 28 68 38" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-<!-- Head shape -->
-<path d="M30 38 Q28 46 30 52 Q32 58 38 62 Q44 66 50 66 Q56 66 62 62 Q68 58 70 52 Q72 46 70 38" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-<!-- Ears -->
-<path d="M30 38 Q24 34 26 40 Q28 44 32 42" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
-<path d="M70 38 Q76 34 74 40 Q72 44 68 42" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
-<!-- Eyes peeking through fringe -->
-<circle cx="40" cy="44" r="1.5" fill="currentColor" opacity="0.6"/>
-<circle cx="60" cy="44" r="1.5" fill="currentColor" opacity="0.6"/>
-<!-- Nose -->
-<ellipse cx="50" cy="58" rx="6" ry="4" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
-<circle cx="47" cy="58" r="1" fill="currentColor" opacity="0.4"/>
-<circle cx="53" cy="58" r="1" fill="currentColor" opacity="0.4"/>
-<!-- Extra shaggy bits -->
-<path d="M34 42 Q36 38 38 42" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
-<path d="M44 40 Q46 35 48 40" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
-<path d="M52 40 Q54 35 56 40" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
-<path d="M62 42 Q64 38 66 42" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
-<!-- Chin fluff -->
-<path d="M42 64 Q44 70 46 66" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
-<path d="M48 66 Q50 72 52 66" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
-<path d="M54 64 Q56 70 58 66" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
-</svg>
-</div>
-<h1>Welcome to Invercharron</h1>
-<p class="subtitle">Your guide to visiting us in the Highlands</p>
-</div>
-</header>
-
-<nav class="nav-divider">
-<div class="container">
+        <nav class="nav-divider">
+            <div class="container">
                 <a href="#let-us-know">Let Us Know</a>
                 <span class="nav-dot">&middot;</span>
                 <a href="#packing">What to Pack</a>
                 <span class="nav-dot">&middot;</span>
-<a href="#getting-here">Getting Here</a>
-<span class="nav-dot">&middot;</span>
-<a href="#wifi">Wi-Fi</a>
-<span class="nav-dot">&middot;</span>
-                <a href="#packing">What to Pack</a>
+                <a href="#getting-here">Getting Here</a>
                 <span class="nav-dot">&middot;</span>
-<a href="#activities">Activities</a>
+                <a href="#wifi">Wi-Fi</a>
                 <span class="nav-dot">&middot;</span>
-                <a href="#let-us-know">Let Us Know</a>
-</div>
-</nav>
+                <a href="#activities">Activities</a>
+            </div>
+        </nav>
 
-        <section class="intro">
         <section class="steps-overview">
-<div class="container">
+            <div class="container">
                 <p>We&rsquo;re looking forward to having you. This page has everything you need to plan your visit &mdash; how to get here, what to bring, and a few things we&rsquo;d like to know in advance.</p>
                 <div class="steps">
                     <div class="step">
@@ -107,47 +87,44 @@
                         <p>How to find us</p>
                     </div>
                 </div>
-</div>
-</section>
+            </div>
+        </section>
 
-<!-- ========== LET US KNOW ========== -->
-<section id="let-us-know" class="section section-alt">
-<div class="container">
-                <h2>Let Us Know</h2>
+        <!-- ========== LET US KNOW ========== -->
+        <section id="let-us-know" class="section section-alt">
+            <div class="container">
                 <h2>Please Let Us Know</h2>
-<div class="ornament"></div>
-                <p>It would be helpful to know a few details in advance. The button below will open an email pre-filled with the following questions.</p>
+                <div class="ornament"></div>
                 <p>Before your visit, please send us the following details by email. The button below will open a pre-filled email &mdash; just fill in the answers and send.</p>
 
-<div class="guest-form-preview">
-<dl class="form-fields">
-<dt>Arrival</dt>
-<dd>Date and estimated arrival time</dd>
+                <div class="guest-form-preview">
+                    <dl class="form-fields">
+                        <dt>Arrival</dt>
+                        <dd>Date and estimated arrival time</dd>
 
-<dt>Departure</dt>
-<dd>Date</dd>
+                        <dt>Departure</dt>
+                        <dd>Date</dd>
 
-<dt>Travel</dt>
-<dd>How are you getting here? Flight details if applicable.</dd>
+                        <dt>Travel</dt>
+                        <dd>How are you getting here? Flight details if applicable.</dd>
 
-<dt>Dietary</dt>
-<dd>Any dietary requirements or allergies for you or your party?</dd>
+                        <dt>Dietary</dt>
+                        <dd>Any dietary requirements or allergies for you or your party?</dd>
 
-<dt>Allergies &amp; Health</dt>
-<dd>Any allergies beyond dietary (e.g. pets, hay fever)? Any mobility considerations?</dd>
+                        <dt>Allergies &amp; Health</dt>
+                        <dd>Any allergies beyond dietary (e.g. pets, hay fever)? Any mobility considerations?</dd>
 
-<dt>Children &amp; Staff</dt>
-<dd>How many children and their ages? Are you bringing any staff (nannies, au pairs, etc.)?</dd>
+                        <dt>Children &amp; Staff</dt>
+                        <dd>How many children and their ages? Are you bringing any staff (nannies, au pairs, etc.)?</dd>
+                    </dl>
+                </div>
 
-</dl>
-</div>
-
-<div class="email-cta">
-<span class="sketch sketch-letter"></span>
-<a href="mailto:freddy@macnamara.net?subject=Guest%20Information%20%E2%80%94%20%5BYour%20Name%5D&body=Hello!%0A%0AHere%20are%20our%20details%20for%20our%20upcoming%20visit%20to%20Invercharron.%0A%0A---%0A%0AARRIVAL%0ADate%3A%20%0AEstimated%20arrival%20time%3A%20%0A%0ADEPARTURE%0ADate%3A%20%0A%0ATRAVEL%0AHow%20are%20you%20getting%20here%3F%20%0AFlight%20details%20(if%20applicable)%3A%20%0A%0ADIETARY%0ADo%20you%20have%20any%20dietary%20requirements%3F%20%0ADoes%20anyone%20else%20in%20your%20party%20have%20dietary%20requirements%20or%20allergies%3F%20%0A%0AALLERGIES%20%26%20HEALTH%0AAny%20allergies%20beyond%20dietary%20(e.g.%20pets%2C%20hay%20fever)%3F%20%0AAny%20mobility%20considerations%20we%20should%20know%20about%3F%20%0A%0ACHILDREN%20%26%20STAFF%0AHow%20many%20children%20are%20you%20bringing%2C%20and%20what%20are%20their%20ages%3F%20%0AAre%20you%20bringing%20any%20staff%3F%20(nannies%2C%20au%20pairs%2C%20etc.)%20%0A%0ASPECIAL%20REQUESTS%0AWould%20you%20like%20us%20to%20stock%20the%20fridge%20with%20anything%20before%20you%20arrive%3F%20%0AAre%20you%20planning%20any%20day%20trips%20we%20can%20help%20suggest%20routes%20for%3F%20%0A%0A---%0A%0AThank%20you!" class="btn-primary">Send Guest Details &rarr;</a>
-</div>
-</div>
-</section>
+                <div class="email-cta">
+                    <span class="sketch sketch-letter"></span>
+                    <a href="mailto:freddy@macnamara.net?subject=Guest%20Information%20%E2%80%94%20%5BYour%20Name%5D&body=Hello!%0A%0AHere%20are%20our%20details%20for%20our%20upcoming%20visit%20to%20Invercharron.%0A%0A---%0A%0AARRIVAL%0ADate%3A%20%0AEstimated%20arrival%20time%3A%20%0A%0ADEPARTURE%0ADate%3A%20%0A%0ATRAVEL%0AHow%20are%20you%20getting%20here%3F%20%0AFlight%20details%20(if%20applicable)%3A%20%0A%0ADIETARY%0ADo%20you%20have%20any%20dietary%20requirements%3F%20%0ADoes%20anyone%20else%20in%20your%20party%20have%20dietary%20requirements%20or%20allergies%3F%20%0A%0AALLERGIES%20%26%20HEALTH%0AAny%20allergies%20beyond%20dietary%20(e.g.%20pets%2C%20hay%20fever)%3F%20%0AAny%20mobility%20considerations%20we%20should%20know%20about%3F%20%0A%0ACHILDREN%20%26%20STAFF%0AHow%20many%20children%20are%20you%20bringing%2C%20and%20what%20are%20their%20ages%3F%20%0AAre%20you%20bringing%20any%20staff%3F%20(nannies%2C%20au%20pairs%2C%20etc.)%20%0A%0A---%0A%0AThank%20you!" class="btn-primary">Send Guest Details &rarr;</a>
+                </div>
+            </div>
+        </section>
 
         <!-- ========== WHAT TO PACK ========== -->
         <section id="packing" class="section">
@@ -190,294 +167,214 @@
             </div>
         </section>
 
-<!-- ========== GETTING HERE ========== -->
-        <section id="getting-here" class="section">
+        <!-- ========== GETTING HERE ========== -->
         <section id="getting-here" class="section section-alt">
-<div class="container">
-<h2>Getting Here</h2>
-<div class="ornament"></div>
-
-<a href="https://www.google.com/maps/dir/?api=1&destination=57.89383691615322,-4.371270386934536" target="_blank" rel="noopener" class="location-card">
-<div class="location-landscape">
-<svg viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-<!-- Sky hint -->
-<!-- Mountains background -->
-<path d="M0 140 Q50 60 120 100 Q160 40 220 90 Q280 30 340 80 Q400 50 460 95 Q510 55 560 85 Q580 75 600 90 L600 200 L0 200 Z" fill="currentColor" opacity="0.06"/>
-<!-- Mountain ridgeline -->
-<path d="M0 140 Q50 60 120 100 Q160 40 220 90 Q280 30 340 80 Q400 50 460 95 Q510 55 560 85 Q580 75 600 90" stroke="currentColor" stroke-width="1.2" opacity="0.3"/>
-<!-- Nearer hills -->
-<path d="M0 170 Q80 120 160 145 Q240 110 320 140 Q400 115 480 140 Q540 125 600 145 L600 200 L0 200 Z" fill="currentColor" opacity="0.05"/>
-<path d="M0 170 Q80 120 160 145 Q240 110 320 140 Q400 115 480 140 Q540 125 600 145" stroke="currentColor" stroke-width="1" opacity="0.25"/>
-<!-- River -->
-<path d="M180 200 Q200 175 240 178 Q280 172 320 176 Q370 170 420 180 Q460 175 500 185 Q540 178 600 182" stroke="currentColor" stroke-width="1.5" opacity="0.2" stroke-linecap="round"/>
-<path d="M200 200 Q220 182 260 185 Q300 180 340 183 Q380 178 430 186 Q470 182 520 190 Q560 185 600 188" stroke="currentColor" stroke-width="1" opacity="0.15" stroke-linecap="round"/>
-<!-- Trees -->
-<path d="M100 158 Q105 140 110 158" stroke="currentColor" stroke-width="1" opacity="0.2" stroke-linecap="round"/>
-<path d="M105 160 Q110 145 115 160" stroke="currentColor" stroke-width="1" opacity="0.15" stroke-linecap="round"/>
-<path d="M440 152 Q445 135 450 152" stroke="currentColor" stroke-width="1" opacity="0.2" stroke-linecap="round"/>
-<path d="M450 155 Q455 140 460 155" stroke="currentColor" stroke-width="1" opacity="0.15" stroke-linecap="round"/>
-<path d="M455 153 Q460 138 465 153" stroke="currentColor" stroke-width="1" opacity="0.18" stroke-linecap="round"/>
-<!-- House -->
-<rect x="278" y="150" width="20" height="14" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
-<path d="M276 150 L288 142 L300 150" stroke="currentColor" stroke-width="0.8" opacity="0.3" stroke-linecap="round"/>
-<rect x="300" y="148" width="14" height="16" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
-<path d="M298 148 L307 140 L316 148" stroke="currentColor" stroke-width="0.8" opacity="0.3" stroke-linecap="round"/>
-<!-- Pin -->
-<path d="M297 130 Q297 120 304 120 Q311 120 311 130 Q311 136 304 142 Q297 136 297 130 Z" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="1" stroke-opacity="0.4"/>
-<circle cx="304" cy="128" r="2" fill="currentColor" opacity="0.3"/>
-</svg>
-</div>
-<div class="location-info">
-<h3>Invercharron House</h3>
-<p>Near Ardgay, Sutherland IV24 3DN</p>
-<span class="location-action">Get Directions &rarr;</span>
-</div>
-</a>
-
-<!-- By Air -->
-<div class="travel-option">
-<div class="travel-header">
-<span class="sketch sketch-plane"></span>
-<h3>By Air</h3>
-</div>
-<p>Fly to <strong>Inverness Airport</strong> (INV). There are regular flights from London, Edinburgh, Bristol, Manchester, and other UK cities.</p>
-<div class="journey-legs">
-<div class="leg">
-<span class="leg-label">Flight to Inverness</span>
-<span class="leg-time">~1.5 hrs from London</span>
-</div>
-<div class="leg-connector"></div>
-<div class="leg">
-<span class="leg-label">Drive to Invercharron</span>
-<span class="leg-time">~50 mins, 40 miles via A9 north</span>
-</div>
-</div>
-<p>From Inverness Airport you can <strong>hire a car</strong> (Hertz, Enterprise, and Avis all have desks at the airport) or <strong>book a taxi</strong>:</p>
-<div class="contact-card">
-<strong>Ronnie&rsquo;s Taxis</strong><br>
-Tel: <a href="tel:01863766422">01863 766422</a><br>
-Mobile: <a href="tel:07778181208">0777 818 1208</a>
-</div>
-<p class="route-note">The drive takes you north on the <strong>A9</strong> across the Cromarty Firth, through Tain, over the Dornoch Firth Bridge, and on to Ardgay. A good road.</p>
-</div>
-
-<!-- By Train (Daytime) -->
-<div class="travel-option">
-<div class="travel-header">
-<span class="sketch sketch-train"></span>
-<h3>By Train</h3>
-</div>
-<p><strong>LNER</strong> runs direct trains from <strong>London King&rsquo;s Cross</strong> to <strong>Inverness</strong> via Edinburgh and the Highland Main Line through Perth and Aviemore. A good journey.</p>
-<div class="journey-legs">
-<div class="leg">
-<span class="leg-label">London King&rsquo;s Cross &rarr; Inverness</span>
-<span class="leg-time">~7.5&ndash;8.5 hrs direct</span>
-</div>
-<div class="leg-connector"></div>
-<div class="leg">
-<span class="leg-label">Taxi or drive to Invercharron</span>
-<span class="leg-time">~50 mins from Inverness</span>
-</div>
-</div>
-<p>Book at <a href="https://www.lner.co.uk" target="_blank" rel="noopener">lner.co.uk</a> or <a href="https://www.thetrainline.com" target="_blank" rel="noopener">thetrainline.com</a>. You can also change at Edinburgh and take a <strong>ScotRail</strong> service onward &mdash; the Edinburgh to Inverness leg (~3.5 hrs) passes through the Cairngorms and is a lovely route.</p>
-<p>From Inverness, the same taxi or hire car options apply as above.</p>
-</div>
-
-<!-- By Sleeper -->
-<div class="travel-option">
-<div class="travel-header">
-<span class="sketch sketch-moon"></span>
-<h3>By Sleeper Train</h3>
-</div>
-<p>The <strong>Caledonian Sleeper</strong> runs overnight from <strong>London Euston</strong> to <strong>Inverness</strong>.</p>
-<div class="journey-legs">
-<div class="leg">
-<span class="leg-label">Depart London Euston</span>
-<span class="leg-time">~21:00</span>
-</div>
-<div class="leg-connector"></div>
-<div class="leg">
-<span class="leg-label">Arrive Inverness</span>
-<span class="leg-time">~08:30 next morning</span>
-</div>
-<div class="leg-connector"></div>
-<div class="leg">
-<span class="leg-label">Taxi or drive to Invercharron</span>
-<span class="leg-time">~50 mins</span>
-</div>
-</div>
-<p>Choose from seated, classic rooms (bunk beds) or club rooms (double bed with en suite). A lounge car serves supper and breakfast. The service runs Sunday to Friday nights.</p>
-<p>Book at <a href="https://www.caledoniansleeper.com" target="_blank" rel="noopener">caledoniansleeper.com</a> &mdash; club rooms sell out quickly, so book early.</p>
-</div>
-</div>
-</section>
-
-<!-- ========== WI-FI ========== -->
-        <section id="wifi" class="section section-alt">
-        <section id="wifi" class="section">
-<div class="container">
-<h2>Wi-Fi</h2>
-<div class="ornament"></div>
-<div class="wifi-card">
-<span class="sketch sketch-wifi"></span>
-<p class="wifi-label">Password</p>
-<div class="wifi-password" id="wifi-password">garvarygrouse</div>
-<button class="wifi-copy" id="wifi-copy" onclick="navigator.clipboard.writeText('garvarygrouse').then(function(){document.getElementById('wifi-copy').textContent='Copied!';setTimeout(function(){document.getElementById('wifi-copy').textContent='Copy to clipboard'},2000)})">Copy to clipboard</button>
-</div>
-</div>
-</section>
-
-        <!-- ========== WHAT TO PACK ========== -->
-        <section id="packing" class="section">
             <div class="container">
-                <h2>What to Pack</h2>
+                <h2>Getting Here</h2>
                 <div class="ornament"></div>
 
-                <div class="pack-grid">
-                    <div class="pack-item">
-                        <span class="sketch sketch-jacket"></span>
-                        <h3>Evenings</h3>
-                        <p>Smart casual unless otherwise instructed &mdash; jacket, smart trousers / smart dress, and smart shoes.</p>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=57.89383691615322,-4.371270386934536" target="_blank" rel="noopener" class="location-card">
+                    <div class="location-landscape">
+                        <svg viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M0 140 Q50 60 120 100 Q160 40 220 90 Q280 30 340 80 Q400 50 460 95 Q510 55 560 85 Q580 75 600 90 L600 200 L0 200 Z" fill="currentColor" opacity="0.06"/>
+                            <path d="M0 140 Q50 60 120 100 Q160 40 220 90 Q280 30 340 80 Q400 50 460 95 Q510 55 560 85 Q580 75 600 90" stroke="currentColor" stroke-width="1.2" opacity="0.3"/>
+                            <path d="M0 170 Q80 120 160 145 Q240 110 320 140 Q400 115 480 140 Q540 125 600 145 L600 200 L0 200 Z" fill="currentColor" opacity="0.05"/>
+                            <path d="M0 170 Q80 120 160 145 Q240 110 320 140 Q400 115 480 140 Q540 125 600 145" stroke="currentColor" stroke-width="1" opacity="0.25"/>
+                            <path d="M180 200 Q200 175 240 178 Q280 172 320 176 Q370 170 420 180 Q460 175 500 185 Q540 178 600 182" stroke="currentColor" stroke-width="1.5" opacity="0.2" stroke-linecap="round"/>
+                            <path d="M200 200 Q220 182 260 185 Q300 180 340 183 Q380 178 430 186 Q470 182 520 190 Q560 185 600 188" stroke="currentColor" stroke-width="1" opacity="0.15" stroke-linecap="round"/>
+                            <path d="M100 158 Q105 140 110 158" stroke="currentColor" stroke-width="1" opacity="0.2" stroke-linecap="round"/>
+                            <path d="M105 160 Q110 145 115 160" stroke="currentColor" stroke-width="1" opacity="0.15" stroke-linecap="round"/>
+                            <path d="M440 152 Q445 135 450 152" stroke="currentColor" stroke-width="1" opacity="0.2" stroke-linecap="round"/>
+                            <path d="M450 155 Q455 140 460 155" stroke="currentColor" stroke-width="1" opacity="0.15" stroke-linecap="round"/>
+                            <path d="M455 153 Q460 138 465 153" stroke="currentColor" stroke-width="1" opacity="0.18" stroke-linecap="round"/>
+                            <rect x="278" y="150" width="20" height="14" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
+                            <path d="M276 150 L288 142 L300 150" stroke="currentColor" stroke-width="0.8" opacity="0.3" stroke-linecap="round"/>
+                            <rect x="300" y="148" width="14" height="16" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
+                            <path d="M298 148 L307 140 L316 148" stroke="currentColor" stroke-width="0.8" opacity="0.3" stroke-linecap="round"/>
+                            <path d="M297 130 Q297 120 304 120 Q311 120 311 130 Q311 136 304 142 Q297 136 297 130 Z" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="1" stroke-opacity="0.4"/>
+                            <circle cx="304" cy="128" r="2" fill="currentColor" opacity="0.3"/>
+                        </svg>
                     </div>
-                    <div class="pack-item">
-                        <span class="sketch sketch-reeling"></span>
-                        <h3>Northern Meeting</h3>
-                        <p>White tie for the summer meeting; black tie for the winter meeting.</p>
+                    <div class="location-info">
+                        <h3>Invercharron House</h3>
+                        <p>Near Ardgay, Sutherland IV24 3DN</p>
+                        <span class="location-action">Get Directions &rarr;</span>
                     </div>
-                    <div class="pack-item">
-                        <span class="sketch sketch-jumper"></span>
-                        <h3>Daytime</h3>
-                        <p>Warm, comfortable clothes. The Highlands can be brisk even in summer &mdash; layers are your friend.</p>
+                </a>
+
+                <!-- By Air -->
+                <div class="travel-option">
+                    <div class="travel-header">
+                        <span class="sketch sketch-plane"></span>
+                        <h3>By Air</h3>
                     </div>
-                    <div class="pack-item">
-                        <span class="sketch sketch-rain"></span>
-                        <h3>Waterproofs</h3>
-                        <p>A waterproof coat is strongly advised. It will rain.</p>
+                    <p>Fly to <strong>Inverness Airport</strong> (INV). There are regular flights from London, Edinburgh, Bristol, Manchester, and other UK cities.</p>
+                    <div class="journey-legs">
+                        <div class="leg">
+                            <span class="leg-label">Flight to Inverness</span>
+                            <span class="leg-time">~1.5 hrs from London</span>
+                        </div>
+                        <div class="leg-connector"></div>
+                        <div class="leg">
+                            <span class="leg-label">Drive to Invercharron</span>
+                            <span class="leg-time">~50 mins, 40 miles via A9 north</span>
+                        </div>
                     </div>
-                    <div class="pack-item">
-                        <span class="sketch sketch-boot"></span>
-                        <h3>Wellies</h3>
-                        <p>Wellington boots are available at the house, but if it&rsquo;s a large party you may not get your size &mdash; consider bringing your own.</p>
+                    <p>From Inverness Airport you can <strong>hire a car</strong> (Hertz, Enterprise, and Avis all have desks at the airport) or <strong>book a taxi</strong>:</p>
+                    <div class="contact-card">
+                        <strong>Ronnie&rsquo;s Taxis</strong><br>
+                        Tel: <a href="tel:01863766422">01863 766422</a><br>
+                        Mobile: <a href="tel:07778181208">0777 818 1208</a>
                     </div>
-                    <div class="pack-item">
+                    <p class="route-note">The drive takes you north on the <strong>A9</strong>, then over Struie Hill to Ardgay.</p>
+                </div>
+
+                <!-- By Train (Daytime) -->
+                <div class="travel-option">
+                    <div class="travel-header">
+                        <span class="sketch sketch-train"></span>
+                        <h3>By Train</h3>
+                    </div>
+                    <p><strong>LNER</strong> runs direct trains from <strong>London King&rsquo;s Cross</strong> to <strong>Inverness</strong> via Edinburgh and the Highland Main Line through Perth and Aviemore. A good journey.</p>
+                    <div class="journey-legs">
+                        <div class="leg">
+                            <span class="leg-label">London King&rsquo;s Cross &rarr; Inverness</span>
+                            <span class="leg-time">~7.5&ndash;8.5 hrs direct</span>
+                        </div>
+                        <div class="leg-connector"></div>
+                        <div class="leg">
+                            <span class="leg-label">Taxi or drive to Invercharron</span>
+                            <span class="leg-time">~50 mins from Inverness</span>
+                        </div>
+                    </div>
+                    <p>Book at <a href="https://www.lner.co.uk" target="_blank" rel="noopener">lner.co.uk</a> or <a href="https://www.thetrainline.com" target="_blank" rel="noopener">thetrainline.com</a>. You can also change at Edinburgh and take a <strong>ScotRail</strong> service onward &mdash; the Edinburgh to Inverness leg (~3.5 hrs) passes through the Cairngorms and is a lovely route.</p>
+                    <p>From Inverness, the same taxi or hire car options apply as above.</p>
+                </div>
+
+                <!-- By Sleeper -->
+                <div class="travel-option">
+                    <div class="travel-header">
+                        <span class="sketch sketch-moon"></span>
+                        <h3>By Sleeper Train</h3>
+                    </div>
+                    <p>The <strong>Caledonian Sleeper</strong> runs overnight from <strong>London Euston</strong> to <strong>Inverness</strong>.</p>
+                    <div class="journey-legs">
+                        <div class="leg">
+                            <span class="leg-label">Depart London Euston</span>
+                            <span class="leg-time">~21:00</span>
+                        </div>
+                        <div class="leg-connector"></div>
+                        <div class="leg">
+                            <span class="leg-label">Arrive Inverness</span>
+                            <span class="leg-time">~08:30 next morning</span>
+                        </div>
+                        <div class="leg-connector"></div>
+                        <div class="leg">
+                            <span class="leg-label">Taxi or drive to Invercharron</span>
+                            <span class="leg-time">~50 mins</span>
+                        </div>
+                    </div>
+                    <p>Choose from seated, classic rooms (bunk beds) or club rooms (double bed with en suite). A lounge car serves supper and breakfast. The service runs Sunday to Friday nights.</p>
+                    <p>Book at <a href="https://www.caledoniansleeper.com" target="_blank" rel="noopener">caledoniansleeper.com</a> &mdash; club rooms sell out quickly, so book early.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== WI-FI ========== -->
+        <section id="wifi" class="section">
+            <div class="container">
+                <h2>Wi-Fi</h2>
+                <div class="ornament"></div>
+                <div class="wifi-card">
+                    <span class="sketch sketch-wifi"></span>
+                    <p class="wifi-label">Password</p>
+                    <div class="wifi-password" id="wifi-password">garvarygrouse</div>
+                    <button class="wifi-copy" id="wifi-copy" onclick="navigator.clipboard.writeText('garvarygrouse').then(function(){document.getElementById('wifi-copy').textContent='Copied!';setTimeout(function(){document.getElementById('wifi-copy').textContent='Copy to clipboard'},2000)})">Copy to clipboard</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== ACTIVITIES ========== -->
+        <section id="activities" class="section section-alt">
+            <div class="container">
+                <h2>Activities</h2>
+                <div class="ornament"></div>
+                <p>Things you might expect to do during your stay.</p>
+
+                <div class="activity-grid">
+                    <div class="activity-item">
+                        <span class="sketch sketch-hike"></span>
+                        <h3>Hill Walking</h3>
+                    </div>
+                    <div class="activity-item">
+                        <span class="sketch sketch-woodland"></span>
+                        <h3>Woodland Walks</h3>
+                    </div>
+                    <div class="activity-item">
                         <span class="sketch sketch-swim"></span>
-                        <h3>Swimming</h3>
-                        <p>In summer, bring swimming gear. The river is cold but good.</p>
+                        <h3>Open Water Swimming</h3>
+                    </div>
+                    <div class="activity-item">
+                        <span class="sketch sketch-beach"></span>
+                        <h3>Beach Trips</h3>
+                    </div>
+                    <div class="activity-item">
+                        <span class="sketch sketch-kayak"></span>
+                        <h3>Kayaking</h3>
+                    </div>
+                    <div class="activity-item">
+                        <span class="sketch sketch-tennis"></span>
+                        <h3>Tennis</h3>
+                    </div>
+                    <div class="activity-item">
+                        <span class="sketch sketch-fish-river"></span>
+                        <h3>Fly Fishing</h3>
+                    </div>
+                    <div class="activity-item">
+                        <span class="sketch sketch-reeling"></span>
+                        <h3>Reeling</h3>
+                    </div>
+                    <div class="activity-item">
+                        <span class="sketch sketch-golf"></span>
+                        <h3>Golf</h3>
                     </div>
                 </div>
             </div>
         </section>
 
-<!-- ========== ACTIVITIES ========== -->
-<section id="activities" class="section section-alt">
-<div class="container">
-<h2>Activities</h2>
-<div class="ornament"></div>
-<p>Things you might expect to do during your stay.</p>
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-fish">
+                        <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <!-- Leaping salmon -->
+                            <path d="M15 45 Q25 10 55 15 Q65 16 70 20" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+                            <path d="M70 20 Q62 22 58 18 Q55 15 55 15" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+                            <!-- Tail -->
+                            <path d="M15 45 Q8 40 5 35" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                            <path d="M15 45 Q10 48 5 47" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                            <!-- Fin -->
+                            <path d="M35 24 Q38 18 41 24" stroke="currentColor" stroke-width="0.8" stroke-linecap="round"/>
+                            <!-- Eye -->
+                            <circle cx="62" cy="18" r="1.2" fill="currentColor" opacity="0.5"/>
+                            <!-- Water splash -->
+                            <path d="M10 50 Q15 47 20 50" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/>
+                            <path d="M5 53 Q12 49 19 53" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" opacity="0.3"/>
+                            <!-- Droplets -->
+                            <circle cx="18" cy="44" r="0.8" fill="currentColor" opacity="0.3"/>
+                            <circle cx="22" cy="47" r="0.6" fill="currentColor" opacity="0.25"/>
+                            <circle cx="12" cy="46" r="0.7" fill="currentColor" opacity="0.25"/>
+                        </svg>
+                    </div>
+                    <p>See you soon.</p>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; Invercharron House</p>
+                </div>
+            </div>
+        </footer>
 
-<div class="activity-grid">
-<div class="activity-item">
-<span class="sketch sketch-hike"></span>
-<h3>Hill Walking</h3>
-</div>
-<div class="activity-item">
-<span class="sketch sketch-woodland"></span>
-<h3>Woodland Walks</h3>
-</div>
-<div class="activity-item">
-<span class="sketch sketch-swim"></span>
-<h3>Open Water Swimming</h3>
-</div>
-<div class="activity-item">
-<span class="sketch sketch-beach"></span>
-<h3>Beach Trips</h3>
-</div>
-<div class="activity-item">
-<span class="sketch sketch-kayak"></span>
-<h3>Kayaking</h3>
-</div>
-<div class="activity-item">
-<span class="sketch sketch-tennis"></span>
-<h3>Tennis</h3>
-</div>
-<div class="activity-item">
-<span class="sketch sketch-fish-river"></span>
-<h3>Fly Fishing</h3>
-</div>
-<div class="activity-item">
-<span class="sketch sketch-reeling"></span>
-<h3>Reeling</h3>
-</div>
-<div class="activity-item">
-<span class="sketch sketch-golf"></span>
-<h3>Golf</h3>
-</div>
-</div>
-</div>
-</section>
+    </div>
 
-<footer>
-<div class="container">
-<div class="footer-content">
-<div class="footer-fish">
-<svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-<!-- Leaping salmon -->
-<path d="M15 45 Q25 10 55 15 Q65 16 70 20" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/>
-<path d="M70 20 Q62 22 58 18 Q55 15 55 15" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/>
-<!-- Tail -->
-<path d="M15 45 Q8 40 5 35" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-<path d="M15 45 Q10 48 5 47" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-<!-- Fin -->
-<path d="M35 24 Q38 18 41 24" stroke="currentColor" stroke-width="0.8" stroke-linecap="round"/>
-<!-- Eye -->
-<circle cx="62" cy="18" r="1.2" fill="currentColor" opacity="0.5"/>
-<!-- Water splash -->
-<path d="M10 50 Q15 47 20 50" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/>
-<path d="M5 53 Q12 49 19 53" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" opacity="0.3"/>
-<!-- Droplets -->
-<circle cx="18" cy="44" r="0.8" fill="currentColor" opacity="0.3"/>
-<circle cx="22" cy="47" r="0.6" fill="currentColor" opacity="0.25"/>
-<circle cx="12" cy="46" r="0.7" fill="currentColor" opacity="0.25"/>
-</svg>
-</div>
-<p>See you soon.</p>
-</div>
-<div class="footer-bottom">
-<p>&copy; Invercharron House</p>
-</div>
-</div>
-</footer>
-
-</div>
-
-<script>
-(function () {
-var PASS = 'scotland';
-var gate = document.getElementById('password-gate');
-var content = document.getElementById('protected-content');
-var form = document.getElementById('password-form');
-var input = document.getElementById('password-input');
-var error = document.getElementById('password-error');
-
-// Check if already authenticated this session
-if (sessionStorage.getItem('inv_auth') === '1') {
-gate.hidden = true;
-content.hidden = false;
-}
-
-form.addEventListener('submit', function (e) {
-e.preventDefault();
-if (input.value.toLowerCase().trim() === PASS) {
-sessionStorage.setItem('inv_auth', '1');
-gate.hidden = true;
-content.hidden = false;
-} else {
-error.hidden = false;
-input.value = '';
-input.focus();
-}
-});
-})();
-</script>
 </body>
 </html>
