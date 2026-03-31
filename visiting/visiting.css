@@ -1,117 +1,119 @@
 /* ============================================
-   Visiting Page — Invercharron House
-   ============================================ */
+  Visiting Page — Invercharron House
+  ============================================ */
 
 /* ---- Password Gate ---- */
 .gate {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(160deg, var(--color-deep-green) 0%, #1f4432 40%, var(--color-forest) 100%);
-    padding: 2rem;
+position: fixed;
+inset: 0;
+z-index: 9999;
+display: flex;
+align-items: center;
+justify-content: center;
+background: linear-gradient(160deg, var(--color-deep-green) 0%, #1f4432 40%, var(--color-forest) 100%);
+padding: 2rem;
 }
 
 .gate[hidden] {
-    display: none;
+display: none;
 }
 
 #protected-content[hidden] {
-    display: none !important;
+display: none !important;
 }
 
 .gate-card {
-    background: var(--color-warm-white);
-    border-radius: 6px;
-    padding: 3rem 2.5rem;
-    text-align: center;
-    max-width: 380px;
-    width: 100%;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+background: var(--color-warm-white);
+border-radius: 6px;
+padding: 3rem 2.5rem;
+text-align: center;
+max-width: 380px;
+width: 100%;
+box-shadow: 0 8px 40px rgba(0,0,0,0.2);
 }
 
 .gate-crest {
-    font-size: 1.2rem;
-    color: var(--color-gold);
-    margin-bottom: 1rem;
-    letter-spacing: 0.5em;
+font-size: 1.2rem;
+color: var(--color-gold);
+margin-bottom: 1rem;
+letter-spacing: 0.5em;
 }
 
 .gate-card h1 {
-    font-family: var(--font-heading);
-    font-size: 1.6rem;
-    color: var(--color-deep-green);
-    margin-bottom: 0.5rem;
+font-family: var(--font-heading);
+font-size: 1.6rem;
+color: var(--color-deep-green);
+margin-bottom: 0.5rem;
 }
 
 .gate-card > p {
-    color: var(--color-text-muted);
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-    font-style: italic;
+color: var(--color-text-muted);
+font-size: 0.9rem;
+margin-bottom: 1.5rem;
+font-style: italic;
 }
 
 #password-form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+display: flex;
+flex-direction: column;
+gap: 0.75rem;
 }
 
 #password-input {
-    font-family: var(--font-body);
-    font-size: 1rem;
-    padding: 0.7rem 1rem;
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    text-align: center;
-    outline: none;
-    transition: border-color 0.3s;
+font-family: var(--font-body);
+font-size: 1rem;
+padding: 0.7rem 1rem;
+border: 1px solid var(--color-border);
+border-radius: 4px;
+text-align: center;
+outline: none;
+transition: border-color 0.3s;
 }
 
 #password-input:focus {
-    border-color: var(--color-gold);
+border-color: var(--color-gold);
 }
 
 #password-form button {
-    font-family: var(--font-heading);
-    font-size: 0.9rem;
-    padding: 0.7rem 1.5rem;
-    background: var(--color-deep-green);
-    color: var(--color-parchment);
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: background 0.3s;
+font-family: var(--font-heading);
+font-size: 0.9rem;
+padding: 0.7rem 1.5rem;
+background: var(--color-deep-green);
+color: var(--color-parchment);
+border: none;
+border-radius: 4px;
+cursor: pointer;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+transition: background 0.3s;
 }
 
 #password-form button:hover {
-    background: var(--color-forest);
+background: var(--color-forest);
 }
 
 .gate-error {
-    color: #a0463c;
-    font-size: 0.85rem;
-    margin-top: 0.25rem;
+color: #a0463c;
+font-size: 0.85rem;
+margin-top: 0.25rem;
 }
 
 /* ---- Hero Variant ---- */
 .hero-visiting {
+    padding: 2rem 2rem 1.5rem;
     padding: 1rem 2rem 1rem;
 }
 
 .house-sketch {
-    max-width: 160px;
+max-width: 160px;
+    margin: 0 auto 1rem;
     margin: 0 auto -0.5rem;
-    color: rgba(245, 240, 232, 0.5);
+color: rgba(245, 240, 232, 0.5);
 }
 
 .house-sketch svg {
-    width: 100%;
-    height: auto;
+width: 100%;
+height: auto;
 }
 
 /* ---- Steps Overview ---- */
@@ -134,20 +136,18 @@
 }
 
 .step-number {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-    min-height: 40px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     border: 2px solid var(--color-gold);
     font-family: var(--font-heading);
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--color-gold);
-    margin: 0 auto 0.75rem;
+    margin-bottom: 0.75rem;
 }
 
 .step h3 {
@@ -185,618 +185,518 @@
 
 /* ---- Intro override ---- */
 .intro p {
-    font-style: normal;
-    font-size: 1.05rem;
-    line-height: 1.8;
-    max-width: 650px;
-    color: var(--color-text);
+font-style: normal;
+font-size: 1.05rem;
+line-height: 1.8;
+max-width: 650px;
+color: var(--color-text);
 }
 
 /* ---- Sketch Icons ---- */
 .sketch {
-    display: inline-block;
-    width: 48px;
-    height: 48px;
-    position: relative;
-    flex-shrink: 0;
+display: inline-block;
+width: 48px;
+height: 48px;
+position: relative;
+flex-shrink: 0;
 }
 
 /* We draw sketches with CSS borders/shapes + pseudo-elements for a hand-drawn feel */
 /* Each sketch uses a subtle SVG data URI for a line-art illustration style */
 
 .sketch-plane {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 28l18-4 4-14 2 0-1 14 15-3 3-5 2 0-2 7 3 1-3 3-7-1 0 2-5 9-2 0 1-7-15-3-4 18-2 0 1-14z'/%3E%3C/svg%3E") no-repeat center/contain;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 28l18-4 4-14 2 0-1 14 15-3 3-5 2 0-2 7 3 1-3 3-7-1 0 2-5 9-2 0 1-7-15-3-4 18-2 0 1-14z'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 
 .sketch-train {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='10' y='8' width='28' height='28' rx='4'/%3E%3Cline x1='10' y1='24' x2='38' y2='24'/%3E%3Cline x1='24' y1='8' x2='24' y2='24'/%3E%3Ccircle cx='17' cy='30' r='2'/%3E%3Ccircle cx='31' cy='30' r='2'/%3E%3Cline x1='14' y1='36' x2='10' y2='42'/%3E%3Cline x1='34' y1='36' x2='38' y2='42'/%3E%3Crect x='16' y='12' width='6' height='8' rx='1'/%3E%3Crect x='26' y='12' width='6' height='8' rx='1'/%3E%3C/svg%3E") no-repeat center/contain;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='10' y='8' width='28' height='28' rx='4'/%3E%3Cline x1='10' y1='24' x2='38' y2='24'/%3E%3Cline x1='24' y1='8' x2='24' y2='24'/%3E%3Ccircle cx='17' cy='30' r='2'/%3E%3Ccircle cx='31' cy='30' r='2'/%3E%3Cline x1='14' y1='36' x2='10' y2='42'/%3E%3Cline x1='34' y1='36' x2='38' y2='42'/%3E%3Crect x='16' y='12' width='6' height='8' rx='1'/%3E%3Crect x='26' y='12' width='6' height='8' rx='1'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 
 .sketch-moon {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M30 8a14 14 0 1 0 0 28 10 10 0 0 1 0-28z'/%3E%3Ccircle cx='12' cy='12' r='1'/%3E%3Ccircle cx='36' cy='14' r='1'/%3E%3Ccircle cx='8' cy='22' r='0.8'/%3E%3Ccircle cx='38' cy='28' r='0.8'/%3E%3Ccircle cx='16' cy='6' r='0.6'/%3E%3C/svg%3E") no-repeat center/contain;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M30 8a14 14 0 1 0 0 28 10 10 0 0 1 0-28z'/%3E%3Ccircle cx='12' cy='12' r='1'/%3E%3Ccircle cx='36' cy='14' r='1'/%3E%3Ccircle cx='8' cy='22' r='0.8'/%3E%3Ccircle cx='38' cy='28' r='0.8'/%3E%3Ccircle cx='16' cy='6' r='0.6'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 
 .sketch-wifi {
-    width: 56px;
-    height: 56px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 18c5.5-5.5 12-8 20-8s14.5 2.5 20 8'/%3E%3Cpath d='M10 24c4-4 8.5-6 14-6s10 2 14 6'/%3E%3Cpath d='M16 30c2.5-2.5 5-4 8-4s5.5 1.5 8 4'/%3E%3Ccircle cx='24' cy='36' r='2' fill='%235a7a5a'/%3E%3C/svg%3E") no-repeat center/contain;
+width: 56px;
+height: 56px;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 18c5.5-5.5 12-8 20-8s14.5 2.5 20 8'/%3E%3Cpath d='M10 24c4-4 8.5-6 14-6s10 2 14 6'/%3E%3Cpath d='M16 30c2.5-2.5 5-4 8-4s5.5 1.5 8 4'/%3E%3Ccircle cx='24' cy='36' r='2' fill='%235a7a5a'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 
 .sketch-jacket {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 8h12l2 6 6-2v24H10V12l6 2z'/%3E%3Cpath d='M20 8c0 2 2 4 4 4s4-2 4-4'/%3E%3Cline x1='24' y1='18' x2='24' y2='36'/%3E%3Ccircle cx='24' cy='22' r='1' fill='%235a7a5a'/%3E%3Ccircle cx='24' cy='28' r='1' fill='%235a7a5a'/%3E%3Ccircle cx='24' cy='34' r='1' fill='%235a7a5a'/%3E%3C/svg%3E") no-repeat center/contain;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 8h12l2 6 6-2v24H10V12l6 2z'/%3E%3Cpath d='M20 8c0 2 2 4 4 4s4-2 4-4'/%3E%3Cline x1='24' y1='18' x2='24' y2='36'/%3E%3Ccircle cx='24' cy='22' r='1' fill='%235a7a5a'/%3E%3Ccircle cx='24' cy='28' r='1' fill='%235a7a5a'/%3E%3Ccircle cx='24' cy='34' r='1' fill='%235a7a5a'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 
 .sketch-jumper {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 16L8 20v16h32V20l-6-4'/%3E%3Cpath d='M14 16c0-4 4-8 10-8s10 4 10 8'/%3E%3Cpath d='M20 8c0 2 2 5 4 5s4-3 4-5'/%3E%3Cpath d='M8 28h32'/%3E%3C/svg%3E") no-repeat center/contain;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 16L8 20v16h32V20l-6-4'/%3E%3Cpath d='M14 16c0-4 4-8 10-8s10 4 10 8'/%3E%3Cpath d='M20 8c0 2 2 5 4 5s4-3 4-5'/%3E%3Cpath d='M8 28h32'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 
 .sketch-rain {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 24a10 10 0 0 1 9-10 8 8 0 0 1 15 4 7 7 0 0 1-1 14H13a6 6 0 0 1-1-8z'/%3E%3Cline x1='16' y1='34' x2='14' y2='40'/%3E%3Cline x1='24' y1='34' x2='22' y2='40'/%3E%3Cline x1='32' y1='34' x2='30' y2='40'/%3E%3C/svg%3E") no-repeat center/contain;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 24a10 10 0 0 1 9-10 8 8 0 0 1 15 4 7 7 0 0 1-1 14H13a6 6 0 0 1-1-8z'/%3E%3Cline x1='16' y1='34' x2='14' y2='40'/%3E%3Cline x1='24' y1='34' x2='22' y2='40'/%3E%3Cline x1='32' y1='34' x2='30' y2='40'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 
 .sketch-boot {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 6v20l-6 4v6h28v-6l-6-2V6z'/%3E%3Cline x1='16' y1='12' x2='32' y2='12'/%3E%3Cline x1='10' y1='36' x2='38' y2='36'/%3E%3Cellipse cx='24' cy='6' rx='8' ry='2'/%3E%3C/svg%3E") no-repeat center/contain;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 6v20l-6 4v6h28v-6l-6-2V6z'/%3E%3Cline x1='16' y1='12' x2='32' y2='12'/%3E%3Cline x1='10' y1='36' x2='38' y2='36'/%3E%3Cellipse cx='24' cy='6' rx='8' ry='2'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 
 .sketch-swim {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='24' cy='12' r='4'/%3E%3Cpath d='M18 22l6 4 6-4'/%3E%3Cpath d='M24 26v6'/%3E%3Cpath d='M4 36c4-3 8 0 12-3s8 0 12-3 8 0 12-3'/%3E%3Cpath d='M4 42c4-3 8 0 12-3s8 0 12-3 8 0 12-3'/%3E%3C/svg%3E") no-repeat center/contain;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='24' cy='12' r='4'/%3E%3Cpath d='M18 22l6 4 6-4'/%3E%3Cpath d='M24 26v6'/%3E%3Cpath d='M4 36c4-3 8 0 12-3s8 0 12-3 8 0 12-3'/%3E%3Cpath d='M4 42c4-3 8 0 12-3s8 0 12-3 8 0 12-3'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 
 .sketch-letter {
-    width: 56px;
-    height: 56px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='6' y='12' width='36' height='24' rx='2'/%3E%3Cpath d='M6 14l18 12 18-12'/%3E%3C/svg%3E") no-repeat center/contain;
+width: 56px;
+height: 56px;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='6' y='12' width='36' height='24' rx='2'/%3E%3Cpath d='M6 14l18 12 18-12'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 
 .sketch-map {
-    width: 56px;
-    height: 56px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M24 4c-7 0-12 5-12 12 0 10 12 24 12 24s12-14 12-24c0-7-5-12-12-12z'/%3E%3Ccircle cx='24' cy='16' r='4'/%3E%3C/svg%3E") no-repeat center/contain;
+width: 56px;
+height: 56px;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M24 4c-7 0-12 5-12 12 0 10 12 24 12 24s12-14 12-24c0-7-5-12-12-12z'/%3E%3Ccircle cx='24' cy='16' r='4'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 
 /* ---- Map ---- */
 /* ---- Location Card ---- */
 .location-card {
-    display: block;
-    text-decoration: none;
-    color: var(--color-text);
-    background: var(--color-parchment);
-    border: 1px solid var(--color-border);
-    border-radius: 6px;
-    overflow: hidden;
-    margin-bottom: 2.5rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+display: block;
+text-decoration: none;
+color: var(--color-text);
+background: var(--color-parchment);
+border: 1px solid var(--color-border);
+border-radius: 6px;
+overflow: hidden;
+margin-bottom: 2.5rem;
+transition: all 0.3s ease;
+box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 
 .location-card:hover {
-    border-color: var(--color-gold);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    transform: translateY(-2px);
+border-color: var(--color-gold);
+box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+transform: translateY(-2px);
 }
 
 .location-landscape {
-    color: var(--color-forest);
-    background: var(--color-warm-white);
-    border-bottom: 1px solid var(--color-border);
+color: var(--color-forest);
+background: var(--color-warm-white);
+border-bottom: 1px solid var(--color-border);
 }
 
 .location-landscape svg {
-    width: 100%;
-    height: auto;
-    display: block;
+width: 100%;
+height: auto;
+display: block;
 }
 
 .location-info {
-    padding: 1.5rem 2rem;
-    text-align: center;
+padding: 1.5rem 2rem;
+text-align: center;
 }
 
 .location-info h3 {
-    font-family: var(--font-heading);
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: var(--color-deep-green);
-    margin-bottom: 0.25rem;
+font-family: var(--font-heading);
+font-size: 1.15rem;
+font-weight: 600;
+color: var(--color-deep-green);
+margin-bottom: 0.25rem;
 }
 
 .location-info p {
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-    margin-bottom: 1rem;
-    font-style: italic;
+font-size: 0.9rem;
+color: var(--color-text-muted);
+margin-bottom: 1rem;
+font-style: italic;
 }
 
 .location-action {
-    font-family: var(--font-heading);
-    font-size: 0.85rem;
-    color: var(--color-gold);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-weight: 600;
-    transition: color 0.3s ease;
+font-family: var(--font-heading);
+font-size: 0.85rem;
+color: var(--color-gold);
+letter-spacing: 0.1em;
+text-transform: uppercase;
+font-weight: 600;
+transition: color 0.3s ease;
 }
 
 .location-card:hover .location-action {
-    color: var(--color-brown);
+color: var(--color-brown);
 }
 
 /* ---- Travel Options ---- */
 .travel-option {
-    margin-bottom: 2.5rem;
-    padding-bottom: 2.5rem;
-    border-bottom: 1px solid var(--color-border);
+margin-bottom: 2.5rem;
+padding-bottom: 2.5rem;
+border-bottom: 1px solid var(--color-border);
 }
 
 .travel-option:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
+border-bottom: none;
+margin-bottom: 0;
+padding-bottom: 0;
 }
 
 .travel-header {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
+display: flex;
+align-items: center;
+gap: 0.75rem;
+margin-bottom: 1rem;
 }
 
 .travel-header h3 {
-    font-family: var(--font-heading);
-    font-size: 1.3rem;
-    color: var(--color-deep-green);
-    margin: 0;
+font-family: var(--font-heading);
+font-size: 1.3rem;
+color: var(--color-deep-green);
+margin: 0;
 }
 
 .travel-option p {
-    margin-bottom: 1rem;
-    line-height: 1.7;
+margin-bottom: 1rem;
+line-height: 1.7;
 }
 
 .travel-option a {
-    color: var(--color-gold);
+color: var(--color-gold);
 }
 
 /* Journey Legs */
 .journey-legs {
-    background: var(--color-parchment);
-    border-radius: 6px;
-    padding: 1.25rem 1.5rem;
-    margin: 1.25rem 0;
-    border-left: 3px solid var(--color-gold);
+background: var(--color-parchment);
+border-radius: 6px;
+padding: 1.25rem 1.5rem;
+margin: 1.25rem 0;
+border-left: 3px solid var(--color-gold);
 }
 
 .leg {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 1rem;
 }
 
 .leg-label {
-    font-weight: 500;
-    color: var(--color-text);
+font-weight: 500;
+color: var(--color-text);
 }
 
 .leg-time {
-    font-family: var(--font-heading);
-    font-size: 0.85rem;
-    color: var(--color-gold);
-    font-weight: 600;
-    white-space: nowrap;
+font-family: var(--font-heading);
+font-size: 0.85rem;
+color: var(--color-gold);
+font-weight: 600;
+white-space: nowrap;
 }
 
 .leg-connector {
-    width: 1px;
-    height: 16px;
-    background: var(--color-border);
-    margin: 0.25rem 0 0.25rem 12px;
+width: 1px;
+height: 16px;
+background: var(--color-border);
+margin: 0.25rem 0 0.25rem 12px;
 }
 
 /* Contact Card */
 .contact-card {
-    background: var(--color-warm-white);
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    padding: 1rem 1.25rem;
-    margin: 1rem 0;
-    font-size: 0.95rem;
-    line-height: 1.8;
-    display: inline-block;
+background: var(--color-warm-white);
+border: 1px solid var(--color-border);
+border-radius: 4px;
+padding: 1rem 1.25rem;
+margin: 1rem 0;
+font-size: 0.95rem;
+line-height: 1.8;
+display: inline-block;
 }
 
 .contact-card a {
-    color: var(--color-forest);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(45, 90, 61, 0.3);
+color: var(--color-forest);
+text-decoration: none;
+border-bottom: 1px solid rgba(45, 90, 61, 0.3);
 }
 
 .contact-card a:hover {
-    color: var(--color-gold);
-    border-bottom-color: var(--color-gold);
+color: var(--color-gold);
+border-bottom-color: var(--color-gold);
 }
 
 .route-note {
-    font-style: italic;
-    color: var(--color-text-muted);
-    font-size: 0.92rem;
+font-style: italic;
+color: var(--color-text-muted);
+font-size: 0.92rem;
 }
 
 /* ---- Wi-Fi Card ---- */
 .wifi-card {
-    text-align: center;
-    background: var(--color-warm-white);
-    border: 1px solid var(--color-border);
-    border-radius: 6px;
-    padding: 2.5rem 2rem;
-    max-width: 400px;
-    margin: 0 auto;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+text-align: center;
+background: var(--color-warm-white);
+border: 1px solid var(--color-border);
+border-radius: 6px;
+padding: 2.5rem 2rem;
+max-width: 400px;
+margin: 0 auto;
+box-shadow: 0 2px 12px rgba(0,0,0,0.04);
 }
 
 .wifi-label {
-    font-family: var(--font-heading);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--color-text-muted);
-    margin: 1rem 0 0.5rem;
+font-family: var(--font-heading);
+font-size: 0.8rem;
+text-transform: uppercase;
+letter-spacing: 0.15em;
+color: var(--color-text-muted);
+margin: 1rem 0 0.5rem;
 }
 
 .wifi-password {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--color-deep-green);
-    letter-spacing: 0.08em;
-    padding: 0.5rem 0;
-    margin-bottom: 1rem;
-    user-select: all;
+font-family: 'Courier New', Courier, monospace;
+font-size: 1.6rem;
+font-weight: 700;
+color: var(--color-deep-green);
+letter-spacing: 0.08em;
+padding: 0.5rem 0;
+margin-bottom: 1rem;
+user-select: all;
 }
 
 .wifi-copy {
-    font-family: var(--font-heading);
-    font-size: 0.8rem;
-    padding: 0.5rem 1.25rem;
-    background: var(--color-deep-green);
-    color: var(--color-parchment);
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: background 0.3s;
+font-family: var(--font-heading);
+font-size: 0.8rem;
+padding: 0.5rem 1.25rem;
+background: var(--color-deep-green);
+color: var(--color-parchment);
+border: none;
+border-radius: 4px;
+cursor: pointer;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+transition: background 0.3s;
 }
 
 .wifi-copy:hover {
-    background: var(--color-forest);
+background: var(--color-forest);
 }
 
 /* ---- What to Pack Grid ---- */
 .pack-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 2rem;
-    margin-top: 1.5rem;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+gap: 2rem;
+margin-top: 1.5rem;
 }
 
 .pack-item {
-    text-align: center;
-    padding: 1.5rem 1rem;
+text-align: center;
+padding: 1.5rem 1rem;
 }
 
 .pack-item .sketch {
-    margin-bottom: 1rem;
-    opacity: 0.7;
+margin-bottom: 1rem;
+opacity: 0.7;
 }
 
 .pack-item h3 {
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    color: var(--color-deep-green);
-    margin-bottom: 0.5rem;
+font-family: var(--font-heading);
+font-size: 1.1rem;
+color: var(--color-deep-green);
+margin-bottom: 0.5rem;
 }
 
 .pack-item p {
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-    line-height: 1.7;
+font-size: 0.9rem;
+color: var(--color-text-muted);
+line-height: 1.7;
 }
 
 /* ---- Activities Grid ---- */
 .activity-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 2rem;
-    margin-top: 1.5rem;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+gap: 2rem;
+margin-top: 1.5rem;
 }
 
 .activity-item {
-    text-align: center;
-    padding: 1.5rem 1rem;
+text-align: center;
+padding: 1.5rem 1rem;
 }
 
 .activity-item .sketch {
-    margin-bottom: 1rem;
-    opacity: 0.7;
+margin-bottom: 1rem;
+opacity: 0.7;
 }
 
 .activity-item h3 {
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    color: var(--color-deep-green);
-    margin-bottom: 0.5rem;
+font-family: var(--font-heading);
+font-size: 1.1rem;
+color: var(--color-deep-green);
+margin-bottom: 0.5rem;
 }
 
 .activity-item p {
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-    line-height: 1.7;
+font-size: 0.9rem;
+color: var(--color-text-muted);
+line-height: 1.7;
 }
 
 /* Additional sketch icons for activities */
 .sketch-hike {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 40l12-16 8 6 12-22'/%3E%3Cpath d='M36 8l4 0 0 4'/%3E%3Cpath d='M4 42h40'/%3E%3C/svg%3E") no-repeat center/contain;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 40l12-16 8 6 12-22'/%3E%3Cpath d='M36 8l4 0 0 4'/%3E%3Cpath d='M4 42h40'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 
 .sketch-woodland {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M24 6l-10 16h6l-8 14h24l-8-14h6z'/%3E%3Cline x1='24' y1='36' x2='24' y2='44'/%3E%3Cline x1='20' y1='44' x2='28' y2='44'/%3E%3C/svg%3E") no-repeat center/contain;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M24 6l-10 16h6l-8 14h24l-8-14h6z'/%3E%3Cline x1='24' y1='36' x2='24' y2='44'/%3E%3Cline x1='20' y1='44' x2='28' y2='44'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 
 .sketch-beach {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 32c4-2 8 2 12 0s8-2 12 0 8 2 12 0'/%3E%3Cpath d='M4 38c4-2 8 2 12 0s8-2 12 0 8 2 12 0'/%3E%3Ccircle cx='34' cy='12' r='5'/%3E%3Cpath d='M20 28l4-18'/%3E%3Cpath d='M24 10c4 2 8 6 8 12'/%3E%3Cpath d='M24 14c-4 2-8 6-8 10'/%3E%3C/svg%3E") no-repeat center/contain;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 32c4-2 8 2 12 0s8-2 12 0 8 2 12 0'/%3E%3Cpath d='M4 38c4-2 8 2 12 0s8-2 12 0 8 2 12 0'/%3E%3Ccircle cx='34' cy='12' r='5'/%3E%3Cpath d='M20 28l4-18'/%3E%3Cpath d='M24 10c4 2 8 6 8 12'/%3E%3Cpath d='M24 14c-4 2-8 6-8 10'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 
 .sketch-kayak {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 30c0 0 6-4 20-4s20 4 20 4'/%3E%3Cpath d='M8 28c0 0 4-2 16-2s16 2 16 2v2c0 0-4 2-16 2S8 30 8 30z'/%3E%3Ccircle cx='24' cy='18' r='3'/%3E%3Cline x1='24' y1='21' x2='24' y2='26'/%3E%3Cpath d='M18 14l12 10'/%3E%3C/svg%3E") no-repeat center/contain;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 30c0 0 6-4 20-4s20 4 20 4'/%3E%3Cpath d='M8 28c0 0 4-2 16-2s16 2 16 2v2c0 0-4 2-16 2S8 30 8 30z'/%3E%3Ccircle cx='24' cy='18' r='3'/%3E%3Cline x1='24' y1='21' x2='24' y2='26'/%3E%3Cpath d='M18 14l12 10'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 
 .sketch-tennis {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='20' cy='20' r='10'/%3E%3Cpath d='M12 14c4 3 4 9 0 12'/%3E%3Cpath d='M28 14c-4 3-4 9 0 12'/%3E%3Cpath d='M28 28l10 10'/%3E%3Cpath d='M36 36l4 4'/%3E%3Cline x1='34' y1='40' x2='40' y2='34'/%3E%3C/svg%3E") no-repeat center/contain;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='20' cy='20' r='10'/%3E%3Cpath d='M12 14c4 3 4 9 0 12'/%3E%3Cpath d='M28 14c-4 3-4 9 0 12'/%3E%3Cpath d='M28 28l10 10'/%3E%3Cpath d='M36 36l4 4'/%3E%3Cline x1='34' y1='40' x2='40' y2='34'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 
 .sketch-fish-river {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 24c6-8 16-8 24-4-8 4-18 4-24-4'/%3E%3Cpath d='M34 20c2-2 6-4 6-4s-2 4-4 6'/%3E%3Ccircle cx='16' cy='22' r='1.5' fill='%235a7a5a'/%3E%3Cpath d='M6 34c4-2 8 0 12-2s8 0 12-2'/%3E%3Cpath d='M10 38c4-2 8 0 12-2s8 0 12-2'/%3E%3C/svg%3E") no-repeat center/contain;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 24c6-8 16-8 24-4-8 4-18 4-24-4'/%3E%3Cpath d='M34 20c2-2 6-4 6-4s-2 4-4 6'/%3E%3Ccircle cx='16' cy='22' r='1.5' fill='%235a7a5a'/%3E%3Cpath d='M6 34c4-2 8 0 12-2s8 0 12-2'/%3E%3Cpath d='M10 38c4-2 8 0 12-2s8 0 12-2'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 
 .sketch-fish-sea {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 20c6-8 16-8 24-4-8 4-18 4-24-4'/%3E%3Cpath d='M34 16c2-2 6-4 6-4s-2 4-4 6'/%3E%3Ccircle cx='16' cy='18' r='1.5' fill='%235a7a5a'/%3E%3Cpath d='M4 32c4-3 8 0 12-3s8 0 12-3 8 0 12-3'/%3E%3Cpath d='M4 38c4-3 8 0 12-3s8 0 12-3 8 0 12-3'/%3E%3C/svg%3E") no-repeat center/contain;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 20c6-8 16-8 24-4-8 4-18 4-24-4'/%3E%3Cpath d='M34 16c2-2 6-4 6-4s-2 4-4 6'/%3E%3Ccircle cx='16' cy='18' r='1.5' fill='%235a7a5a'/%3E%3Cpath d='M4 32c4-3 8 0 12-3s8 0 12-3 8 0 12-3'/%3E%3Cpath d='M4 38c4-3 8 0 12-3s8 0 12-3 8 0 12-3'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 
 .sketch-golf {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M24 8v28'/%3E%3Cpath d='M24 8l12 6-12 6'/%3E%3Ccircle cx='24' cy='38' r='1.5' fill='%235a7a5a'/%3E%3Cpath d='M16 42c0-2.5 3.5-4 8-4s8 1.5 8 4'/%3E%3C/svg%3E") no-repeat center/contain;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M24 8v28'/%3E%3Cpath d='M24 8l12 6-12 6'/%3E%3Ccircle cx='24' cy='38' r='1.5' fill='%235a7a5a'/%3E%3Cpath d='M16 42c0-2.5 3.5-4 8-4s8 1.5 8 4'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 
 .sketch-reeling {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 34l4-12 6 8 6-8 4 12'/%3E%3Ccircle cx='18' cy='14' r='3'/%3E%3Ccircle cx='30' cy='14' r='3'/%3E%3Cpath d='M18 17l-4 5'/%3E%3Cpath d='M30 17l4 5'/%3E%3Cpath d='M20 22c2 2 6 2 8 0'/%3E%3Cpath d='M16 28c4 2 12 2 16 0'/%3E%3C/svg%3E") no-repeat center/contain;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 34l4-12 6 8 6-8 4 12'/%3E%3Ccircle cx='18' cy='14' r='3'/%3E%3Ccircle cx='30' cy='14' r='3'/%3E%3Cpath d='M18 17l-4 5'/%3E%3Cpath d='M30 17l4 5'/%3E%3Cpath d='M20 22c2 2 6 2 8 0'/%3E%3Cpath d='M16 28c4 2 12 2 16 0'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 
-/* ---- CTA Banner (Before You Arrive) ---- */
-.cta-section {
-    padding: 3rem 0;
-    border-bottom: 1px solid var(--color-border);
+/* ---- Guest Form Preview ---- */
+.guest-form-preview {
+max-width: 600px;
+margin: 0 auto 2.5rem;
+background: var(--color-parchment);
+border: 1px solid var(--color-border);
+border-radius: 4px;
+padding: 2rem;
 }
 
-.cta-banner {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
+.form-fields {
+display: grid;
+grid-template-columns: auto 1fr;
+gap: 0.75rem 1.5rem;
+align-items: baseline;
 }
 
-.cta-banner h2 {
-    margin-bottom: 1rem;
+.form-fields dt {
+font-family: var(--font-heading);
+font-size: 0.85rem;
+font-weight: 600;
+color: var(--color-deep-green);
+text-transform: uppercase;
+letter-spacing: 0.04em;
+white-space: nowrap;
 }
 
-.cta-banner p {
-    color: var(--color-text-muted);
-    font-size: 0.95rem;
-    line-height: 1.8;
-    margin-bottom: 2rem;
+.form-fields dd {
+font-size: 0.9rem;
+color: var(--color-text-muted);
+margin: 0;
 }
 
-.cta-button {
-    display: inline-block;
-    font-family: var(--font-heading);
-    font-size: 1rem;
-    padding: 0.9rem 2.5rem;
-    background: var(--color-deep-green);
-    color: var(--color-parchment);
-    text-decoration: none;
-    border-radius: 4px;
-    letter-spacing: 0.06em;
-    transition: all 0.3s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+@media (max-width: 600px) {
+.form-fields {
+grid-template-columns: 1fr;
+gap: 0.25rem;
+}
+.form-fields dt {
+margin-top: 0.75rem;
+}
+.form-fields dt:first-child {
+margin-top: 0;
+}
 }
 
-.cta-button:hover {
-    background: var(--color-forest);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-    transform: translateY(-1px);
+/* ---- Email CTA ---- */
+.email-cta {
+text-align: center;
+margin-top: 2rem;
 }
 
-/* ---- What to Pack (Consolidated) ---- */
-.pack-consolidated {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-    max-width: 700px;
-    margin: 0 auto;
+.email-cta .sketch {
+display: block;
+margin: 0 auto 1.25rem;
+opacity: 0.6;
 }
 
-.pack-block {
-    padding: 0;
+.btn-primary {
+display: inline-block;
+font-family: var(--font-heading);
+font-size: 1rem;
+padding: 0.85rem 2.5rem;
+background: var(--color-deep-green);
+color: var(--color-parchment);
+text-decoration: none;
+border-radius: 4px;
+letter-spacing: 0.06em;
+transition: all 0.3s;
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.pack-block .sketch {
-    margin-bottom: 0.75rem;
-    opacity: 0.7;
-}
-
-.pack-block h3 {
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--color-deep-green);
-    margin-bottom: 0.75rem;
-}
-
-.pack-block ul {
-    list-style: none;
-    padding: 0;
-}
-
-.pack-block ul li {
-    position: relative;
-    padding-left: 1rem;
-    margin-bottom: 0.65rem;
-    font-size: 0.92rem;
-    color: var(--color-text);
-    line-height: 1.65;
-}
-
-.pack-block ul li::before {
-    content: '\2022';
-    position: absolute;
-    left: 0;
-    color: var(--color-gold);
-}
-
-/* ---- Wi-Fi Inline ---- */
-.wifi-inline {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    margin-bottom: 2.5rem;
-    padding: 1rem 1.5rem;
-    background: var(--color-warm-white);
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-}
-
-.wifi-label-inline {
-    font-family: var(--font-heading);
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-text-muted);
-}
-
-.wifi-password-inline {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--color-deep-green);
-    letter-spacing: 0.05em;
-    user-select: all;
-}
-
-.wifi-copy-inline {
-    font-family: var(--font-heading);
-    font-size: 0.7rem;
-    padding: 0.35rem 0.75rem;
-    background: var(--color-deep-green);
-    color: var(--color-parchment);
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: background 0.3s;
-}
-
-.wifi-copy-inline:hover {
-    background: var(--color-forest);
-}
-
-/* ---- Subsection Heading ---- */
-.subsection-heading {
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--color-deep-green);
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-
-/* ---- Travel Aside (Taxis) ---- */
-.travel-aside {
-    margin-top: 2.5rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--color-border);
-}
-
-.travel-aside h3 {
-    font-family: var(--font-heading);
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: var(--color-deep-green);
-    margin-bottom: 0.75rem;
-}
-
-.travel-aside p {
-    margin-bottom: 1rem;
-    line-height: 1.7;
-}
-
-.travel-aside a {
-    color: var(--color-forest);
+.btn-primary:hover {
+background: var(--color-forest);
+box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+transform: translateY(-1px);
 }
 
 /* ---- Footer override (simpler for visiting page) ---- */
 .footer-fish {
-    max-width: 80px;
-    margin: 0 auto 1rem;
-    color: rgba(245, 240, 232, 0.4);
+max-width: 80px;
+margin: 0 auto 1rem;
+color: rgba(245, 240, 232, 0.4);
 }
 
 .footer-fish svg {
-    width: 100%;
-    height: auto;
+width: 100%;
+height: auto;
 }
 
 .footer-content p {
-    font-style: italic;
+font-style: italic;
 }
 
 /* ---- Responsive ---- */
 @media (max-width: 600px) {
-    .gate-card {
-        padding: 2rem 1.5rem;
-    }
+.gate-card {
+padding: 2rem 1.5rem;
+}
 
-    .hero-visiting {
-        padding: 1rem 1.5rem 1rem;
-    }
+.hero-visiting {
+padding: 3rem 1.5rem 2.5rem;
+}
 
-    .leg {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.15rem;
-    }
+.leg {
+flex-direction: column;
+align-items: flex-start;
+gap: 0.15rem;
+}
 
-    .journey-legs {
-        padding: 1rem 1.25rem;
-    }
+.journey-legs {
+padding: 1rem 1.25rem;
+}
 
-    .pack-consolidated {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
+.wifi-password {
+font-size: 1.3rem;
+}
 
-    .activity-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-    }
+.pack-grid,
+.activity-grid {
+grid-template-columns: 1fr 1fr;
+gap: 1rem;
+}
 
-    .wifi-inline {
-        flex-direction: column;
-        gap: 0.5rem;
-        text-align: center;
-    }
-
-    .cta-button {
-        padding: 0.75rem 1.5rem;
-        font-size: 0.9rem;
-    }
+.btn-primary {
+padding: 0.75rem 1.5rem;
+font-size: 0.9rem;
+}
 }
