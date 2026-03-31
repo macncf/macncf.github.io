@@ -70,30 +70,46 @@
 
         <nav class="nav-divider">
             <div class="container">
+                <a href="#let-us-know">Let Us Know</a>
+                <span class="nav-dot">&middot;</span>
+                <a href="#packing">What to Pack</a>
+                <span class="nav-dot">&middot;</span>
                 <a href="#getting-here">Getting Here</a>
                 <span class="nav-dot">&middot;</span>
                 <a href="#wifi">Wi-Fi</a>
                 <span class="nav-dot">&middot;</span>
-                <a href="#packing">What to Pack</a>
-                <span class="nav-dot">&middot;</span>
                 <a href="#activities">Activities</a>
-                <span class="nav-dot">&middot;</span>
-                <a href="#let-us-know">Let Us Know</a>
             </div>
         </nav>
 
-        <section class="intro">
+        <section class="steps-overview">
             <div class="container">
-                <p>We&rsquo;re looking forward to having you. This page has everything you need to plan your visit &mdash; how to get here, what to bring, and a few things we&rsquo;d like to know in advance.</p>
+                <div class="steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <h3><a href="#let-us-know">Let Us Know</a></h3>
+                        <p>Send us your details</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <h3><a href="#packing">What to Pack</a></h3>
+                        <p>What to bring with you</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <h3><a href="#getting-here">Getting Here</a></h3>
+                        <p>How to find us</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- ========== LET US KNOW ========== -->
         <section id="let-us-know" class="section section-alt">
             <div class="container">
-                <h2>Let Us Know</h2>
+                <h2>Please Let Us Know</h2>
                 <div class="ornament"></div>
-                <p>It would be helpful to know a few details in advance. The button below will open an email pre-filled with the following questions.</p>
+                <p>Before your visit, please send us the following details by email. The button below will open a pre-filled email &mdash; just fill in the answers and send.</p>
 
                 <div class="guest-form-preview">
                     <dl class="form-fields">
@@ -125,8 +141,49 @@
             </div>
         </section>
 
+        <!-- ========== WHAT TO PACK ========== -->
+        <section id="packing" class="section">
+            <div class="container">
+                <h2>What to Pack</h2>
+                <div class="ornament"></div>
+
+                <div class="pack-grid">
+                    <div class="pack-item">
+                        <span class="sketch sketch-jacket"></span>
+                        <h3>Evenings</h3>
+                        <p>Smart casual unless otherwise instructed &mdash; jacket, smart trousers / smart dress, and smart shoes.</p>
+                    </div>
+                    <div class="pack-item">
+                        <span class="sketch sketch-reeling"></span>
+                        <h3>Northern Meeting</h3>
+                        <p>White tie for the summer meeting; black tie for the winter meeting.</p>
+                    </div>
+                    <div class="pack-item">
+                        <span class="sketch sketch-jumper"></span>
+                        <h3>Daytime</h3>
+                        <p>Warm, comfortable clothes. The Highlands can be brisk even in summer &mdash; layers are your friend.</p>
+                    </div>
+                    <div class="pack-item">
+                        <span class="sketch sketch-rain"></span>
+                        <h3>Waterproofs</h3>
+                        <p>A waterproof coat is strongly advised. It will rain.</p>
+                    </div>
+                    <div class="pack-item">
+                        <span class="sketch sketch-boot"></span>
+                        <h3>Wellies</h3>
+                        <p>Wellington boots are available at the house, but if it&rsquo;s a large party you may not get your size &mdash; consider bringing your own.</p>
+                    </div>
+                    <div class="pack-item">
+                        <span class="sketch sketch-swim"></span>
+                        <h3>Swimming</h3>
+                        <p>In summer, bring swimming gear. The river is cold but good.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ========== GETTING HERE ========== -->
-        <section id="getting-here" class="section">
+        <section id="getting-here" class="section section-alt">
             <div class="container">
                 <h2>Getting Here</h2>
                 <div class="ornament"></div>
@@ -247,7 +304,7 @@
         </section>
 
         <!-- ========== WI-FI ========== -->
-        <section id="wifi" class="section section-alt">
+        <section id="wifi" class="section">
             <div class="container">
                 <h2>Wi-Fi</h2>
                 <div class="ornament"></div>
@@ -256,47 +313,6 @@
                     <p class="wifi-label">Password</p>
                     <div class="wifi-password" id="wifi-password">garvarygrouse</div>
                     <button class="wifi-copy" id="wifi-copy" onclick="navigator.clipboard.writeText('garvarygrouse').then(function(){document.getElementById('wifi-copy').textContent='Copied!';setTimeout(function(){document.getElementById('wifi-copy').textContent='Copy to clipboard'},2000)})">Copy to clipboard</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== WHAT TO PACK ========== -->
-        <section id="packing" class="section">
-            <div class="container">
-                <h2>What to Pack</h2>
-                <div class="ornament"></div>
-
-                <div class="pack-grid">
-                    <div class="pack-item">
-                        <span class="sketch sketch-jacket"></span>
-                        <h3>Evenings</h3>
-                        <p>Smart casual unless otherwise instructed &mdash; jacket, smart trousers / smart dress, and smart shoes.</p>
-                    </div>
-                    <div class="pack-item">
-                        <span class="sketch sketch-reeling"></span>
-                        <h3>Northern Meeting</h3>
-                        <p>White tie for the summer meeting; black tie for the winter meeting.</p>
-                    </div>
-                    <div class="pack-item">
-                        <span class="sketch sketch-jumper"></span>
-                        <h3>Daytime</h3>
-                        <p>Warm, comfortable clothes. The Highlands can be brisk even in summer &mdash; layers are your friend.</p>
-                    </div>
-                    <div class="pack-item">
-                        <span class="sketch sketch-rain"></span>
-                        <h3>Waterproofs</h3>
-                        <p>A waterproof coat is strongly advised. It will rain.</p>
-                    </div>
-                    <div class="pack-item">
-                        <span class="sketch sketch-boot"></span>
-                        <h3>Wellies</h3>
-                        <p>Wellington boots are available at the house, but if it&rsquo;s a large party you may not get your size &mdash; consider bringing your own.</p>
-                    </div>
-                    <div class="pack-item">
-                        <span class="sketch sketch-swim"></span>
-                        <h3>Swimming</h3>
-                        <p>In summer, bring swimming gear. The river is cold but good.</p>
-                    </div>
                 </div>
             </div>
         </section>

@@ -100,18 +100,85 @@
 
 /* ---- Hero Variant ---- */
 .hero-visiting {
-    padding: 2rem 2rem 1.5rem;
+    padding: 1rem 2rem 1rem;
 }
 
 .house-sketch {
     max-width: 160px;
-    margin: 0 auto 1rem;
+    margin: 0 auto -0.5rem;
     color: rgba(245, 240, 232, 0.5);
 }
 
 .house-sketch svg {
     width: 100%;
     height: auto;
+}
+
+/* ---- Steps Overview ---- */
+.steps-overview {
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.step {
+    text-align: center;
+    flex: 1;
+}
+
+.step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid var(--color-gold);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    margin-bottom: 0.75rem;
+}
+
+.step h3 {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-deep-green);
+    margin-bottom: 0.25rem;
+}
+
+.step h3 a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.step h3 a:hover {
+    color: var(--color-gold);
+}
+
+.step p {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+@media (max-width: 600px) {
+    .steps {
+        gap: 1.5rem;
+    }
+    .step h3 {
+        font-size: 0.85rem;
+    }
 }
 
 /* ---- Intro override ---- */
