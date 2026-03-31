@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catch Statistics | Invercharron Fishings</title>
+    <meta name="description" content="Historical catch statistics for Invercharron beats and Kyle Fishing on the River Carron, Sutherland.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="statistics.css">
+</head>
+<body>
+    <header class="hero hero-compact">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1><a href="index.html" class="hero-link">Invercharron Fishings</a></h1>
+            <p class="subtitle">Catch Statistics</p>
+        </div>
+    </header>
+
+    <nav class="nav-divider">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <span class="nav-dot">&middot;</span>
+            <a href="#overview">Overview</a>
+            <span class="nav-dot">&middot;</span>
+            <a href="#yearly">By Year</a>
+            <span class="nav-dot">&middot;</span>
+            <a href="#flies">Top Flies</a>
+            <span class="nav-dot">&middot;</span>
+            <a href="#records">Records</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Overview Stats -->
+        <section id="overview" class="section">
+            <div class="container">
+                <h2>Overview</h2>
+                <div class="ornament"></div>
+                <p>Catch statistics from the Invercharron beats and Kyle Fishing, 2017&ndash;2025.</p>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">705</span>
+                        <span class="stat-label">Total Fish Caught</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">99%</span>
+                        <span class="stat-label">Released</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">9</span>
+                        <span class="stat-label">Seasons Recorded</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">6.3 lb</span>
+                        <span class="stat-label">Average Weight</span>
+                    </div>
+                </div>
+
+                <div class="species-breakdown">
+                    <h3>Species Breakdown</h3>
+                    <div class="species-bars">
+                        <div class="species-row">
+                            <span class="species-name">Salmon</span>
+                            <div class="species-bar-track">
+                                <div class="species-bar species-bar-salmon" style="width: 42%"></div>
+                            </div>
+                            <span class="species-pct">~42%</span>
+                        </div>
+                        <div class="species-row">
+                            <span class="species-name">Grilse</span>
+                            <div class="species-bar-track">
+                                <div class="species-bar species-bar-grilse" style="width: 56%"></div>
+                            </div>
+                            <span class="species-pct">~56%</span>
+                        </div>
+                        <div class="species-row">
+                            <span class="species-name">Sea Trout</span>
+                            <div class="species-bar-track">
+                                <div class="species-bar species-bar-trout" style="width: 2%"></div>
+                            </div>
+                            <span class="species-pct">~2%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Yearly Catches Chart -->
+        <section id="yearly" class="section section-alt">
+            <div class="container">
+                <h2>Catches by Year</h2>
+                <div class="ornament"></div>
+
+                <div class="chart-container">
+                    <div class="chart-legend">
+                        <span class="legend-item"><span class="legend-swatch legend-invercharron"></span> Invercharron Beats</span>
+                        <span class="legend-item"><span class="legend-swatch legend-kyle"></span> Kyle Fishing</span>
+                    </div>
+                    <div class="bar-chart">
+                        <div class="bar-group">
+                            <div class="bar-stack">
+                                <div class="bar bar-invercharron" style="height: calc(25 / 130 * 200px)" title="Invercharron: 25"><span>25</span></div>
+                            </div>
+                            <span class="bar-label">2017</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar-stack">
+                                <div class="bar bar-invercharron" style="height: calc(62 / 130 * 200px)" title="Invercharron: 62"><span>62</span></div>
+                            </div>
+                            <span class="bar-label">2018</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar-stack">
+                                <div class="bar bar-kyle" style="height: calc(32 / 130 * 200px)" title="Kyle: 32"><span>32</span></div>
+                                <div class="bar bar-invercharron" style="height: calc(50 / 130 * 200px)" title="Invercharron: 50"><span>50</span></div>
+                            </div>
+                            <span class="bar-label">2019</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar-stack">
+                                <div class="bar bar-kyle" style="height: calc(80 / 130 * 200px)" title="Kyle: 80"><span>80</span></div>
+                                <div class="bar bar-invercharron" style="height: calc(50 / 130 * 200px)" title="Invercharron: 50"><span>50</span></div>
+                            </div>
+                            <span class="bar-label">2020</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar-stack">
+                                <div class="bar bar-kyle" style="height: calc(68 / 130 * 200px)" title="Kyle: 68"><span>68</span></div>
+                                <div class="bar bar-invercharron" style="height: calc(33 / 130 * 200px)" title="Invercharron: 33"><span>33</span></div>
+                            </div>
+                            <span class="bar-label">2021</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar-stack">
+                                <div class="bar bar-kyle" style="height: calc(47 / 130 * 200px)" title="Kyle: 47"><span>47</span></div>
+                                <div class="bar bar-invercharron" style="height: calc(19 / 130 * 200px)" title="Invercharron: 19"><span>19</span></div>
+                            </div>
+                            <span class="bar-label">2022</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar-stack">
+                                <div class="bar bar-kyle" style="height: calc(72 / 130 * 200px)" title="Kyle: 72"><span>72</span></div>
+                                <div class="bar bar-invercharron" style="height: calc(31 / 130 * 200px)" title="Invercharron: 31"><span>31</span></div>
+                            </div>
+                            <span class="bar-label">2023</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar-stack">
+                                <div class="bar bar-kyle" style="height: calc(47 / 130 * 200px)" title="Kyle: 47"><span>47</span></div>
+                                <div class="bar bar-invercharron" style="height: calc(27 / 130 * 200px)" title="Invercharron: 27"><span>27</span></div>
+                            </div>
+                            <span class="bar-label">2024</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar-stack">
+                                <div class="bar bar-kyle" style="height: calc(44 / 130 * 200px)" title="Kyle: 44"><span>44</span></div>
+                                <div class="bar bar-invercharron" style="height: calc(16 / 130 * 200px)" title="Invercharron: 16"><span>16</span></div>
+                            </div>
+                            <span class="bar-label">2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yearly totals table -->
+                <table class="stats-table">
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>Invercharron</th>
+                            <th>Kyle</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>2025</td><td>16</td><td>44</td><td><strong>60</strong></td></tr>
+                        <tr><td>2024</td><td>27</td><td>47</td><td><strong>74</strong></td></tr>
+                        <tr><td>2023</td><td>31</td><td>72</td><td><strong>103</strong></td></tr>
+                        <tr><td>2022</td><td>19</td><td>47</td><td><strong>66</strong></td></tr>
+                        <tr><td>2021</td><td>33</td><td>68</td><td><strong>101</strong></td></tr>
+                        <tr><td>2020</td><td>50</td><td>80</td><td><strong>130</strong></td></tr>
+                        <tr><td>2019</td><td>50</td><td>32</td><td><strong>82</strong></td></tr>
+                        <tr><td>2018</td><td>62</td><td>&mdash;</td><td><strong>62</strong></td></tr>
+                        <tr><td>2017</td><td>25</td><td>&mdash;</td><td><strong>25</strong></td></tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><strong>313</strong></td>
+                            <td><strong>390</strong></td>
+                            <td><strong>703</strong></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+
+        <!-- Popular Flies -->
+        <section id="flies" class="section">
+            <div class="container">
+                <h2>Most Successful Flies</h2>
+                <div class="ornament"></div>
+                <p>The most frequently used flies across all recorded catches.</p>
+
+                <div class="fly-ranking">
+                    <div class="fly-row">
+                        <span class="fly-rank">1</span>
+                        <span class="fly-name">Cascade</span>
+                        <div class="fly-bar-track">
+                            <div class="fly-bar" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="fly-row">
+                        <span class="fly-rank">2</span>
+                        <span class="fly-name">Willie Gunn</span>
+                        <div class="fly-bar-track">
+                            <div class="fly-bar" style="width: 45%"></div>
+                        </div>
+                    </div>
+                    <div class="fly-row">
+                        <span class="fly-rank">3</span>
+                        <span class="fly-name">Ally Shrimp</span>
+                        <div class="fly-bar-track">
+                            <div class="fly-bar" style="width: 35%"></div>
+                        </div>
+                    </div>
+                    <div class="fly-row">
+                        <span class="fly-rank">4</span>
+                        <span class="fly-name">Red Frances</span>
+                        <div class="fly-bar-track">
+                            <div class="fly-bar" style="width: 25%"></div>
+                        </div>
+                    </div>
+                    <div class="fly-row">
+                        <span class="fly-rank">5</span>
+                        <span class="fly-name">Collie Dog</span>
+                        <div class="fly-bar-track">
+                            <div class="fly-bar" style="width: 18%"></div>
+                        </div>
+                    </div>
+                    <div class="fly-row">
+                        <span class="fly-rank">6</span>
+                        <span class="fly-name">Cone Head</span>
+                        <div class="fly-bar-track">
+                            <div class="fly-bar" style="width: 14%"></div>
+                        </div>
+                    </div>
+                    <div class="fly-row">
+                        <span class="fly-rank">7</span>
+                        <span class="fly-name">Monkey</span>
+                        <div class="fly-bar-track">
+                            <div class="fly-bar" style="width: 12%"></div>
+                        </div>
+                    </div>
+                    <div class="fly-row">
+                        <span class="fly-rank">8</span>
+                        <span class="fly-name">Pot Belly Pig</span>
+                        <div class="fly-bar-track">
+                            <div class="fly-bar" style="width: 10%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notable Catches / Records -->
+        <section id="records" class="section section-alt">
+            <div class="container">
+                <h2>Notable Catches</h2>
+                <div class="ornament"></div>
+
+                <div class="records-grid">
+                    <div class="record-card">
+                        <span class="record-value">20 lb</span>
+                        <span class="record-title">Heaviest Salmon</span>
+                        <span class="record-detail">Graeme Dunbar &middot; 1st Jetty &middot; 2021</span>
+                        <span class="record-detail">Ally Shrimp &middot; Invercharron Beats</span>
+                    </div>
+                    <div class="record-card">
+                        <span class="record-value">20 lb</span>
+                        <span class="record-title">Heaviest &mdash; Kyle</span>
+                        <span class="record-detail">Don Mackay &middot; Honey Pot &middot; 2023</span>
+                        <span class="record-detail">Cascade</span>
+                    </div>
+                    <div class="record-card">
+                        <span class="record-value">130</span>
+                        <span class="record-title">Best Season (Combined)</span>
+                        <span class="record-detail">2020 &middot; 50 Invercharron + 80 Kyle</span>
+                    </div>
+                    <div class="record-card">
+                        <span class="record-value">80</span>
+                        <span class="record-title">Best Season &mdash; Kyle</span>
+                        <span class="record-detail">2020</span>
+                    </div>
+                    <div class="record-card">
+                        <span class="record-value">62</span>
+                        <span class="record-title">Best Season &mdash; Invercharron</span>
+                        <span class="record-detail">2018</span>
+                    </div>
+                    <div class="record-card">
+                        <span class="record-value">Cascade</span>
+                        <span class="record-title">Most Successful Fly</span>
+                        <span class="record-detail">Used in more catches than any other pattern</span>
+                    </div>
+                </div>
+
+                <h3 class="subsection-heading">Peak Months</h3>
+                <p class="center-text">July and August consistently produce the highest catch numbers, with the grilse run peaking in late July through mid-August.</p>
+
+                <div class="month-chart">
+                    <div class="month-bar-group">
+                        <div class="month-bar" style="height: 15%"><span>Mar</span></div>
+                    </div>
+                    <div class="month-bar-group">
+                        <div class="month-bar" style="height: 25%"><span>Apr</span></div>
+                    </div>
+                    <div class="month-bar-group">
+                        <div class="month-bar" style="height: 30%"><span>May</span></div>
+                    </div>
+                    <div class="month-bar-group">
+                        <div class="month-bar" style="height: 55%"><span>Jun</span></div>
+                    </div>
+                    <div class="month-bar-group">
+                        <div class="month-bar month-bar-peak" style="height: 95%"><span>Jul</span></div>
+                    </div>
+                    <div class="month-bar-group">
+                        <div class="month-bar month-bar-peak" style="height: 100%"><span>Aug</span></div>
+                    </div>
+                    <div class="month-bar-group">
+                        <div class="month-bar" style="height: 45%"><span>Sep</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>Data sourced from the Invercharron and Kyle Fishing catch records.</p>
+                <a href="index.html" class="email-link">&larr; Back to Home</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Invercharron Estate</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

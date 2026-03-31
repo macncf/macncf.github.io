@@ -1,0 +1,427 @@
+/* ============================================
+   Invercharron Fishings
+   Classic Scottish Estate Theme
+   ============================================ */
+
+:root {
+    --color-deep-green: #1a3a2a;
+    --color-forest: #2d5a3d;
+    --color-sage: #5a7a5a;
+    --color-heather: #6b5b6b;
+    --color-parchment: #f5f0e8;
+    --color-cream: #faf8f4;
+    --color-warm-white: #fdfcfa;
+    --color-gold: #b8960c;
+    --color-gold-light: #d4b44a;
+    --color-brown: #5c4a3a;
+    --color-brown-light: #8a7260;
+    --color-text: #2c2420;
+    --color-text-muted: #6b5f55;
+    --color-border: #d4cdc4;
+
+    --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-body: 'Lora', Georgia, 'Times New Roman', serif;
+}
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-cream);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ---- Hero ---- */
+.hero {
+    position: relative;
+    background: linear-gradient(
+        160deg,
+        var(--color-deep-green) 0%,
+        #1f4432 40%,
+        #2a4a38 70%,
+        var(--color-forest) 100%
+    );
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.04) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(255,255,255,0.03) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.crest {
+    font-size: 1.5rem;
+    color: var(--color-gold);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5em;
+    opacity: 0.8;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    color: var(--color-parchment);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+
+.subtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: rgba(245, 240, 232, 0.7);
+    letter-spacing: 0.25em;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+/* ---- Navigation Divider ---- */
+.nav-divider {
+    background: var(--color-parchment);
+    border-top: 3px solid var(--color-gold);
+    border-bottom: 1px solid var(--color-border);
+    padding: 1rem 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-divider a {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    color: var(--color-brown);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.nav-divider a:hover {
+    color: var(--color-gold);
+}
+
+.nav-dot {
+    color: var(--color-gold);
+    margin: 0 1.25rem;
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+/* ---- Sections ---- */
+.section {
+    padding: 4rem 0;
+}
+
+.section-alt {
+    background: var(--color-parchment);
+}
+
+.intro {
+    padding: 3rem 0;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.intro p {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    font-style: italic;
+}
+
+h2 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--color-deep-green);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.75rem;
+}
+
+.ornament {
+    width: 60px;
+    height: 2px;
+    background: var(--color-gold);
+    margin: 0 auto 1.5rem;
+}
+
+.section > .container > p {
+    text-align: center;
+    color: var(--color-text-muted);
+    margin-bottom: 2.5rem;
+}
+
+/* ---- Cards ---- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: var(--color-warm-white);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 2.5rem 2rem 2rem;
+    text-decoration: none;
+    color: var(--color-text);
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.card:hover {
+    border-color: var(--color-gold);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+}
+
+.section-alt .card {
+    background: var(--color-warm-white);
+}
+
+.card-icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 1.5rem;
+    color: var(--color-forest);
+    opacity: 0.7;
+}
+
+.card-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-deep-green);
+    margin-bottom: 0.35rem;
+    letter-spacing: 0.02em;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.card-action {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    color: var(--color-gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: auto;
+    transition: color 0.3s ease;
+}
+
+.card:hover .card-action {
+    color: var(--color-brown);
+}
+
+/* ---- Footer ---- */
+footer {
+    background: var(--color-deep-green);
+    color: var(--color-parchment);
+    padding: 4rem 0 0;
+}
+
+.footer-content {
+    text-align: center;
+    padding-bottom: 3rem;
+}
+
+footer h2 {
+    color: var(--color-parchment);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+footer p {
+    color: rgba(245, 240, 232, 0.7);
+    max-width: 500px;
+    margin: 0 auto 1.5rem;
+    font-size: 0.95rem;
+}
+
+.email-link {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--color-gold-light);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(212, 180, 74, 0.3);
+    transition: all 0.3s ease;
+}
+
+.email-link:hover {
+    color: var(--color-parchment);
+    border-bottom-color: var(--color-parchment);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(245, 240, 232, 0.1);
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    color: rgba(245, 240, 232, 0.4);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+/* ---- This Season ---- */
+.season-beat {
+    margin-bottom: 3rem;
+}
+
+.season-beat:last-child {
+    margin-bottom: 0;
+}
+
+.beat-heading {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-deep-green);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.catch-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.catch-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.catch-table thead th {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-deep-green);
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 2px solid var(--color-gold);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+.catch-table tbody td {
+    padding: 0.55rem 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+    vertical-align: top;
+}
+
+.catch-table tbody tr:hover {
+    background: rgba(45, 90, 61, 0.04);
+}
+
+.catch-count {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--color-gold);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.no-catches {
+    font-style: italic;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+.no-catches a {
+    color: var(--color-gold);
+}
+
+.loading-msg {
+    font-style: italic;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+    .hero {
+        padding: 3.5rem 1.5rem 3rem;
+    }
+
+    .nav-dot {
+        margin: 0 0.75rem;
+    }
+
+    .nav-divider a {
+        font-size: 0.8rem;
+    }
+
+    .section {
+        padding: 3rem 0;
+    }
+
+    .card {
+        padding: 2rem 1.5rem 1.5rem;
+    }
+
+    .card-grid {
+        gap: 1.25rem;
+    }
+}

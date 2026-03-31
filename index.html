@@ -1,17 +1,268 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invercharron Fishings | River Carron, Sutherland</title>
+    <meta name="description" content="Record and view fishing catches on the Invercharron beats of the River Carron and Kyle Fishing, Sutherland, Scotland.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
-<h3><strong>Invercharron Fishings&nbsp;</strong></h3>
-<p>These are the fishing records. You can either view the records here or record a fish being caught.</p>
-<p><strong>Recording a catch:</strong></p>
-<p><a href="https://cuvvaapp.typeform.com/to/ywQlMe" target="_blank" rel="noopener">Click here&nbsp;to&nbsp;record a fish</a> being caught on the <strong>Invercharron beats</strong> of the River Carron&nbsp;</p>
-<p><a href="https://cuvvaapp.typeform.com/to/J4hGZa" target="_blank" rel="noopener">Click here to&nbsp;record a fish</a> being caught on the <strong>Kyle Fishing</strong>&nbsp;of the mouth of the River Carron</p>
-<p>&nbsp;</p>
-<p><strong>Viewing the Records:</strong></p>
-<p>To view the book for the <strong>Invercharron beats</strong> of the River Carron <a href="https://goo.gl/3oeMTp" target="_blank" rel="noopener">click here</a></p>
-<p>To view the book for the <strong>Kyle Fishing</strong>&nbsp;of the mouth of the River Carron <a href="https://docs.google.com/spreadsheets/d/1es16b2bGZVpbkwcUaNZ4JwAAlBaSJJCafhjR1fQ7zDY/edit?usp=sharing" target="_blank" rel="noopener">click here</a></p>
-<p>&nbsp;</p>
-<p>To communicate with Invercharron you can email&nbsp;<a href="mailto:estate@invercharron.com">estate@invercharron.com</a></p>
-<p>&nbsp;</p>
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="crest">&#9830;</div>
+            <h1>Invercharron Fishings</h1>
+            <p class="subtitle">River Carron &middot; Sutherland &middot; Scotland</p>
+        </div>
+    </header>
+
+    <nav class="nav-divider">
+        <div class="container">
+            <a href="#season">This Season</a>
+            <span class="nav-dot">&middot;</span>
+            <a href="#record">Record a Catch</a>
+            <span class="nav-dot">&middot;</span>
+            <a href="#records">View Records</a>
+            <span class="nav-dot">&middot;</span>
+            <a href="statistics.html">Statistics</a>
+            <span class="nav-dot">&middot;</span>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="intro">
+            <div class="container">
+                <p>Welcome to Invercharron Fishings on the River Carron. Use this site to record fish caught on the river and to view the catch records.</p>
+            </div>
+        </section>
+
+        <section id="season" class="section">
+            <div class="container">
+                <h2>This Season</h2>
+                <div class="ornament"></div>
+                <p>Fish caught so far this season, pulled live from the record books.</p>
+
+                <div class="season-beat">
+                    <h3 class="beat-heading">Invercharron Beats</h3>
+                    <div id="invercharron-catches" class="catch-table-wrap">
+                        <p class="loading-msg">Loading catches&hellip;</p>
+                    </div>
+                </div>
+
+                <div class="season-beat">
+                    <h3 class="beat-heading">Kyle Fishing</h3>
+                    <div id="kyle-catches" class="catch-table-wrap">
+                        <p class="loading-msg">Loading catches&hellip;</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="record" class="section section-alt">
+            <div class="container">
+                <h2>Record a Catch</h2>
+                <div class="ornament"></div>
+                <p>Please select the appropriate beat to log your catch.</p>
+                <div class="card-grid">
+                    <a href="https://cuvvaapp.typeform.com/to/ywQlMe" target="_blank" rel="noopener" class="card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M8 38c4-2 8-6 14-6s12 2 18-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M6 24c6-4 12-2 18-2s10-4 18-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M24 10c0 8-4 14-4 22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M24 10l-6-4M24 10l6-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="24" cy="28" r="3" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Invercharron Beats</h3>
+                        <p>River Carron</p>
+                        <span class="card-action">Record Fish &rarr;</span>
+                    </a>
+                    <a href="https://cuvvaapp.typeform.com/to/J4hGZa" target="_blank" rel="noopener" class="card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M4 30c8-6 14-2 20-2s14-6 20-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M4 36c8-4 14 0 20 0s14-4 20-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M24 8c0 6-2 12-2 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M24 8l-5-3M24 8l5-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M14 22c2-1 4 1 6 0s4-2 6-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Kyle Fishing</h3>
+                        <p>Mouth of the River Carron</p>
+                        <span class="card-action">Record Fish &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="records" class="section">
+            <div class="container">
+                <h2>View Records</h2>
+                <div class="ornament"></div>
+                <p>Browse the catch records for each beat.</p>
+                <div class="card-grid">
+                    <a href="https://goo.gl/3oeMTp" target="_blank" rel="noopener" class="card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <rect x="10" y="6" width="28" height="36" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <line x1="16" y1="16" x2="32" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="16" y1="22" x2="32" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="16" y1="28" x2="28" y2="28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="16" y1="34" x2="24" y2="34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Invercharron Beats</h3>
+                        <p>River Carron catch records</p>
+                        <span class="card-action">View Book &rarr;</span>
+                    </a>
+                    <a href="https://docs.google.com/spreadsheets/d/1es16b2bGZVpbkwcUaNZ4JwAAlBaSJJCafhjR1fQ7zDY/edit?usp=sharing" target="_blank" rel="noopener" class="card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <rect x="10" y="6" width="28" height="36" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <line x1="16" y1="16" x2="32" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="16" y1="22" x2="32" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="16" y1="28" x2="28" y2="28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="16" y1="34" x2="24" y2="34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Kyle Fishing</h3>
+                        <p>Mouth of the River Carron catch records</p>
+                        <span class="card-action">View Book &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <h2>Contact</h2>
+                <p>For enquiries about fishing on the Invercharron beats or Kyle Fishing, please contact the estate.</p>
+                <a href="mailto:estate@invercharron.com" class="email-link">estate@invercharron.com</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Invercharron Estate</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+    (function () {
+        var INVERCHARRON_ID = '1-h2O3F3UJLKVXZgCoECCjyMUf4-1aWU7o2_3AruBInU';
+        var KYLE_ID = '1es16b2bGZVpbkwcUaNZ4JwAAlBaSJJCafhjR1fQ7zDY';
+
+        function csvUrl(sheetId) {
+            return 'https://docs.google.com/spreadsheets/d/' + sheetId + '/gviz/tq?tqx=out:csv&gid=0';
+        }
+
+        function parseCSV(text) {
+            var rows = [];
+            var current = '';
+            var inQuotes = false;
+            var row = [];
+            for (var i = 0; i < text.length; i++) {
+                var ch = text[i];
+                if (inQuotes) {
+                    if (ch === '"' && text[i + 1] === '"') {
+                        current += '"';
+                        i++;
+                    } else if (ch === '"') {
+                        inQuotes = false;
+                    } else {
+                        current += ch;
+                    }
+                } else {
+                    if (ch === '"') {
+                        inQuotes = true;
+                    } else if (ch === ',') {
+                        row.push(current.trim());
+                        current = '';
+                    } else if (ch === '\n' || (ch === '\r' && text[i + 1] === '\n')) {
+                        row.push(current.trim());
+                        current = '';
+                        if (row.length > 1) rows.push(row);
+                        row = [];
+                        if (ch === '\r') i++;
+                    } else {
+                        current += ch;
+                    }
+                }
+            }
+            if (current || row.length) {
+                row.push(current.trim());
+                if (row.length > 1) rows.push(row);
+            }
+            return rows;
+        }
+
+        function escapeHtml(str) {
+            var div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        function renderInvercharron(rows) {
+            // Columns: Date Caught(0), Member(1), Fisher(2), Type(3), Weight(4), Height(5), Pool(6), Kept(7), Reason(8), AirT(9), WaterT(10), Fly(11), Comments(12), Submitted(13)
+            var data = rows.slice(1).filter(function (r) { return r[0] && r[2]; });
+            if (data.length === 0) return '<p class="no-catches">No catches recorded this season yet.</p>';
+            var html = '<table class="catch-table"><thead><tr><th>Date</th><th>Angler</th><th>Species</th><th>Weight</th><th>Pool</th><th>Fly</th></tr></thead><tbody>';
+            data.forEach(function (r) {
+                html += '<tr>';
+                html += '<td>' + escapeHtml(r[0] || '') + '</td>';
+                html += '<td>' + escapeHtml(r[2] || r[1] || '') + '</td>';
+                html += '<td>' + escapeHtml(r[3] || '') + '</td>';
+                html += '<td>' + escapeHtml(r[4] || '') + '</td>';
+                html += '<td>' + escapeHtml(r[6] || '') + '</td>';
+                html += '<td>' + escapeHtml(r[11] || '') + '</td>';
+                html += '</tr>';
+            });
+            html += '</tbody></table>';
+            html += '<p class="catch-count">' + data.length + ' fish this season</p>';
+            return html;
+        }
+
+        function renderKyle(rows) {
+            // Columns: When(0), Name(1), Species(2), Weight(3), Height(4), Where(5), Kept(6), Why(7), AirT(8), WaterT(9), Fly(10), Comments(11), Email(12), Submitted(13)
+            var data = rows.slice(1).filter(function (r) { return r[1] && r[1].length > 0; });
+            if (data.length === 0) return '<p class="no-catches">No catches recorded this season yet.</p>';
+            var html = '<table class="catch-table"><thead><tr><th>Date</th><th>Angler</th><th>Species</th><th>Weight</th><th>Location</th><th>Fly</th></tr></thead><tbody>';
+            data.forEach(function (r) {
+                html += '<tr>';
+                html += '<td>' + escapeHtml(r[0] || '') + '</td>';
+                html += '<td>' + escapeHtml(r[1] || '') + '</td>';
+                html += '<td>' + escapeHtml(r[2] || '') + '</td>';
+                html += '<td>' + escapeHtml(r[3] || '') + '</td>';
+                html += '<td>' + escapeHtml(r[5] || '') + '</td>';
+                html += '<td>' + escapeHtml(r[10] || '') + '</td>';
+                html += '</tr>';
+            });
+            html += '</tbody></table>';
+            html += '<p class="catch-count">' + data.length + ' fish this season</p>';
+            return html;
+        }
+
+        function load(sheetId, targetId, renderer) {
+            var el = document.getElementById(targetId);
+            fetch(csvUrl(sheetId))
+                .then(function (res) { return res.text(); })
+                .then(function (text) {
+                    var rows = parseCSV(text);
+                    el.innerHTML = renderer(rows);
+                })
+                .catch(function () {
+                    el.innerHTML = '<p class="no-catches">Unable to load catches. <a href="https://docs.google.com/spreadsheets/d/' + sheetId + '/edit" target="_blank">View spreadsheet</a></p>';
+                });
+        }
+
+        load(INVERCHARRON_ID, 'invercharron-catches', renderInvercharron);
+        load(KYLE_ID, 'kyle-catches', renderKyle);
+    })();
+    </script>
 </body>
 </html>

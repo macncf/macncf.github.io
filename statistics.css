@@ -1,0 +1,464 @@
+/* ============================================
+   Statistics Page Styles
+   ============================================ */
+
+/* Compact hero for inner pages */
+.hero-compact {
+    padding: 3rem 2rem 2.5rem;
+}
+
+.hero-compact .crest {
+    display: none;
+}
+
+.hero-compact h1 {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    margin-bottom: 0.5rem;
+}
+
+.hero-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.hero-link:hover {
+    opacity: 0.85;
+}
+
+/* Stat Cards Grid */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: var(--color-warm-white);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+}
+
+.stat-number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--color-deep-green);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* Species Breakdown */
+.species-breakdown {
+    margin-top: 3rem;
+}
+
+.species-breakdown h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--color-deep-green);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.species-bars {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.species-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.species-name {
+    width: 80px;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.species-bar-track {
+    flex: 1;
+    height: 20px;
+    background: var(--color-parchment);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.species-bar {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.6s ease;
+}
+
+.species-bar-salmon {
+    background: var(--color-forest);
+}
+
+.species-bar-grilse {
+    background: var(--color-gold);
+}
+
+.species-bar-trout {
+    background: var(--color-brown-light);
+}
+
+.species-pct {
+    width: 40px;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+}
+
+/* Bar Chart */
+.chart-container {
+    margin: 2rem 0 3rem;
+}
+
+.chart-legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+.legend-swatch {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+}
+
+.legend-invercharron {
+    background: var(--color-forest);
+}
+
+.legend-kyle {
+    background: var(--color-gold);
+}
+
+.bar-chart {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0.75rem;
+    height: 260px;
+    padding: 0 1rem;
+    border-bottom: 2px solid var(--color-border);
+}
+
+.bar-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    max-width: 70px;
+}
+
+.bar-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+}
+
+.bar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 4px;
+    border-radius: 2px 2px 0 0;
+    transition: opacity 0.3s;
+    position: relative;
+}
+
+.bar span {
+    font-size: 0.7rem;
+    color: white;
+    padding-top: 4px;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.bar-group:hover .bar span {
+    opacity: 1;
+}
+
+.bar-invercharron {
+    background: var(--color-forest);
+}
+
+.bar-kyle {
+    background: var(--color-gold);
+    border-radius: 2px 2px 0 0;
+}
+
+.bar-kyle + .bar-invercharron {
+    border-radius: 0;
+}
+
+.bar-label {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+    letter-spacing: 0.02em;
+}
+
+/* Stats Table */
+.stats-table {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.stats-table th {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-deep-green);
+    text-align: center;
+    padding: 0.75rem 1rem;
+    border-bottom: 2px solid var(--color-gold);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.stats-table th:first-child,
+.stats-table td:first-child {
+    text-align: left;
+}
+
+.stats-table td {
+    padding: 0.6rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.stats-table tbody tr:hover {
+    background: rgba(45, 90, 61, 0.04);
+}
+
+.stats-table tfoot td {
+    border-top: 2px solid var(--color-gold);
+    border-bottom: none;
+    font-weight: 600;
+    padding-top: 0.75rem;
+}
+
+/* Fly Ranking */
+.fly-ranking {
+    max-width: 550px;
+    margin: 2rem auto 0;
+}
+
+.fly-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.fly-rank {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-deep-green);
+    color: var(--color-parchment);
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.fly-name {
+    width: 120px;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    flex-shrink: 0;
+}
+
+.fly-bar-track {
+    flex: 1;
+    height: 16px;
+    background: var(--color-parchment);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.fly-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-forest), var(--color-sage));
+    border-radius: 3px;
+}
+
+/* Records Grid */
+.records-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0 3rem;
+}
+
+.record-card {
+    text-align: center;
+    padding: 2rem 1.25rem 1.5rem;
+    background: var(--color-warm-white);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+}
+
+.record-value {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-gold);
+    margin-bottom: 0.35rem;
+}
+
+.record-title {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-deep-green);
+    margin-bottom: 0.5rem;
+}
+
+.record-detail {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    line-height: 1.5;
+}
+
+/* Subsection headings */
+.subsection-heading {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--color-deep-green);
+    text-align: center;
+    margin-bottom: 0.75rem;
+}
+
+.center-text {
+    text-align: center;
+    color: var(--color-text-muted);
+    max-width: 550px;
+    margin: 0 auto 2rem;
+}
+
+/* Month Chart */
+.month-chart {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0.75rem;
+    height: 160px;
+    padding: 0 2rem;
+    border-bottom: 2px solid var(--color-border);
+    margin-bottom: 2rem;
+}
+
+.month-bar-group {
+    flex: 1;
+    max-width: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.month-bar {
+    width: 100%;
+    background: var(--color-sage);
+    border-radius: 3px 3px 0 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 20px;
+    transition: background 0.3s;
+}
+
+.month-bar-peak {
+    background: var(--color-forest);
+}
+
+.month-bar span {
+    font-size: 0.7rem;
+    color: white;
+    padding: 4px 0;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .hero-compact {
+        padding: 2.5rem 1.5rem 2rem;
+    }
+
+    .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .stat-number {
+        font-size: 1.8rem;
+    }
+
+    .bar-chart {
+        gap: 0.4rem;
+        height: 200px;
+    }
+
+    .bar span {
+        font-size: 0.6rem;
+    }
+
+    .bar-label {
+        font-size: 0.65rem;
+    }
+
+    .fly-name {
+        width: 90px;
+        font-size: 0.8rem;
+    }
+
+    .records-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .species-name {
+        width: 65px;
+        font-size: 0.8rem;
+    }
+}
