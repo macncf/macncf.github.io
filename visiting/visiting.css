@@ -134,18 +134,20 @@
 }
 
 .step-number {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
     border-radius: 50%;
     border: 2px solid var(--color-gold);
     font-family: var(--font-heading);
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--color-gold);
-    margin-bottom: 0.75rem;
+    margin: 0 auto 0.75rem;
 }
 
 .step h3 {
@@ -569,69 +571,34 @@
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%235a7a5a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 34l4-12 6 8 6-8 4 12'/%3E%3Ccircle cx='18' cy='14' r='3'/%3E%3Ccircle cx='30' cy='14' r='3'/%3E%3Cpath d='M18 17l-4 5'/%3E%3Cpath d='M30 17l4 5'/%3E%3Cpath d='M20 22c2 2 6 2 8 0'/%3E%3Cpath d='M16 28c4 2 12 2 16 0'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 
-/* ---- Guest Form Preview ---- */
-.guest-form-preview {
+/* ---- CTA Banner (Before You Arrive) ---- */
+.cta-section {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.cta-banner {
     max-width: 600px;
-    margin: 0 auto 2.5rem;
-    background: var(--color-parchment);
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    padding: 2rem;
-}
-
-.form-fields {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.75rem 1.5rem;
-    align-items: baseline;
-}
-
-.form-fields dt {
-    font-family: var(--font-heading);
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--color-deep-green);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    white-space: nowrap;
-}
-
-.form-fields dd {
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-    margin: 0;
-}
-
-@media (max-width: 600px) {
-    .form-fields {
-        grid-template-columns: 1fr;
-        gap: 0.25rem;
-    }
-    .form-fields dt {
-        margin-top: 0.75rem;
-    }
-    .form-fields dt:first-child {
-        margin-top: 0;
-    }
-}
-
-/* ---- Email CTA ---- */
-.email-cta {
+    margin: 0 auto;
     text-align: center;
-    margin-top: 2rem;
 }
 
-.email-cta .sketch {
-    display: block;
-    margin: 0 auto 1.25rem;
-    opacity: 0.6;
+.cta-banner h2 {
+    margin-bottom: 1rem;
 }
 
-.btn-primary {
+.cta-banner p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
     display: inline-block;
     font-family: var(--font-heading);
     font-size: 1rem;
-    padding: 0.85rem 2.5rem;
+    padding: 0.9rem 2.5rem;
     background: var(--color-deep-green);
     color: var(--color-parchment);
     text-decoration: none;
@@ -641,10 +608,139 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.btn-primary:hover {
+.cta-button:hover {
     background: var(--color-forest);
     box-shadow: 0 4px 16px rgba(0,0,0,0.15);
     transform: translateY(-1px);
+}
+
+/* ---- What to Pack (Consolidated) ---- */
+.pack-consolidated {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.pack-block {
+    padding: 0;
+}
+
+.pack-block .sketch {
+    margin-bottom: 0.75rem;
+    opacity: 0.7;
+}
+
+.pack-block h3 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-deep-green);
+    margin-bottom: 0.75rem;
+}
+
+.pack-block ul {
+    list-style: none;
+    padding: 0;
+}
+
+.pack-block ul li {
+    position: relative;
+    padding-left: 1rem;
+    margin-bottom: 0.65rem;
+    font-size: 0.92rem;
+    color: var(--color-text);
+    line-height: 1.65;
+}
+
+.pack-block ul li::before {
+    content: '\2022';
+    position: absolute;
+    left: 0;
+    color: var(--color-gold);
+}
+
+/* ---- Wi-Fi Inline ---- */
+.wifi-inline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+    padding: 1rem 1.5rem;
+    background: var(--color-warm-white);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+}
+
+.wifi-label-inline {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+}
+
+.wifi-password-inline {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-deep-green);
+    letter-spacing: 0.05em;
+    user-select: all;
+}
+
+.wifi-copy-inline {
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    padding: 0.35rem 0.75rem;
+    background: var(--color-deep-green);
+    color: var(--color-parchment);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background 0.3s;
+}
+
+.wifi-copy-inline:hover {
+    background: var(--color-forest);
+}
+
+/* ---- Subsection Heading ---- */
+.subsection-heading {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-deep-green);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* ---- Travel Aside (Taxis) ---- */
+.travel-aside {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.travel-aside h3 {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-deep-green);
+    margin-bottom: 0.75rem;
+}
+
+.travel-aside p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.travel-aside a {
+    color: var(--color-forest);
 }
 
 /* ---- Footer override (simpler for visiting page) ---- */
@@ -670,7 +766,7 @@
     }
 
     .hero-visiting {
-        padding: 3rem 1.5rem 2.5rem;
+        padding: 1rem 1.5rem 1rem;
     }
 
     .leg {
@@ -683,17 +779,23 @@
         padding: 1rem 1.25rem;
     }
 
-    .wifi-password {
-        font-size: 1.3rem;
+    .pack-consolidated {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
-    .pack-grid,
     .activity-grid {
         grid-template-columns: 1fr 1fr;
         gap: 1rem;
     }
 
-    .btn-primary {
+    .wifi-inline {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .cta-button {
         padding: 0.75rem 1.5rem;
         font-size: 0.9rem;
     }
