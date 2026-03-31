@@ -100,7 +100,18 @@
 
 /* ---- Hero Variant ---- */
 .hero-visiting {
-    padding: 4rem 2rem 3.5rem;
+    padding: 2rem 2rem 1.5rem;
+}
+
+.house-sketch {
+    max-width: 160px;
+    margin: 0 auto 1rem;
+    color: rgba(245, 240, 232, 0.5);
+}
+
+.house-sketch svg {
+    width: 100%;
+    height: auto;
 }
 
 /* ---- Intro override ---- */
@@ -175,53 +186,70 @@
 }
 
 /* ---- Map ---- */
-.map-embed {
-    margin-bottom: 2.5rem;
-    text-align: center;
-}
-
-.map-link {
+/* ---- Location Card ---- */
+.location-card {
     display: block;
+    text-decoration: none;
+    color: var(--color-text);
+    background: var(--color-parchment);
+    border: 1px solid var(--color-border);
     border-radius: 6px;
     overflow: hidden;
-    border: 1px solid var(--color-border);
-    transition: box-shadow 0.3s;
+    margin-bottom: 2.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 
-.map-link:hover {
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+.location-card:hover {
+    border-color: var(--color-gold);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
 }
 
-.map-img {
+.location-landscape {
+    color: var(--color-forest);
+    background: var(--color-warm-white);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.location-landscape svg {
     width: 100%;
     height: auto;
     display: block;
 }
 
-.map-caption {
-    margin-top: 0.75rem;
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
-}
-
-.map-caption a {
-    color: var(--color-gold);
-}
-
-.map-fallback {
-    padding: 2rem;
+.location-info {
+    padding: 1.5rem 2rem;
     text-align: center;
-    background: var(--color-parchment);
-    border-radius: 6px;
-    border: 1px solid var(--color-border);
 }
 
-.map-fallback .sketch {
+.location-info h3 {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-deep-green);
+    margin-bottom: 0.25rem;
+}
+
+.location-info p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
     margin-bottom: 1rem;
+    font-style: italic;
 }
 
-.map-fallback a {
+.location-action {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
     color: var(--color-gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.location-card:hover .location-action {
+    color: var(--color-brown);
 }
 
 /* ---- Travel Options ---- */
@@ -553,6 +581,17 @@
 }
 
 /* ---- Footer override (simpler for visiting page) ---- */
+.footer-fish {
+    max-width: 80px;
+    margin: 0 auto 1rem;
+    color: rgba(245, 240, 232, 0.4);
+}
+
+.footer-fish svg {
+    width: 100%;
+    height: auto;
+}
+
 .footer-content p {
     font-style: italic;
 }

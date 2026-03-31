@@ -33,7 +33,36 @@
         <header class="hero hero-visiting">
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <div class="crest">&#9830;</div>
+                <div class="house-sketch">
+                    <svg viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <!-- Horns -->
+                        <path d="M38 32 Q28 18 18 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M62 32 Q72 18 82 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <!-- Shaggy fringe -->
+                        <path d="M32 38 Q36 28 40 36 Q44 26 48 34 Q52 24 56 34 Q60 26 64 36 Q68 28 68 38" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- Head shape -->
+                        <path d="M30 38 Q28 46 30 52 Q32 58 38 62 Q44 66 50 66 Q56 66 62 62 Q68 58 70 52 Q72 46 70 38" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- Ears -->
+                        <path d="M30 38 Q24 34 26 40 Q28 44 32 42" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                        <path d="M70 38 Q76 34 74 40 Q72 44 68 42" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                        <!-- Eyes peeking through fringe -->
+                        <circle cx="40" cy="44" r="1.5" fill="currentColor" opacity="0.6"/>
+                        <circle cx="60" cy="44" r="1.5" fill="currentColor" opacity="0.6"/>
+                        <!-- Nose -->
+                        <ellipse cx="50" cy="58" rx="6" ry="4" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                        <circle cx="47" cy="58" r="1" fill="currentColor" opacity="0.4"/>
+                        <circle cx="53" cy="58" r="1" fill="currentColor" opacity="0.4"/>
+                        <!-- Extra shaggy bits -->
+                        <path d="M34 42 Q36 38 38 42" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+                        <path d="M44 40 Q46 35 48 40" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+                        <path d="M52 40 Q54 35 56 40" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+                        <path d="M62 42 Q64 38 66 42" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+                        <!-- Chin fluff -->
+                        <path d="M42 64 Q44 70 46 66" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+                        <path d="M48 66 Q50 72 52 66" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+                        <path d="M54 64 Q56 70 58 66" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+                    </svg>
+                </div>
                 <h1>Welcome to Invercharron</h1>
                 <p class="subtitle">Your guide to visiting us in the Highlands</p>
             </div>
@@ -59,18 +88,85 @@
             </div>
         </section>
 
+        <!-- ========== LET US KNOW ========== -->
+        <section id="let-us-know" class="section section-alt">
+            <div class="container">
+                <h2>Let Us Know</h2>
+                <div class="ornament"></div>
+                <p>It would be helpful to know a few details in advance. The button below will open an email pre-filled with the following questions.</p>
+
+                <div class="guest-form-preview">
+                    <dl class="form-fields">
+                        <dt>Arrival</dt>
+                        <dd>Date and estimated arrival time</dd>
+
+                        <dt>Departure</dt>
+                        <dd>Date</dd>
+
+                        <dt>Travel</dt>
+                        <dd>How are you getting here? Flight details if applicable.</dd>
+
+                        <dt>Dietary</dt>
+                        <dd>Any dietary requirements or allergies for you or your party?</dd>
+
+                        <dt>Allergies &amp; Health</dt>
+                        <dd>Any allergies beyond dietary (e.g. pets, hay fever)? Any mobility considerations?</dd>
+
+                        <dt>Children &amp; Staff</dt>
+                        <dd>How many children and their ages? Are you bringing any staff (nannies, au pairs, etc.)?</dd>
+
+                    </dl>
+                </div>
+
+                <div class="email-cta">
+                    <span class="sketch sketch-letter"></span>
+                    <a href="mailto:freddy@macnamara.net?subject=Guest%20Information%20%E2%80%94%20%5BYour%20Name%5D&body=Hello!%0A%0AHere%20are%20our%20details%20for%20our%20upcoming%20visit%20to%20Invercharron.%0A%0A---%0A%0AARRIVAL%0ADate%3A%20%0AEstimated%20arrival%20time%3A%20%0A%0ADEPARTURE%0ADate%3A%20%0A%0ATRAVEL%0AHow%20are%20you%20getting%20here%3F%20%0AFlight%20details%20(if%20applicable)%3A%20%0A%0ADIETARY%0ADo%20you%20have%20any%20dietary%20requirements%3F%20%0ADoes%20anyone%20else%20in%20your%20party%20have%20dietary%20requirements%20or%20allergies%3F%20%0A%0AALLERGIES%20%26%20HEALTH%0AAny%20allergies%20beyond%20dietary%20(e.g.%20pets%2C%20hay%20fever)%3F%20%0AAny%20mobility%20considerations%20we%20should%20know%20about%3F%20%0A%0ACHILDREN%20%26%20STAFF%0AHow%20many%20children%20are%20you%20bringing%2C%20and%20what%20are%20their%20ages%3F%20%0AAre%20you%20bringing%20any%20staff%3F%20(nannies%2C%20au%20pairs%2C%20etc.)%20%0A%0ASPECIAL%20REQUESTS%0AWould%20you%20like%20us%20to%20stock%20the%20fridge%20with%20anything%20before%20you%20arrive%3F%20%0AAre%20you%20planning%20any%20day%20trips%20we%20can%20help%20suggest%20routes%20for%3F%20%0A%0A---%0A%0AThank%20you!" class="btn-primary">Send Guest Details &rarr;</a>
+                </div>
+            </div>
+        </section>
+
         <!-- ========== GETTING HERE ========== -->
         <section id="getting-here" class="section">
             <div class="container">
                 <h2>Getting Here</h2>
                 <div class="ornament"></div>
 
-                <div class="map-embed">
-                    <a href="https://www.google.com/maps/dir/?api=1&destination=57.89383691615322,-4.371270386934536" target="_blank" rel="noopener" class="map-link">
-                        <img src="https://maps.googleapis.com/maps/api/staticmap?center=57.89383,-4.37127&zoom=11&size=800x300&scale=2&maptype=terrain&markers=color:0x1a3a2a%7C57.89383,-4.37127&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8" alt="Map showing Invercharron House location" class="map-img" onerror="this.parentElement.innerHTML='<div class=\'map-fallback\'><span class=\'sketch sketch-map\'></span><p><strong>Invercharron House</strong><br>Near Ardgay, Sutherland IV24 3DN<br><a href=\'https://www.google.com/maps/dir/?api=1&destination=57.89383691615322,-4.371270386934536\' target=\'_blank\'>Open in Google Maps &rarr;</a></p></div>'">
-                    </a>
-                    <p class="map-caption">Invercharron House, near Ardgay, Sutherland IV24 3DN &mdash; <a href="https://www.google.com/maps/dir/?api=1&destination=57.89383691615322,-4.371270386934536" target="_blank" rel="noopener">Get directions</a></p>
-                </div>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=57.89383691615322,-4.371270386934536" target="_blank" rel="noopener" class="location-card">
+                    <div class="location-landscape">
+                        <svg viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <!-- Sky hint -->
+                            <!-- Mountains background -->
+                            <path d="M0 140 Q50 60 120 100 Q160 40 220 90 Q280 30 340 80 Q400 50 460 95 Q510 55 560 85 Q580 75 600 90 L600 200 L0 200 Z" fill="currentColor" opacity="0.06"/>
+                            <!-- Mountain ridgeline -->
+                            <path d="M0 140 Q50 60 120 100 Q160 40 220 90 Q280 30 340 80 Q400 50 460 95 Q510 55 560 85 Q580 75 600 90" stroke="currentColor" stroke-width="1.2" opacity="0.3"/>
+                            <!-- Nearer hills -->
+                            <path d="M0 170 Q80 120 160 145 Q240 110 320 140 Q400 115 480 140 Q540 125 600 145 L600 200 L0 200 Z" fill="currentColor" opacity="0.05"/>
+                            <path d="M0 170 Q80 120 160 145 Q240 110 320 140 Q400 115 480 140 Q540 125 600 145" stroke="currentColor" stroke-width="1" opacity="0.25"/>
+                            <!-- River -->
+                            <path d="M180 200 Q200 175 240 178 Q280 172 320 176 Q370 170 420 180 Q460 175 500 185 Q540 178 600 182" stroke="currentColor" stroke-width="1.5" opacity="0.2" stroke-linecap="round"/>
+                            <path d="M200 200 Q220 182 260 185 Q300 180 340 183 Q380 178 430 186 Q470 182 520 190 Q560 185 600 188" stroke="currentColor" stroke-width="1" opacity="0.15" stroke-linecap="round"/>
+                            <!-- Trees -->
+                            <path d="M100 158 Q105 140 110 158" stroke="currentColor" stroke-width="1" opacity="0.2" stroke-linecap="round"/>
+                            <path d="M105 160 Q110 145 115 160" stroke="currentColor" stroke-width="1" opacity="0.15" stroke-linecap="round"/>
+                            <path d="M440 152 Q445 135 450 152" stroke="currentColor" stroke-width="1" opacity="0.2" stroke-linecap="round"/>
+                            <path d="M450 155 Q455 140 460 155" stroke="currentColor" stroke-width="1" opacity="0.15" stroke-linecap="round"/>
+                            <path d="M455 153 Q460 138 465 153" stroke="currentColor" stroke-width="1" opacity="0.18" stroke-linecap="round"/>
+                            <!-- House -->
+                            <rect x="278" y="150" width="20" height="14" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
+                            <path d="M276 150 L288 142 L300 150" stroke="currentColor" stroke-width="0.8" opacity="0.3" stroke-linecap="round"/>
+                            <rect x="300" y="148" width="14" height="16" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
+                            <path d="M298 148 L307 140 L316 148" stroke="currentColor" stroke-width="0.8" opacity="0.3" stroke-linecap="round"/>
+                            <!-- Pin -->
+                            <path d="M297 130 Q297 120 304 120 Q311 120 311 130 Q311 136 304 142 Q297 136 297 130 Z" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="1" stroke-opacity="0.4"/>
+                            <circle cx="304" cy="128" r="2" fill="currentColor" opacity="0.3"/>
+                        </svg>
+                    </div>
+                    <div class="location-info">
+                        <h3>Invercharron House</h3>
+                        <p>Near Ardgay, Sutherland IV24 3DN</p>
+                        <span class="location-action">Get Directions &rarr;</span>
+                    </div>
+                </a>
 
                 <!-- By Air -->
                 <div class="travel-option">
@@ -253,46 +349,30 @@
             </div>
         </section>
 
-        <!-- ========== LET US KNOW ========== -->
-        <section id="let-us-know" class="section">
-            <div class="container">
-                <h2>Let Us Know</h2>
-                <div class="ornament"></div>
-                <p>It would be helpful to know a few details in advance. The button below will open an email pre-filled with the following questions.</p>
-
-                <div class="guest-form-preview">
-                    <dl class="form-fields">
-                        <dt>Arrival</dt>
-                        <dd>Date and estimated arrival time</dd>
-
-                        <dt>Departure</dt>
-                        <dd>Date</dd>
-
-                        <dt>Travel</dt>
-                        <dd>How are you getting here? Flight details if applicable.</dd>
-
-                        <dt>Dietary</dt>
-                        <dd>Any dietary requirements or allergies for you or your party?</dd>
-
-                        <dt>Allergies &amp; Health</dt>
-                        <dd>Any allergies beyond dietary (e.g. pets, hay fever)? Any mobility considerations?</dd>
-
-                        <dt>Children &amp; Staff</dt>
-                        <dd>How many children and their ages? Are you bringing any staff (nannies, au pairs, etc.)?</dd>
-
-                    </dl>
-                </div>
-
-                <div class="email-cta">
-                    <span class="sketch sketch-letter"></span>
-                    <a href="mailto:freddy@macnamara.net?subject=Guest%20Information%20%E2%80%94%20%5BYour%20Name%5D&body=Hello!%0A%0AHere%20are%20our%20details%20for%20our%20upcoming%20visit%20to%20Invercharron.%0A%0A---%0A%0AARRIVAL%0ADate%3A%20%0AEstimated%20arrival%20time%3A%20%0A%0ADEPARTURE%0ADate%3A%20%0A%0ATRAVEL%0AHow%20are%20you%20getting%20here%3F%20%0AFlight%20details%20(if%20applicable)%3A%20%0A%0ADIETARY%0ADo%20you%20have%20any%20dietary%20requirements%3F%20%0ADoes%20anyone%20else%20in%20your%20party%20have%20dietary%20requirements%20or%20allergies%3F%20%0A%0AALLERGIES%20%26%20HEALTH%0AAny%20allergies%20beyond%20dietary%20(e.g.%20pets%2C%20hay%20fever)%3F%20%0AAny%20mobility%20considerations%20we%20should%20know%20about%3F%20%0A%0ACHILDREN%20%26%20STAFF%0AHow%20many%20children%20are%20you%20bringing%2C%20and%20what%20are%20their%20ages%3F%20%0AAre%20you%20bringing%20any%20staff%3F%20(nannies%2C%20au%20pairs%2C%20etc.)%20%0A%0ASPECIAL%20REQUESTS%0AWould%20you%20like%20us%20to%20stock%20the%20fridge%20with%20anything%20before%20you%20arrive%3F%20%0AAre%20you%20planning%20any%20day%20trips%20we%20can%20help%20suggest%20routes%20for%3F%20%0A%0A---%0A%0AThank%20you!" class="btn-primary">Send Guest Details &rarr;</a>
-                </div>
-            </div>
-        </section>
-
         <footer>
             <div class="container">
                 <div class="footer-content">
+                    <div class="footer-fish">
+                        <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <!-- Leaping salmon -->
+                            <path d="M15 45 Q25 10 55 15 Q65 16 70 20" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+                            <path d="M70 20 Q62 22 58 18 Q55 15 55 15" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+                            <!-- Tail -->
+                            <path d="M15 45 Q8 40 5 35" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                            <path d="M15 45 Q10 48 5 47" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                            <!-- Fin -->
+                            <path d="M35 24 Q38 18 41 24" stroke="currentColor" stroke-width="0.8" stroke-linecap="round"/>
+                            <!-- Eye -->
+                            <circle cx="62" cy="18" r="1.2" fill="currentColor" opacity="0.5"/>
+                            <!-- Water splash -->
+                            <path d="M10 50 Q15 47 20 50" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/>
+                            <path d="M5 53 Q12 49 19 53" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" opacity="0.3"/>
+                            <!-- Droplets -->
+                            <circle cx="18" cy="44" r="0.8" fill="currentColor" opacity="0.3"/>
+                            <circle cx="22" cy="47" r="0.6" fill="currentColor" opacity="0.25"/>
+                            <circle cx="12" cy="46" r="0.7" fill="currentColor" opacity="0.25"/>
+                        </svg>
+                    </div>
                     <p>See you soon.</p>
                 </div>
                 <div class="footer-bottom">
