@@ -207,6 +207,18 @@
             return div.innerHTML;
         }
 
+        function toUKDate(str) {
+            if (!str) return '';
+            var parts = str.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/);
+            if (parts) {
+                // Input is M/D/YYYY (US format from Google Sheets)
+                var day = parts[2].padStart(2, '0');
+                var month = parts[1].padStart(2, '0');
+                return day + '/' + month + '/' + parts[3];
+            }
+            return str;
+        }
+
         function renderInvercharron(rows) {
             // Columns: Date Caught(0), Member(1), Fisher(2), Type(3), Weight(4), Height(5), Pool(6), Kept(7), Reason(8), AirT(9), WaterT(10), Fly(11), Comments(12), Submitted(13)
             var data = rows.slice(1).filter(function (r) { return r[0] && r[2]; });
@@ -214,7 +226,7 @@
             var html = '<table class="catch-table"><thead><tr><th>Date</th><th>Angler</th><th>Species</th><th>Weight</th><th>Pool</th><th>Fly</th></tr></thead><tbody>';
             data.forEach(function (r) {
                 html += '<tr>';
-                html += '<td>' + escapeHtml(r[0] || '') + '</td>';
+                html += '<td>' + escapeHtml(toUKDate(r[0])) + '</td>';
                 html += '<td>' + escapeHtml(r[2] || r[1] || '') + '</td>';
                 html += '<td>' + escapeHtml(r[3] || '') + '</td>';
                 html += '<td>' + escapeHtml(r[4] || '') + '</td>';
@@ -234,7 +246,7 @@
             var html = '<table class="catch-table"><thead><tr><th>Date</th><th>Angler</th><th>Species</th><th>Weight</th><th>Location</th><th>Fly</th></tr></thead><tbody>';
             data.forEach(function (r) {
                 html += '<tr>';
-                html += '<td>' + escapeHtml(r[0] || '') + '</td>';
+                html += '<td>' + escapeHtml(toUKDate(r[0])) + '</td>';
                 html += '<td>' + escapeHtml(r[1] || '') + '</td>';
                 html += '<td>' + escapeHtml(r[2] || '') + '</td>';
                 html += '<td>' + escapeHtml(r[3] || '') + '</td>';
