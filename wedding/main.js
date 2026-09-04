@@ -12,6 +12,7 @@
   var root     = document.documentElement;
   var card     = document.querySelector('.card');
   var spaniel  = document.querySelector('.spaniel');
+  var cake        = document.querySelector('.cake');
   var darkGrounds = document.querySelectorAll('.days, .address');
   var stage    = document.querySelector('.card-stage');
 
@@ -58,6 +59,7 @@
      properties so the drawing itself stays in CSS.                         */
   var ticking = false;
   var lastY = window.scrollY;
+  var sitting = false;
   var stillTimer = null;
 
   function frame() {
@@ -65,7 +67,9 @@
     var vh = window.innerHeight;
 
     var max = root.scrollHeight - vh;
-    root.style.setProperty('--scroll', max > 0 ? (window.scrollY / max).toFixed(4) : 1);
+    var p = max > 0 ? window.scrollY / max : 1;
+    if (p < 0) p = 0; else if (p > 1) p = 1;   /* rubber-band overscroll */
+    root.style.setProperty('--scroll', p.toFixed(4));
 
     /* The spaniel walks on --scroll alone; all this adds is which way she
        faces and whether her legs are moving. */
@@ -79,15 +83,38 @@
         if (g.top < mid && g.bottom > mid) { onDark = true; break; }
       }
       spaniel.classList.toggle('on-dark', onDark);
+      /* She sits once the cake has actually arrived on her ground line —
+         a geometric test rather than a scroll percentage, so it lands at the
+         right moment whatever the page length or viewport. Overscroll only
+         lifts the cake further, so the test stays true through a bounce:
+         on a phone the rubber-band was nudging scrollY back and forth and
+         turning her round to face back up the page just as she got there. */
+      if (cake) {
+        var pawY = box.bottom + box.height * 0.118;   /* empty box below her paws */
+        var cakeBottom = cake.getBoundingClientRect().bottom;
+        /* Two thresholds, deliberately far apart. She sits the moment the
+           cake lands, but will not get up again until the page has genuinely
+           been scrolled away — a phone's rubber-band can bounce fifty pixels
+           or more, and a single threshold had her standing and turning round
+           on every bounce. */
+        if (!sitting)      sitting = cakeBottom <= pawY + 4;
+        else if (sitting)  sitting = cakeBottom <= pawY + Math.max(170, box.height * 3);
+      }
+      spaniel.dataset.phase = sitting ? 'sit' : 'walk';
+
       var y = window.scrollY;
-      if (y !== lastY) {
+      if (!sitting && y !== lastY) {
         if (y > lastY) spaniel.style.setProperty('--sp-dir', '1');
         else if (y < lastY) spaniel.style.setProperty('--sp-dir', '-1');
-        lastY = y;
         spaniel.classList.add('running');
         clearTimeout(stillTimer);
         stillTimer = setTimeout(function () { spaniel.classList.remove('running'); }, 160);
       }
+      if (sitting) {
+        spaniel.classList.remove('running');
+        spaniel.style.setProperty('--sp-dir', '1');
+      }
+      lastY = y;
     }
 
     sweep();

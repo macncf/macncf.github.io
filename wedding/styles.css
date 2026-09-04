@@ -60,6 +60,9 @@
 
   --ease: cubic-bezier(.22,.61,.36,1);
   --frame-inset: clamp(.9rem, 2.4vw, 2.4rem);
+  --frame-in: clamp(.5rem, 1.1vw, 1.1rem);
+  /* she stands on the inner rule, not the outer one */
+  --ground: calc(var(--frame-inset) + var(--frame-in));
 }
 
 /* ---------- 2. Reset & page ground --------------------------------------- */
@@ -227,7 +230,7 @@ p { margin: 0; text-wrap: pretty; }
 
 .frame-in {
   position: absolute;
-  inset: clamp(.5rem, 1.1vw, 1.1rem);
+  inset: var(--frame-in);
   border: 1px solid var(--burgundy-lift);
   opacity: 0;
   animation: fade-in 1.4s var(--ease) .75s forwards;
@@ -695,35 +698,61 @@ p { margin: 0; text-wrap: pretty; }
     exactly as you reach the bottom of the page.                            */
 :root {
   --sp-w: clamp(52px, 6.5vw, 84px);
-  /* Tall enough that the bottom tier reaches her nose — a tiered cake on a
-     stand really is taller than a cocker spaniel. */
-  --cake-w: calc(var(--sp-w) * 1.38);
-  /* Negative: her box has ~7% empty air past her nose and the cake's has
-     ~14% before its bottom tier, so the two boxes must overlap for the ink
-     to meet. Puts her nose exactly on the tier's left edge. */
-  --sp-gap: calc(var(--sp-w) * -0.337);
+  /* Sized so its bottom tier sits at her nose height. The drawing is tall
+     and narrow (608:1211), so this is a cake about two and a half times her
+     height — which is about right for three tiers on a stand. */
+  --cake-w: calc(var(--sp-w) * 0.87);
+  /* Sitting she is compact and nearly square (807:736). Sized so her nose
+     lands at the same height as when walking, and offset right so it lands
+     at the same x — the cross-fade then leaves her head exactly where it was,
+     on the cake. */
+  --sit-w: calc(var(--sp-w) * 0.516);
+  --sit-x: calc(var(--sp-w) * 0.41);
+  /* Her drawing has ~12% of empty box below the paws, so the box has to hang
+     that far below the rule for the paws themselves to stand on it. */
+  --sp-paw: calc(var(--sp-w) * 0.0843);
+  /* Negative: her box has ~7% of empty air past her nose, and the cake's has
+     ~13% before the left of its bottom tier, so the boxes must overlap for
+     the ink to meet. Puts her nose on the tier. */
+  --sp-gap: calc(var(--sp-w) * -0.192);
 }
 
 .spaniel {
   position: fixed;
-  bottom: calc(var(--frame-inset) + 1px);
-  left: var(--frame-inset);
+  bottom: calc(var(--ground) + 1px - var(--sp-paw));
+  left: var(--ground);
   width: var(--sp-w);
-  height: auto;
+  aspect-ratio: 140 / 100;
   z-index: 84;
   pointer-events: none;
   color: var(--forest);
   overflow: visible;
   opacity: .88;
   transition: color .45s var(--ease), opacity .45s var(--ease);
-  translate: calc(var(--scroll, 0) *
-             (100vw - var(--sp-w) - var(--cake-w) - var(--sp-gap)
-              - var(--frame-inset) * 2)) 0;
+  --sp-travel: calc(100vw - var(--sp-w) - var(--cake-w) - var(--sp-gap)
+                    - var(--ground) * 2);
+  translate: calc(var(--scroll, 0) * var(--sp-travel)) 0;
   scale: var(--sp-dir, 1) 1;
 }
 
 /* paper ink on the forest and oxblood grounds, where forest green vanishes */
 .spaniel.on-dark { color: var(--paper); opacity: .8; }
+
+.spaniel > * { position: absolute; bottom: 0; }
+.sp-walk { left: 0; width: 100%; overflow: visible; }
+.sp-sit  { left: var(--sit-x); width: var(--sit-w); height: auto;
+           bottom: var(--sp-paw); opacity: 0; }
+.sp-walk, .sp-sit { transition: opacity .3s var(--ease); }
+
+/* Pinned at the end of her walk: she stops, sits, and stays put however much
+   the page bounces underneath her. */
+.spaniel[data-phase="sit"] { translate: var(--sp-travel) 0; scale: 1 1; animation: none; }
+.spaniel[data-phase="sit"] .sp-walk { opacity: 0; }
+.spaniel[data-phase="sit"] .sp-sit  { opacity: 1; }
+.spaniel[data-phase="sit"] .sp-leg,
+.spaniel[data-phase="sit"] .sp-shin,
+.spaniel[data-phase="sit"] .sp-tail,
+.spaniel[data-phase="sit"] .sp-ear { animation: none; }
 
 .sp-far { opacity: .5; }
 
@@ -771,8 +800,8 @@ p { margin: 0; text-wrap: pretty; }
 /* --- the cake ------------------------------------------------------------ */
 .cake {
   position: absolute;
-  right: var(--frame-inset);
-  bottom: calc(var(--frame-inset) + 1px);
+  right: var(--ground);
+  bottom: calc(var(--ground) + 1px);
   width: var(--cake-w);
   height: auto;
   color: var(--forest);
