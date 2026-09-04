@@ -819,6 +819,85 @@ p { margin: 0; text-wrap: pretty; }
 
 @media (max-width: 480px) { .spaniel, .cake { opacity: .8; } }
 
+/* ---------- The gate ------------------------------------------------------ */
+/*  Shown while <html> carries .locked, which the inline script in <head> sets
+    before the body is parsed. Everything else is hidden behind it — a
+    deterrent and a way of keeping the page out of search, not real security:
+    the whole document is in the file either way.                            */
+.gate { display: none; }
+
+html.locked { overflow: hidden; }
+html.locked body > *:not(.gate):not(.defs) { display: none !important; }
+html.locked .gate {
+  display: grid;
+  place-items: center;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--paper);
+  padding: var(--gut);
+}
+
+.gate-frame { position: absolute; inset: var(--frame-inset); pointer-events: none; }
+
+.gate-inner { position: relative; text-align: center; }
+
+.gate-mono {
+  display: block;
+  width: clamp(5.6rem, 12vw, 9.4rem);
+  height: auto;
+  margin: 0 auto clamp(2.4rem, 6vh, 4rem);
+  color: var(--forest);
+  overflow: visible;
+  clip-path: inset(0 100% 0 0);
+  animation: write 1.7s cubic-bezier(.55,.06,.3,1) .35s forwards;
+}
+
+.gate-pw {
+  display: block;
+  width: min(15rem, 68vw);
+  margin: 0 auto;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--burgundy) 45%, transparent);
+  border-radius: 0;
+  padding: .5rem 0;
+  text-align: center;
+  font-family: var(--font);
+  font-size: var(--t-lede);
+  letter-spacing: .3em;
+  text-indent: .3em;
+  color: var(--burgundy);
+  transition: border-color .3s var(--ease);
+}
+.gate-pw:focus { outline: none; border-bottom-color: var(--burgundy); }
+
+.gate-msg {
+  min-height: 1.6em;
+  margin-top: 1.4rem;
+  font-style: italic;
+  font-family: var(--font-script);
+  font-size: var(--t-small);
+  letter-spacing: var(--track-tight);
+  color: var(--burgundy);
+  opacity: 0;
+  transition: opacity .3s var(--ease);
+}
+.gate-msg.show { opacity: .85; }
+
+.gate.wrong .gate-inner { animation: gate-no .4s var(--ease); }
+@keyframes gate-no {
+  0%, 100% { translate: 0; }
+  20% { translate: -6px; } 45% { translate: 5px; }
+  70% { translate: -3px; } 88% { translate: 2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gate-mono { clip-path: none; animation: none; }
+  .gate.wrong .gate-inner { animation: none; }
+}
+@media print { .gate { display: none !important; } }
+
 /* ---------- 13. Reveal, motion, responsive, print ------------------------ */
 .reveal { opacity: 0; transform: translateY(12px); }
 .reveal.in {

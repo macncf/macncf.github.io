@@ -214,6 +214,69 @@
     });
   }
 
+
+  /* ---- the gate ----------------------------------------------------------
+     The password is stored as a SHA-256 hash rather than in the clear, so it
+     is not sitting in the source to be read at a glance. That is the only
+     thing it buys: the page itself is still a public file, and anyone who
+     wants the content can fetch it directly. This keeps the page out of
+     search results and casual visitors out of the page. To change the
+     password, run this in any browser console and paste the result below:
+
+       crypto.subtle.digest('SHA-256', new TextEncoder().encode('yourword'))
+         .then(b => console.log([...new Uint8Array(b)]
+           .map(x => x.toString(16).padStart(2,'0')).join('')))
+     ------------------------------------------------------------------- */
+  var PASSWORD_SHA256 =
+    '5b1c2bb11aca1871d1703c8128d1c81ca2acb9e78d703fc2acf60102484df4e8';
+
+  var gate = document.querySelector('.gate');
+  if (gate) {
+    var field = gate.querySelector('.gate-pw');
+    var note  = gate.querySelector('.gate-msg');
+
+    var sha256 = function (text) {
+      var enc = new TextEncoder().encode(text);
+      return crypto.subtle.digest('SHA-256', enc).then(function (buf) {
+        return Array.prototype.map.call(new Uint8Array(buf), function (b) {
+          return ('0' + b.toString(16)).slice(-2);
+        }).join('');
+      });
+    };
+
+    var unlock = function () {
+      try { sessionStorage.setItem('invercharron', 'ok'); } catch (e) {}
+      root.classList.remove('locked');
+      /* the page was display:none while locked, so nothing had measurable
+         geometry — recalculate now that it does */
+      requestAnimationFrame(function () { onScroll(); sweep(); });
+    };
+
+    var refuse = function () {
+      gate.classList.add('wrong');
+      note.textContent = 'Not quite. Try again.';
+      note.classList.add('show');
+      field.select();
+      setTimeout(function () { gate.classList.remove('wrong'); }, 500);
+    };
+
+    gate.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var typed = field.value.trim().toLowerCase();
+      if (!typed) return;
+      if (!window.crypto || !crypto.subtle) {   /* very old browser, or http:// */
+        note.textContent = 'This browser cannot check the password.';
+        note.classList.add('show');
+        return;
+      }
+      sha256(typed).then(function (hash) {
+        if (hash === PASSWORD_SHA256) unlock(); else refuse();
+      }).catch(refuse);
+    });
+
+    if (root.classList.contains('locked')) field.focus();
+  }
+
   /* ---- if the setting changes mid-visit, respect it immediately ---------- */
   reduced.addEventListener('change', function () { location.reload(); });
 })();
