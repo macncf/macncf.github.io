@@ -1,0 +1,150 @@
+/* ==========================================================================
+   Freddy & Joshua — Invercharron
+   Everything here is enhancement. With JavaScript off the page renders
+   complete: the house is fully drawn, nothing is hidden, nothing moves.
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var fine    = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+  var root     = document.documentElement;
+  var card     = document.querySelector('.card');
+  var stage    = document.querySelector('.card-stage');
+
+  /* ---- what arrives on scroll -------------------------------------------
+     Deliberately NOT IntersectionObserver. If a section is skipped past in
+     one jump — an anchor link, a restored scroll position, a flick on a
+     phone — its intersection ratio never changes, no callback fires, and it
+     stays invisible for good. A sweep against the current geometry reveals
+     anything that is in view OR already behind us.                        */
+  var pending = [];
+
+  var toReveal = document.querySelectorAll(
+    '.day, .led-row, .days-foot, .tap-note, ' +
+    '.day-grid, .closing-mono, .closing-line, .closing-note, ' +
+    '.sec-title, .eyebrow, .lede.centred, .map-cap, .map-frame, ' +
+    '.field, .addr-send, .addr-alt'
+  );
+
+  var pump = null;
+
+  function sweep() {
+    if (!pending.length) {
+      if (pump) { clearInterval(pump); pump = null; }
+      return;
+    }
+    var vh = window.innerHeight, still = [], i, el, top;
+    for (i = 0; i < pending.length; i++) {
+      el  = pending[i];
+      top = el.getBoundingClientRect().top;
+      if (top < vh * 0.88) {
+        var sibs = el.parentNode ? el.parentNode.children : [];
+        var k = Array.prototype.indexOf.call(sibs, el);
+        el.style.setProperty('--stagger', Math.min(k, 6) * 0.06 + 's');
+        el.classList.add('in');
+      } else {
+        still.push(el);
+      }
+    }
+    pending = still;
+  }
+
+  /* ---- the reading rule, and the house resolving -------------------------
+     One rAF loop, one layout pass per frame, the result expressed as custom
+     properties so the drawing itself stays in CSS.                         */
+  var ticking = false;
+
+  function frame() {
+    ticking = false;
+    var vh = window.innerHeight;
+
+    var max = root.scrollHeight - vh;
+    root.style.setProperty('--scroll', max > 0 ? (window.scrollY / max).toFixed(4) : 1);
+
+    sweep();
+  }
+
+  function onScroll() {
+    if (!ticking) { ticking = true; requestAnimationFrame(frame); }
+  }
+
+  if (!reduced.matches) {
+    Array.prototype.forEach.call(toReveal, function (el) {
+      el.classList.add('reveal');
+      pending.push(el);
+    });
+
+    addEventListener('scroll', onScroll, { passive: true });
+    addEventListener('resize', onScroll, { passive: true });
+    addEventListener('scrollend', onScroll, { passive: true });
+    addEventListener('hashchange', onScroll);
+
+    /* Let the .reveal styles commit before the first sweep, so anything
+       already on screen animates in rather than simply appearing. The
+       delayed passes catch a landing position that arrives late — a deep
+       link to #travel, a restored scroll offset, or a webfont reflow —
+       none of which necessarily fire a scroll event. */
+    requestAnimationFrame(frame);
+
+    /* A scroll event is not a reliable trigger on its own: a programmatic
+       jump can land a frame ahead of the event, leaving a section blank
+       until something else happens. This low-frequency poll makes the
+       reveal deterministic whatever moved the page, and clears itself the
+       moment the last section is in. */
+    pump = setInterval(sweep, 120);
+  }
+
+  /* ---- the card resting on a surface -------------------------------------
+     Six pixels of movement, and only for a real pointer.                   */
+  if (card && stage && fine.matches && !reduced.matches) {
+    stage.addEventListener('pointermove', function (ev) {
+      var r = stage.getBoundingClientRect();
+      card.style.setProperty('--tx', (((ev.clientX - r.left) / r.width  - 0.5) * 5).toFixed(2));
+      card.style.setProperty('--ty', (((ev.clientY - r.top)  / r.height - 0.5) * 4).toFixed(2));
+    });
+    stage.addEventListener('pointerleave', function () {
+      card.style.setProperty('--tx', 0);
+      card.style.setProperty('--ty', 0);
+    });
+  }
+
+
+  /* ---- the postal address ------------------------------------------------
+     Composed into the guest's own mail app. Nothing is posted anywhere and
+     nothing is stored, so there is no backend to keep alive until 2027.
+     Without JavaScript the form's mailto action still opens a mail client,
+     and the plain address link below it always works.                      */
+  var form = document.querySelector('.addr-form');
+  if (form) {
+    var status = form.querySelector('.addr-status');
+    var to = (form.getAttribute('action') || '').replace(/^mailto:/, '');
+
+    form.addEventListener('submit', function (ev) {
+      if (!form.reportValidity || !form.reportValidity()) return;
+      ev.preventDefault();
+
+      var val = function (n) {
+        var el = form.elements[n];
+        return el && el.value ? el.value.trim() : '';
+      };
+      var name = val('name');
+      var body = 'Name\n' + name +
+                 '\n\nPostal address\n' + val('address') +
+                 (val('email') ? '\n\nEmail\n' + val('email') : '') +
+                 '\n';
+
+      window.location.href = 'mailto:' + to +
+        '?subject=' + encodeURIComponent('Address for the invitation — ' + name) +
+        '&body=' + encodeURIComponent(body);
+
+      if (status) {
+        status.textContent = 'Opening your mail app — press send and it reaches us.';
+      }
+    });
+  }
+
+  /* ---- if the setting changes mid-visit, respect it immediately ---------- */
+  reduced.addEventListener('change', function () { location.reload(); });
+})();

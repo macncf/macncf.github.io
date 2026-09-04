@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Freddy &amp; Joshua &middot; 29 &amp; 30 May 2027 &middot; Invercharron</title>
+<meta name="description" content="Save the date. Freddy and Joshua are marrying at Invercharron House, Ardgay, Sutherland, on the 29th and 30th of May 2027. Formal invitation to follow.">
+<meta name="theme-color" content="#F2ECE3">
+<meta name="color-scheme" content="light">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Freddy &amp; Joshua &middot; 29 &amp; 30 May 2027">
+<meta property="og:description" content="Invercharron House, Ardgay, Sutherland. Formal invitation to follow.">
+<meta property="og:url" content="https://invercharron.com/wedding/">
+<meta property="og:image" content="https://invercharron.com/wedding/share.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Freddy &amp; Joshua &middot; 29 &amp; 30 May 2027">
+<meta name="twitter:description" content="Invercharron House, Ardgay, Sutherland. Formal invitation to follow.">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#card">Skip to the save the date</a>
+
+<!-- ============================================================
+     Shared SVG definitions: paper grain, ink bleed, deckle edge.
+     Generated once, referenced everywhere. Never rasterised.
+     ============================================================ -->
+<svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- Fine paper tooth. Two octaves, high frequency. -->
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="2" seed="7" stitchTiles="stitch" result="n"/>
+      <feColorMatrix type="saturate" values="0" in="n" result="d"/>
+      <feComponentTransfer in="d">
+        <feFuncA type="linear" slope="0.5"/>
+      </feComponentTransfer>
+    </filter>
+
+    <!-- Long, soft fibre mottle for the card stock only. -->
+    <filter id="fibre" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.006 0.09" numOctaves="3" seed="19" stitchTiles="stitch" result="n"/>
+      <feColorMatrix type="saturate" values="0" in="n"/>
+    </filter>
+
+    <!-- Ink sinking into the stock: displaces stroke edges by a hair. -->
+    <filter id="bleed" x="-8%" y="-8%" width="116%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="3" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="0.9" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <!-- Deckle: a torn, irregular paper edge. -->
+    <filter id="deckle" x="-4%" y="-4%" width="108%" height="108%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.014 0.05" numOctaves="4" seed="11" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="7" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
+<!-- ============================================================
+     THE MARKS
+       fj         the F&J monogram, as supplied
+       h-house    the sketch of Invercharron, in four layers so that it
+       h-fence    can resolve on scroll: the house itself, then the
+       h-steps    fence, the steps down to the lawn, and the ground.
+       h-ground
+     Used twice: small on the save the date, large in "Invercharron".
+     stroke-dasharray / stroke-dashoffset are inherited SVG properties,
+     so a single value on each <use> host draws every stroke inside it.
+     ============================================================ -->
+<svg class="defs" width="0" height="0" aria-hidden="true" focusable="false"><defs>
+
+  <symbol id="fj" viewBox="0 0 220.32 214.53">
+    <path fill="currentColor" fill-rule="nonzero" d="M199.21 38.28C197.73 39.75 197.15 39.85 197.1 42.37C196.38 84.59 199.44 60.87 193.29 104.36C193.15 105.36 193.17 106.68 192.31 107.22C183.55 112.7 173.89 116.63 165.08 122.02C154.43 128.54 143.87 135.29 133.99 142.92C121.53 152.54 108.06 165.61 101.68 180.6C97.56 190.28 97.02 203.41 107.14 209.65C110.55 211.76 113.11 211.84 116.92 212.5C119.57 212.22 122.27 212.28 124.86 211.67C158.44 203.83 181.75 171.51 191.13 140.18C195.03 127.13 200.65 96.63 202.01 88.19C204.48 72.96 204.12 58.93 203.52 43.37C203.41 40.53 202.72 37.43 199.21 38.28Z M189.5 113.42C192.81 114.73 190.83 118.26 190.12 121.24C187.69 131.34 185.38 139.48 181.36 149.33C170.4 176.19 152 200.98 122.48 208.39C120.36 208.92 118.11 208.69 115.92 208.84C112.69 207.92 109.31 207.57 106.9 204.9C98.95 196.1 104.63 179.69 110.82 171.75C125.11 153.41 142.73 138.4 162.92 126.86C184.6 114.46 179.46 115.67 189.5 113.42Z M215.9 16.12C216.63 15.47 217.76 15.09 218.1 14.17C218.45 13.2 218.18 12.02 217.73 11.09C215.04 5.6 208.69 2.96 202.92 2.65C177.66 1.29 158.98 1.74 133.92 6.71C98.75 13.69 64.04 22.84 28.93 30.1C23.68 31.19 18.28 31.79 12.92 31.75C7.2 31.7 2.96 26.53 2.21 33.34C3.02 34.29 3.49 35.67 4.62 36.2C13.61 40.41 39.14 34.2 46.74 32.52C71.49 27.05 96.13 21.07 120.9 15.72C141.36 11.3 162.91 7.95 183.92 7.85C185.05 7.84 204.59 9.04 208.19 10.55C211.11 11.77 213.33 14.26 215.9 16.12Z M58.49 85.37C63.96 92.05 66.18 83.6 69.52 86.3C69.84 86.56 70.01 87.04 69.96 87.45C65.96 122.46 65.27 111.63 63.48 150.37C63.38 152.65 63.9 154.81 66.1 155.64C68.37 156.5 69.65 154.27 69.85 152.39C72.08 130.53 73.59 108.59 75.91 86.73C76.01 85.74 76.13 84.28 77.09 83.97C94.58 78.37 125.72 72.18 143.92 70.51C147.24 70.2 150.51 71.85 153.85 71.79C155.81 71.75 155.13 68.71 154.6 68.17C151.86 65.36 140.41 67.28 139.42 67.38C115.53 69.62 104.64 72.91 78.4 78.33C73.96 66.06 84.46 52.74 79.27 40.55C77.45 36.27 74.12 40.91 73.85 42.6C73.38 45.48 74.34 48.45 74.11 51.37C73.42 60.33 72.69 69.31 71.09 78.14C70.11 83.53 61.82 78.82 58.49 85.37Z"/>
+  </symbol>
+
+  <symbol id="h-house" viewBox="0 0 528 322" overflow="visible">
+    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.1">
+      <path pathLength="1" d="M122.8 71.5 122.2 94"/>
+      <path pathLength="1" d="M130 71.5 130.4 93"/>
+      <path pathLength="1" d="M122 102 94 130"/>
+      <path pathLength="1" d="M134 102 156 116"/>
+      <path pathLength="1" d="M102 140.5 102 168.5"/>
+      <path pathLength="1" d="M199 108 177 124"/>
+      <path pathLength="1" d="M202 78.5 202 99.5"/>
+      <path pathLength="1" d="M208.2 78.5 208.6 99"/>
+      <path pathLength="1" d="M213 105 Q241 103 261.5 102 L280.5 92.5"/>
+      <path pathLength="1" d="M286 67.5 286 85.5"/>
+      <path pathLength="1" d="M292 66.5 292 84.5"/>
+      <path pathLength="1" d="M352.6 42.5 352.2 86"/>
+      <path pathLength="1" d="M363.6 42.5 364 85"/>
+      <path pathLength="1" d="M350 66 368 66"/>
+      <path pathLength="1" d="M351 86.5 304 120.5"/>
+      <path pathLength="1" d="M368 88.5 391 109.5"/>
+      <path pathLength="1" d="M307.2 134.5 307.2 163.5"/>
+      <path pathLength="1" d="M402.6 127.5 402.4 158.5"/>
+    </g>
+  </symbol>
+
+  <symbol id="h-fence" viewBox="0 0 528 322" overflow="visible">
+    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6">
+      <path pathLength="1" d="M22.5 185.5 C55 181 95 179 130 181 C145 182 155.5 182.4 165.5 183"/>
+      <path pathLength="1" d="M24.6 180 24.6 193.5"/>
+      <path pathLength="1" d="M74.6 180 74.6 190.6"/>
+      <path pathLength="1" d="M152.6 176.5 152.6 191"/>
+      <path pathLength="1" d="M198 182 C230 179 265 177 300 178 C360 179 420 180.4 470.5 186.6"/>
+      <path pathLength="1" d="M206 176.5 206 190.6"/>
+      <path pathLength="1" d="M331 172.5 331 186.6"/>
+      <path pathLength="1" d="M413 173.5 413 186"/>
+      <path pathLength="1" d="M469.4 180 469.4 194.5"/>
+    </g>
+  </symbol>
+
+  <symbol id="h-steps" viewBox="0 0 528 322" overflow="visible">
+    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2">
+      <path pathLength="1" d="M146 198.5 Q136.5 218 124.5 239.5"/>
+      <path pathLength="1" d="M194 198.5 Q184.5 218 172.5 239.5"/>
+      <path pathLength="1" d="M155 200.2 184 200.4"/>
+      <path pathLength="1" d="M150 210 179 210"/>
+      <path pathLength="1" d="M146 218.2 175 219"/>
+      <path pathLength="1" d="M140 228 169 228"/>
+      <path pathLength="1" d="M134 236.2 164 236.2"/>
+    </g>
+  </symbol>
+
+  <symbol id="h-ground" viewBox="0 0 528 322" overflow="visible">
+    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2">
+      <path pathLength="1" d="M49.5 262.5 C81 256 120 248.4 160 244.6 C180 243 200 243.4 215 244"/>
+      <path pathLength="1" d="M254.5 246.5 C310 254 370 263 420 271.6 C434 274 444 277 453.5 279"/>
+    </g>
+  </symbol>
+
+</defs></svg>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="rule-progress" aria-hidden="true"><i></i></div>
+
+<main>
+
+<!-- ============================================================
+     0 — OPENING
+     ============================================================ -->
+<section class="overture" id="top">
+  <div class="frame" aria-hidden="true">
+    <span class="fr fr-t"></span><span class="fr fr-b"></span>
+    <span class="fr fr-l"></span><span class="fr fr-r"></span>
+    <span class="frame-in"></span>
+  </div>
+
+  <div class="overture-inner">
+
+    <svg class="monogram" viewBox="0 0 220.32 214.53" role="img" aria-labelledby="mono-t">
+      <title id="mono-t">The F and J monogram of Freddy and Joshua</title>
+      <use href="#fj"/>
+    </svg>
+
+    <h1 class="names">Freddy <span class="amp">&amp;</span> Joshua</h1>
+
+    <p class="overture-date"><time datetime="2027-05-29">29</time> <span class="amp-sm">&amp;</span> <time datetime="2027-05-30">30.05.27</time></p>
+
+    <p class="overture-place">invercharron&nbsp;house</p>
+  </div>
+
+  <span class="tick" aria-hidden="true"></span>
+</section>
+
+
+<!-- ============================================================
+     1 — THE CARD
+     ============================================================ -->
+<section class="card-stage" id="card" aria-labelledby="card-h">
+  <div class="card" data-tilt>
+    <div class="card-face">
+      <svg class="card-rules" viewBox="0 0 100 140" preserveAspectRatio="none" aria-hidden="true">
+        <rect x="1.1" y="0.8" width="97.8" height="138.4" class="cr-out"/>
+        <rect x="2.6" y="1.9" width="94.8" height="136.2" class="cr-in"/>
+      </svg>
+
+      <div class="card-body">
+        <svg class="card-mono" viewBox="0 0 220.32 214.53" aria-hidden="true"><use href="#fj"/></svg>
+
+        <svg class="card-illo house" viewBox="0 0 528 322" aria-hidden="true">
+          <use href="#h-house" class="hl hl1"/>
+          <use href="#h-fence" class="hl hl2"/>
+          <use href="#h-steps" class="hl hl3"/>
+          <use href="#h-ground" class="hl hl4"/>
+        </svg>
+
+        <h2 id="card-h" class="card-title">Save the Date</h2>
+        <p class="card-sub">for the wedding of</p>
+        <p class="card-names">Freddy &amp; Joshua</p>
+        <span class="card-dash" aria-hidden="true"></span>
+        <p class="card-date">29 &amp; 30.05.27</p>
+        <address class="card-addr">
+          invercharron house<br>
+          ardgay, sutherland, iv24 3dn
+        </address>
+        <p class="card-foot">formal invitation to follow</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ============================================================
+     2 — THE DAYS
+     ============================================================ -->
+<section class="days" id="days" aria-labelledby="days-h">
+  <div class="wrap">
+    <p class="eyebrow gold">Two days</p>
+    <h2 id="days-h" class="sec-title">The Weekend</h2>
+    <p class="lede centred">The wedding falls on the spring bank holiday weekend, so there is
+      a Monday on the other side of it.</p>
+
+    <div class="day-grid">
+      <article class="day">
+        <p class="day-no">Day one</p>
+        <h3 class="day-date"><time datetime="2027-05-29">Saturday 29 May</time></h3>
+        <ul class="day-list">
+          <li><span class="dl-k">The ceremony</span><span class="dl-v">[[TIME]]</span></li>
+          <li><span class="dl-k">Dinner</span><span class="dl-v">[[TIME]]</span></li>
+          <li><span class="dl-k">Dancing</span><span class="dl-v">[[TIME]]</span></li>
+          <li><span class="dl-k">Dress</span><span class="dl-v">[[DRESS CODE]]</span></li>
+        </ul>
+      </article>
+
+      <article class="day">
+        <p class="day-no">Day two</p>
+        <h3 class="day-date"><time datetime="2027-05-30">Sunday 30 May</time></h3>
+        <ul class="day-list">
+          <li><span class="dl-k">Breakfast</span><span class="dl-v">[[TIME]]</span></li>
+          <li><span class="dl-k">The afternoon</span><span class="dl-v">[[PLAN]]</span></li>
+          <li><span class="dl-k">Supper</span><span class="dl-v">[[TIME]]</span></li>
+          <li><span class="dl-k">Dress</span><span class="dl-v">[[DRESS CODE]]</span></li>
+        </ul>
+      </article>
+    </div>
+
+    <p class="days-foot">The full order of the weekend will come with the invitation.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     3 — GETTING THERE
+     ============================================================ -->
+<section class="travel" id="travel" aria-labelledby="trav-h">
+  <div class="wrap">
+    <p class="eyebrow">Sutherland</p>
+    <h2 id="trav-h" class="sec-title">Getting There</h2>
+    <p class="lede centred">Invercharron sits on the south side of the Kyle of Sutherland,
+      a little west of Ardgay and about an hour north of Inverness.</p>
+  </div>
+
+  <figure class="map-fig">
+    <div class="map-frame">
+      <iframe
+        title="Map showing Invercharron House, Ardgay, Sutherland"
+        src="https://maps.google.com/maps?q=Invercharron+House,+Ardgay,+IV24+3DN&amp;z=9&amp;output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen></iframe>
+    </div>
+    <figcaption class="map-cap">
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Invercharron+House,+Ardgay,+IV24+3DN"
+         target="_blank" rel="noopener">Open in Google Maps</a>
+    </figcaption>
+  </figure>
+
+  <div class="wrap">
+    <dl class="ledger">
+      <div class="led-row">
+        <dt>by air</dt>
+        <dd><strong>Inverness (INV)</strong> is the nearest airport, about an hour and a
+          quarter south by road. Edinburgh is roughly four hours and Aberdeen three and a
+          half, both with good onward trains.</dd>
+      </div>
+      <div class="led-row">
+        <dt>by train</dt>
+        <dd>The <strong>Far North Line</strong> runs from Inverness to <strong>Ardgay</strong>,
+          about a mile and a half from the house — roughly an hour and a quarter. Tain and
+          Lairg are the other useful stops. Trains are few; check the timetable early.</dd>
+      </div>
+      <div class="led-row">
+        <dt>the sleeper</dt>
+        <dd>The <strong>Caledonian Sleeper</strong> leaves London Euston in the evening and
+          arrives in Inverness for breakfast. It is far and away the most agreeable way to
+          come, and it books up a long way ahead.</dd>
+      </div>
+      <div class="led-row">
+        <dt>by road</dt>
+        <dd>The <strong>A9</strong> north from Inverness, over the Dornoch Firth bridge, then
+          the <strong>A836</strong> at Bonar Bridge. About sixty miles.</dd>
+      </div>
+      <div class="led-row">
+        <dt>arriving</dt>
+        <dd><span class="mono-slot">[[PARKING &amp; ARRIVAL NOTES]]</span></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     4 — WHERE TO STAY
+     ============================================================ -->
+<section class="stay" id="stay" aria-labelledby="stay-h">
+  <div class="wrap">
+    <p class="eyebrow">Nearby</p>
+    <h2 id="stay-h" class="sec-title">Where to Stay</h2>
+    <p class="lede centred">Rooms in this part of Sutherland are few and go early. These are
+      the villages to look in, nearest first.</p>
+
+    <dl class="ledger">
+      <div class="led-row">
+        <dt>Ardgay</dt>
+        <dd><span class="mono-slot">[[HOTEL / B&amp;B]]</span> — a mile and a half away, and
+          walkable in daylight.</dd>
+      </div>
+      <div class="led-row">
+        <dt>Bonar Bridge</dt>
+        <dd><span class="mono-slot">[[HOTEL / B&amp;B]]</span> — just across the water,
+          five minutes by car.</dd>
+      </div>
+      <div class="led-row">
+        <dt>Tain</dt>
+        <dd><span class="mono-slot">[[HOTEL]]</span> — twenty-five minutes south, and the
+          largest choice of rooms.</dd>
+      </div>
+      <div class="led-row">
+        <dt>Dornoch</dt>
+        <dd><span class="mono-slot">[[HOTEL]]</span> — half an hour east, on the coast.</dd>
+      </div>
+      <div class="led-row">
+        <dt>Lairg</dt>
+        <dd><span class="mono-slot">[[HOTEL / SELF-CATERING]]</span> — half an hour
+          north-west, inland.</dd>
+      </div>
+    </dl>
+
+    <p class="days-foot">We will send a fuller list, with numbers to call, alongside the
+      invitation.</p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     5 — YOUR ADDRESS
+     The invitation goes in the post, so we need somewhere to send it.
+     The form composes an email in the guest's own mail app — nothing is
+     stored here and no third party is involved. See the README to swap
+     in a form service instead.
+     ============================================================ -->
+<section class="address" id="address" aria-labelledby="addr-h">
+  <div class="wrap">
+    <p class="eyebrow gold">So we can post it</p>
+    <h2 id="addr-h" class="sec-title">Your Address</h2>
+    <p class="lede centred">We want to pop an invitation in the post to you. Tell us where
+      to send it.</p>
+
+    <form class="addr-form" action="mailto:wedding@invercharron.com" method="post" enctype="text/plain">
+      <div class="field">
+        <label for="af-name">Name</label>
+        <input id="af-name" name="name" type="text" autocomplete="name" required
+               placeholder="As you would like it written on the envelope">
+      </div>
+
+      <div class="field">
+        <label for="af-address">Postal address</label>
+        <textarea id="af-address" name="address" rows="4" required
+                  autocomplete="street-address"
+                  placeholder="Street, town, postcode, country"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="af-email">Email <span class="opt">— optional</span></label>
+        <input id="af-email" name="email" type="email" autocomplete="email"
+               placeholder="Only if we may need to ask you something">
+      </div>
+
+      <button type="submit" class="addr-send">Send it to us</button>
+      <p class="addr-status" role="status" aria-live="polite"></p>
+    </form>
+
+    <p class="addr-alt">This opens your own mail app with the details filled in — nothing is
+      kept on this page. Or write to us directly at
+      <a href="mailto:wedding@invercharron.com">wedding@invercharron.com</a>.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     6 — CLOSING
+     ============================================================ -->
+<section class="closing" id="closing" aria-labelledby="close-h">
+  <div class="wrap">
+    <svg class="closing-mono" viewBox="0 0 220.32 214.53" aria-hidden="true"><use href="#fj"/></svg>
+
+    <h2 id="close-h" class="closing-line">formal invitation to follow</h2>
+    <span class="card-dash" aria-hidden="true"></span>
+    <p class="closing-note">Anything at all, write to us —<br>
+      <a href="mailto:wedding@invercharron.com" class="closing-mail">wedding@invercharron.com</a></p>
+  </div>
+</section>
+
+</main>
+
+<script src="main.js"></script>
+</body>
+</html>
