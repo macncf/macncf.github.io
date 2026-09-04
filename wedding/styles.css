@@ -706,8 +706,12 @@ p { margin: 0; text-wrap: pretty; }
      lands at the same height as when walking, and offset right so it lands
      at the same x — the cross-fade then leaves her head exactly where it was,
      on the cake. */
-  --sit-w: calc(var(--sp-w) * 0.516);
-  --sit-x: calc(var(--sp-w) * 0.41);
+  /* Sized by body, not by nose height: a dog sits up taller than it stands,
+     so matching the noses made her far too small. This is 1.2x her standing
+     height, and --sit-x then puts her nose back on the cake at the height
+     she actually carries it when sitting. */
+  --sit-w: calc(var(--sp-w) * 0.692);
+  --sit-x: calc(var(--sp-w) * 0.241);
   /* Her drawing has ~12% of empty box below the paws, so the box has to hang
      that far below the rule for the paws themselves to stand on it. */
   --sp-paw: calc(var(--sp-w) * 0.0843);
@@ -732,7 +736,6 @@ p { margin: 0; text-wrap: pretty; }
   --sp-travel: calc(100vw - var(--sp-w) - var(--cake-w) - var(--sp-gap)
                     - var(--ground) * 2);
   translate: calc(var(--scroll, 0) * var(--sp-travel)) 0;
-  scale: var(--sp-dir, 1) 1;
 }
 
 /* paper ink on the forest and oxblood grounds, where forest green vanishes */
@@ -740,19 +743,23 @@ p { margin: 0; text-wrap: pretty; }
 
 .spaniel > * { position: absolute; bottom: 0; }
 .sp-walk { left: 0; width: 100%; overflow: visible; }
+.sp-walk, .sp-sit { scale: var(--sp-dir, 1) 1; transform-origin: 50% 50%; }
 .sp-sit  { left: var(--sit-x); width: var(--sit-w); height: auto;
            bottom: var(--sp-paw); opacity: 0; }
 .sp-walk, .sp-sit { transition: opacity .3s var(--ease); }
 
 /* Pinned at the end of her walk: she stops, sits, and stays put however much
    the page bounces underneath her. */
-.spaniel[data-phase="sit"] { translate: var(--sp-travel) 0; scale: 1 1; animation: none; }
-.spaniel[data-phase="sit"] .sp-walk { opacity: 0; }
-.spaniel[data-phase="sit"] .sp-sit  { opacity: 1; }
-.spaniel[data-phase="sit"] .sp-leg,
-.spaniel[data-phase="sit"] .sp-shin,
-.spaniel[data-phase="sit"] .sp-tail,
-.spaniel[data-phase="sit"] .sp-ear { animation: none; }
+/* Sat down at either end of the page. Only the one at the cake is pinned to
+   the end of her travel — at the top she sits where she starts. */
+.spaniel[data-phase="sit-end"] { translate: var(--sp-travel) 0; }
+.spaniel[data-phase^="sit"] { animation: none; }
+.spaniel[data-phase^="sit"] .sp-walk { opacity: 0; }
+.spaniel[data-phase^="sit"] .sp-sit  { opacity: 1; }
+.spaniel[data-phase^="sit"] .sp-leg,
+.spaniel[data-phase^="sit"] .sp-shin,
+.spaniel[data-phase^="sit"] .sp-tail,
+.spaniel[data-phase^="sit"] .sp-ear { animation: none; }
 
 .sp-far { opacity: .5; }
 

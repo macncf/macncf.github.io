@@ -60,6 +60,7 @@
   var ticking = false;
   var lastY = window.scrollY;
   var sitting = false;
+  var sittingTop = true;   /* she starts the page sat down */
   var stillTimer = null;
 
   function frame() {
@@ -98,22 +99,36 @@
            or more, and a single threshold had her standing and turning round
            on every bounce. */
         if (!sitting)      sitting = cakeBottom <= pawY + 4;
-        else if (sitting)  sitting = cakeBottom <= pawY + Math.max(170, box.height * 3);
+        else if (sitting)  sitting = cakeBottom <= pawY + 12;
       }
-      spaniel.dataset.phase = sitting ? 'sit' : 'walk';
+      /* She starts the page sat down too, facing the way she is about to go.
+         Same shape of test as at the cake: a couple of pixels to sit, a few
+         more before she gets up, so the top does not flicker between poses. */
+      if (!sittingTop) sittingTop = window.scrollY <= 4;
+      else             sittingTop = window.scrollY <= 24;
 
+      spaniel.dataset.phase = sittingTop ? 'sit-start'
+                            : sitting    ? 'sit-end'
+                            : 'walk';
+
+      /* Facing is pinned at both ends of the page. A rubber-band bounce never
+         takes scrollY past either limit, so this holds her steady through one
+         — but scroll a few pixels off the bottom and she turns round, still
+         sitting, and then gets up and walks back. */
+      var atEnd = window.scrollY >= max - 4;
+      var atStart = window.scrollY <= 4;
       var y = window.scrollY;
-      if (!sitting && y !== lastY) {
+      if (!atEnd && !atStart && y !== lastY) {
         if (y > lastY) spaniel.style.setProperty('--sp-dir', '1');
         else if (y < lastY) spaniel.style.setProperty('--sp-dir', '-1');
         spaniel.classList.add('running');
         clearTimeout(stillTimer);
         stillTimer = setTimeout(function () { spaniel.classList.remove('running'); }, 160);
       }
-      if (sitting) {
-        spaniel.classList.remove('running');
+      if (atEnd || atStart) {
         spaniel.style.setProperty('--sp-dir', '1');
       }
+      if (sitting || sittingTop) spaniel.classList.remove('running');
       lastY = y;
     }
 
