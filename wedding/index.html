@@ -135,10 +135,81 @@
     </g>
   </symbol>
 
+
+
 </defs></svg>
 
 <div class="grain" aria-hidden="true"></div>
 <div class="rule-progress" aria-hidden="true"><i></i></div>
+<!-- The spaniel. Same ink and same hand as the house, drawn mid-trot so she
+     reads as moving even when standing still. Inlined rather than referenced
+     from a <symbol>: the leg, ear and tail animations are transforms, which
+     do not cross into a <use> shadow tree. -->
+<!-- The spaniel. Same ink and same hand as the house. Each leg is two
+     segments hinged at the knee, so she walks rather than swinging: the
+     shin folds to lift the paw clear on the way through and straightens
+     again to plant it. Inlined rather than referenced from a <symbol> —
+     these are transforms, which do not cross into a <use> shadow tree. -->
+<svg class="spaniel" viewBox="0 0 140 100" aria-hidden="true">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+
+    <g class="sp-far">
+      <g class="sp-leg sp-b lf-far">
+        <path d="M89 53.5C89.6 58.6 90 63.4 90.4 68"/>
+        <g class="sp-shin">
+          <path d="M90.4 68C90.6 73 90.6 78.6 90.4 84"/>
+          <path d="M86.6 84.8C88 85.8 92.8 85.8 94.2 84.8"/>
+        </g>
+      </g>
+      <g class="sp-leg sp-a lh-far">
+        <path d="M45 60.5C43.6 65 42 68.6 40.6 72"/>
+        <g class="sp-shin">
+          <path d="M40.6 72C40 76.6 39.6 80.4 39.6 84.4"/>
+          <path d="M35.8 85.2C37.2 86.2 42 86.2 43.4 85.2"/>
+        </g>
+      </g>
+    </g>
+
+    <path d="M36 36C44 33.4 56 32.6 66 32.8 72 33 76 33 78 33.2"/>
+    <path d="M78 33.2C84 32.4 91 30.4 97.5 27"/>
+    <path d="M97.5 27C102 20 113 18.6 120.5 23.4"/>
+    <path d="M120.5 23.4C124 26 127 28.4 129.5 30.4 130.6 31.4 131 32.2 130.6 33"/>
+    <path d="M130.6 33C129.4 34.2 126.6 34.8 123 35.2"/>
+    <path d="M123 35.2C118.4 35.8 114 36 111 35.8"/>
+    <path d="M111 35.8C107.4 37.6 104.6 39.8 102.6 42.6"/>
+    <path d="M102.6 42.6C98.6 47 92.6 51 87.4 54.4 84.6 56.4 83.4 58.4 83 60.4"/>
+    <path d="M83 60.4C74 63.6 65 63.4 57 60.6"/>
+    <path d="M36 36C30 43.6 29.6 55 35.4 63.4 38.4 67.4 43 67.4 47 65"/>
+    <g class="sp-tail">
+      <path d="M36 36C31 30.4 25 26.6 19.6 24.6"/>
+      <path d="M29 30 26 34.6" stroke-width="1.8"/>
+      <path d="M23.6 26.4 21 31" stroke-width="1.8"/>
+    </g>
+    <path class="sp-ear" d="M104 23.4C95.6 30 92.4 44.6 96.4 54 99.4 61 105.4 59.4 106.6 51.4 108 42 107 29 104.6 24"/>
+    <circle cx="114" cy="25.6" r="1.7" fill="currentColor" stroke="none"/>
+    <circle cx="129.6" cy="31.6" r="1.7" fill="currentColor" stroke="none"/>
+
+    <g class="sp-leg sp-a lf-near">
+      <path d="M84 57C84.6 62 85 66.5 85.4 71"/>
+      <g class="sp-shin">
+        <path d="M85.4 71C85.6 76 85.6 81.4 85.4 86.4"/>
+        <path d="M81.6 87.2C83 88.2 87.8 88.2 89.2 87.2"/>
+      </g>
+    </g>
+    <g class="sp-leg sp-b lh-near">
+      <path d="M38 60.5C36.6 65 35 68.6 33.6 72"/>
+      <g class="sp-shin">
+        <path d="M33.6 72C33 77 32.6 81.8 32.6 86.4"/>
+        <path d="M28.8 87.2C30.2 88.2 35 88.2 36.4 87.2"/>
+      </g>
+    </g>
+
+    <g stroke-width="1.8" opacity=".8">
+      <path d="M66 63.6 63.4 69"/><path d="M76 62.6 73.6 68"/>
+      <path d="M37 65 33.6 70"/><path d="M98.6 56.6 96 61.6"/>
+    </g>
+  </g>
+</svg>
 
 <main>
 
@@ -261,13 +332,13 @@
     <div class="map-frame">
       <iframe
         title="Map showing Invercharron House, Ardgay, Sutherland"
-        src="https://maps.google.com/maps?q=Invercharron+House,+Ardgay,+IV24+3DN&amp;z=9&amp;output=embed"
+        src="https://maps.google.com/maps?q=57.8937687,-4.3713271+(Invercharron)&amp;z=9&amp;output=embed"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
         allowfullscreen></iframe>
     </div>
     <figcaption class="map-cap">
-      <a href="https://www.google.com/maps/search/?api=1&amp;query=Invercharron+House,+Ardgay,+IV24+3DN"
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=57.8937687,-4.3713271"
          target="_blank" rel="noopener">Open in Google Maps</a>
     </figcaption>
   </figure>
@@ -404,6 +475,39 @@
     <span class="card-dash" aria-hidden="true"></span>
     <p class="closing-note">Anything at all, write to us —<br>
       <a href="mailto:wedding@invercharron.com" class="closing-mail">wedding@invercharron.com</a></p>
+
+    <!-- What she has been walking towards all along. Sits at the foot of the
+         last section rather than fixed to the viewport, so it only comes
+         into view when you reach the bottom and she arrives beside it. -->
+    <svg class="cake" viewBox="0 0 100 118" aria-hidden="true">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+        <!-- the two of them on top -->
+        <circle cx="43" cy="14.5" r="4.2"/>
+        <circle cx="57" cy="14.5" r="4.2"/>
+        <path d="M38.8 38.5C38.8 31 39.8 25.4 43 23.2 46.2 25.4 47.2 31 47.2 38.5"/>
+        <path d="M52.8 38.5C52.8 31 53.8 25.4 57 23.2 60.2 25.4 61.2 31 61.2 38.5"/>
+        <path d="M39.6 26.4C37.2 29.2 36.4 33.2 36.8 37.8" stroke-width="2.3"/>
+        <path d="M60.4 26.4C62.8 29.2 63.6 33.2 63.2 37.8" stroke-width="2.3"/>
+        <path d="M46.6 27.8C48.4 29.4 49.6 31 50 32.8 50.4 31 51.6 29.4 53.4 27.8" stroke-width="2.3"/>
+        <!-- three tiers -->
+        <path d="M36 42C42 40.4 58 40.4 64 42"/>
+        <path d="M36 42 36 57"/><path d="M64 42 64 57"/>
+        <path d="M36 57C42 58.6 58 58.6 64 57"/>
+        <path d="M28 60C40 58.4 60 58.4 72 60"/>
+        <path d="M28 60 28 78"/><path d="M72 60 72 78"/>
+        <path d="M28 78C40 79.6 60 79.6 72 78"/>
+        <path d="M19 82C36 80.4 64 80.4 81 82"/>
+        <path d="M19 82 19 103"/><path d="M81 82 81 103"/>
+        <path d="M19 103C36 104.8 64 104.8 81 103"/>
+        <path d="M11 108C30 111.4 70 111.4 89 108" stroke-width="2.6"/>
+        <!-- icing -->
+        <g stroke-width="2.1" opacity=".8">
+          <path d="M36.0 44.5C38.3 47.7 43.0 47.7 45.3 44.5C47.7 47.7 52.3 47.7 54.7 44.5C57.0 47.7 61.7 47.7 64.0 44.5"/>
+          <path d="M28.0 62.5C30.2 65.9 34.6 65.9 36.8 62.5C39.0 65.9 43.4 65.9 45.6 62.5C47.8 65.9 52.2 65.9 54.4 62.5C56.6 65.9 61.0 65.9 63.2 62.5C65.4 65.9 69.8 65.9 72.0 62.5"/>
+          <path d="M19.0 84.5C21.6 88.1 26.8 88.1 29.3 84.5C31.9 88.1 37.1 88.1 39.7 84.5C42.3 88.1 47.4 88.1 50.0 84.5C52.6 88.1 57.8 88.1 60.3 84.5C62.9 88.1 68.1 88.1 70.7 84.5C73.2 88.1 78.4 88.1 81.0 84.5"/>
+        </g>
+      </g>
+    </svg>
   </div>
 </section>
 

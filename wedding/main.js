@@ -11,6 +11,8 @@
 
   var root     = document.documentElement;
   var card     = document.querySelector('.card');
+  var spaniel  = document.querySelector('.spaniel');
+  var darkGrounds = document.querySelectorAll('.days, .address');
   var stage    = document.querySelector('.card-stage');
 
   /* ---- what arrives on scroll -------------------------------------------
@@ -55,6 +57,8 @@
      One rAF loop, one layout pass per frame, the result expressed as custom
      properties so the drawing itself stays in CSS.                         */
   var ticking = false;
+  var lastY = window.scrollY;
+  var stillTimer = null;
 
   function frame() {
     ticking = false;
@@ -62,6 +66,29 @@
 
     var max = root.scrollHeight - vh;
     root.style.setProperty('--scroll', max > 0 ? (window.scrollY / max).toFixed(4) : 1);
+
+    /* The spaniel walks on --scroll alone; all this adds is which way she
+       faces and whether her legs are moving. */
+    if (spaniel) {
+      /* She is forest green, which disappears on the two dark grounds, so
+         she picks up the paper ink whenever she crosses onto one. */
+      var box = spaniel.getBoundingClientRect();
+      var mid = box.top + box.height / 2, onDark = false, k;
+      for (k = 0; k < darkGrounds.length; k++) {
+        var g = darkGrounds[k].getBoundingClientRect();
+        if (g.top < mid && g.bottom > mid) { onDark = true; break; }
+      }
+      spaniel.classList.toggle('on-dark', onDark);
+      var y = window.scrollY;
+      if (y !== lastY) {
+        if (y > lastY) spaniel.style.setProperty('--sp-dir', '1');
+        else if (y < lastY) spaniel.style.setProperty('--sp-dir', '-1');
+        lastY = y;
+        spaniel.classList.add('running');
+        clearTimeout(stillTimer);
+        stillTimer = setTimeout(function () { spaniel.classList.remove('running'); }, 160);
+      }
+    }
 
     sweep();
   }
