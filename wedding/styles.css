@@ -552,6 +552,7 @@ p { margin: 0; text-wrap: pretty; }
   align-items: baseline;
 }
 .led-row:last-child { border-bottom: 1px solid var(--paper-shadow); }
+
 .ledger dt {
   font-style: italic;
   font-family: var(--font-script);
@@ -563,7 +564,14 @@ p { margin: 0; text-wrap: pretty; }
 .ledger strong { font-weight: 500; color: var(--forest); }
 
 /* ---------- 10. Where to stay ------------------------------------------- */
-.stay { background: var(--paper); }
+/* The spray needs somewhere to go, so the last line of this section has to
+   clear the top of the champagne's canvas standing on the seam below it. Same
+   bargain the cake strikes with the closing section. */
+.stay {
+  background: var(--paper);
+  padding-bottom: max(var(--sec-pad),
+                      calc(var(--champ-w) / var(--champ-bottle) * 0.95 + 2rem));
+}
 .stay .ledger dt { color: var(--forest); }
 
 /* ---------- 11. Your address --------------------------------------------- */
@@ -697,6 +705,127 @@ p { margin: 0; text-wrap: pretty; }
   transition: border-color .3s var(--ease), color .3s var(--ease);
 }
 .closing-mail:hover { color: var(--burgundy-lift); border-color: var(--burgundy-lift); }
+
+/* ---------- The two of them on the seam ---------------------------------- */
+/*  Sitting on the edge where the cream section meets the green, legs hanging
+    over it. Sized so their line weight matches the dog's and the cake's —
+    which also lands them at about two and a half times her height, roughly
+    a seated adult beside a sitting spaniel.                                 */
+:root { --grooms-w: calc(var(--sp-w) * 0.838); }
+
+.grooms {
+  position: absolute;
+  top: 0;
+  right: 19%;
+  width: var(--grooms-w);
+  height: auto;
+  overflow: visible;
+  pointer-events: none;
+  /* the seam falls at 62% down the drawing — the back of their knees */
+  translate: 0 -62%;
+  z-index: 2;
+}
+.grooms use { }
+/* forest above the seam, where the ground is paper; paper below it, where the
+   ground is forest and forest ink would disappear */
+.gr-up   { color: var(--forest); clip-path: inset(0 0 38% 0); }
+
+/* Their legs dangle front to back, the way they would over a ledge. Seen
+   head-on that is not a sideways swing — a leg swung towards you or away from
+   you is foreshortened, so its apparent length is L·cos(theta) and the foot
+   rides up. Both ends of the arc shorten it, so the feet bob at twice the
+   frequency of the swing and sit lowest as the legs pass through vertical.
+   That doubled rhythm is the whole cue: a lateral swing would read as a
+   single side-to-side sweep instead.
+
+   So the transform is a vertical scale, nothing more. Scaling about the seam
+   leaves the seam line itself fixed, so the legs stay welded to the torsos
+   and the clip edge cannot tear. JS folds a slight perspective term into the
+   same number — legs a touch longer swinging towards you than away — which
+   keeps the two ends of the arc from looking identical.
+
+   The drawing is a single traced path, so the pair is split down the void at
+   x=663 in the viewBox (56% across) that runs the full length of the legs
+   between the two figures. Each half then kicks on its own phase. */
+.gr-leg {
+  color: var(--paper);
+  transform-box: fill-box;
+  transform-origin: 50% 62%;        /* the seam they are sitting on */
+  transform: scaleY(var(--gr-kick, 1));
+}
+.gr-leg-l { clip-path: inset(62% 44% 0 0); }
+.gr-leg-r { clip-path: inset(62% 0 0 56%); }
+
+@media (prefers-reduced-motion: reduce) { .gr-leg { transform: none; } }
+
+@media (max-width: 560px) { .grooms { right: 8%; } }
+
+/* ---------- The champagne on the red seam --------------------------------- */
+/*  It stands on the join where the cream section meets the oxblood. Unlike the
+    earlier version it is no longer wholly above that line: once the cork lands,
+    champagne runs off the bottle and drips below the surface, into the red. So
+    it needs the grooms' two-tone treatment — forest ink above the seam where
+    the ground is cream, paper ink below it where forest ink would vanish.
+
+    Eight frames of a 466x576 canvas share a registration: the bottle occupies
+    x 172-292 and stands on a surface at y 447 in every one of them. Only the
+    cork, the spray and the drips move. They are black on transparent, so each
+    is a MASK over currentColor rather than an image of flat black, which is
+    what lets the same drawing be inked two different colours at once.
+
+    Only ONE image is ever referenced: --src picks the frame, and the two layers
+    below both mask themselves with it. That keeps this to two elements instead
+    of sixteen.
+
+    The drawn surface sits --champ-surface down the canvas. --champ-sink then
+    settles the bottle that much further down, so the seam cuts through the
+    bottom of its base rather than grazing it — which is the difference between
+    a bottle standing on a surface and one balanced on a line. Both the lift and
+    the two clips are driven from --champ-seam, so they cannot drift apart.   */
+:root {
+  --champ-bottle:  0.2597;   /* 121/466 — the bottle's share of the canvas    */
+  --champ-surface: 77.78%;   /* 448/576 — where the drawn surface sits        */
+  --champ-sink:    1.4%;     /* how far the bottle settles below the seam     */
+  --champ-seam:    calc(var(--champ-surface) - var(--champ-sink));
+  --champ-w:       calc(var(--sp-w) * 0.511);   /* width of the bottle itself */
+}
+
+.champagne {
+  position: absolute;
+  top: 0;
+  left: 2%;
+  width: calc(var(--champ-w) / var(--champ-bottle));
+  aspect-ratio: 466 / 576;
+  pointer-events: none;
+  translate: 0 calc(var(--champ-seam) * -1);   /* stand it on the seam */
+  z-index: 2;
+  --src: url("champagne-1.png");
+}
+
+.champ-up,
+.champ-down {
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  -webkit-mask: var(--src) center / 100% 100% no-repeat;
+          mask: var(--src) center / 100% 100% no-repeat;
+}
+.champ-up   { color: var(--forest); clip-path: inset(0 0 calc(100% - var(--champ-seam)) 0); }
+.champ-down { color: var(--paper);  clip-path: inset(var(--champ-seam) 0 0 0); }
+
+.champagne[data-pop="2"] { --src: url("champagne-2.png"); }
+.champagne[data-pop="3"] { --src: url("champagne-3.png"); }
+.champagne[data-pop="4"] { --src: url("champagne-4.png"); }
+.champagne[data-pop="5"] { --src: url("champagne-5.png"); }
+.champagne[data-pop="6"] { --src: url("champagne-6.png"); }
+.champagne[data-pop="7"] { --src: url("champagne-7.png"); }
+.champagne[data-pop="8"] { --src: url("champagne-8.png"); }
+
+/* No flipbook for anyone who has asked for less movement — they get the last
+   state, cork resting and bottle dripping, so the joke still lands. */
+@media (prefers-reduced-motion: reduce) {
+  .champagne[data-pop] { --src: url("champagne-8.png"); }
+}
 
 /* ---------- The spaniel and the cake ------------------------------------- */
 /*  She is fixed to the viewport and walked across it by --scroll, the same
@@ -956,7 +1085,7 @@ html.locked .gate {
 @media print {
   @page { size: A5 portrait; margin: 0; }
   body { background: #fff; }
-  .grain, .rule-progress, .skip, .spaniel, .cake,
+  .grain, .rule-progress, .skip, .spaniel, .cake, .grooms, .champagne,
   .overture, .days, .travel, .stay, .address, .closing { display: none !important; }
   .card-stage { padding: 0; display: block; }
   .card {

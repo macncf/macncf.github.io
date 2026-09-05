@@ -13,6 +13,19 @@
   var card     = document.querySelector('.card');
   var spaniel  = document.querySelector('.spaniel');
   var cake        = document.querySelector('.cake');
+  var legs        = document.querySelectorAll('.gr-leg');
+  var champagne   = document.querySelector('.champagne');
+  var champSec    = document.querySelector('.address');
+  var POP         = [0.32, 0.38, 0.44, 0.52, 0.62, 0.72, 0.82];
+                    /* seven thresholds, eight states. Uneven on purpose:
+                       a long hold sealed, three states in quick succession
+                       through the pop, then slower as the cork falls and
+                       settles. An even eight-beat reads as a metronome. */
+  var popped      = 1;
+  var champWarm   = false;
+  var SWING       = 0.53;   /* swing amplitude, radians (~30 degrees) */
+  var PHASE       = 2.1;    /* how far out of step the two of them are */
+  var PERSP       = 0.045;  /* nearer on the forward half of the arc   */
   var darkGrounds = document.querySelectorAll('.days, .address');
   var stage    = document.querySelector('.card-stage');
 
@@ -130,6 +143,54 @@
       }
       if (sitting || sittingTop) spaniel.classList.remove('running');
       lastY = y;
+    }
+
+    /* Their legs dangle front to back as you scroll, and hold wherever you
+       stop. THETA is the swing angle; what reaches the page is the apparent
+       length of a leg at that angle, cos(theta), which is what foreshortening
+       does to a leg swung towards or away from you. PERSP adds a little on the
+       near half of the arc and takes it off the far half, so swinging forward
+       does not look identical to swinging back. The two of them run on
+       different phases — one kicks forward as the other comes back. */
+    if (legs.length && !reduced.matches) {
+      var t = window.scrollY / 70;
+      for (var i = 0; i < legs.length; i++) {
+        var theta = SWING * Math.sin(t + i * PHASE);
+        legs[i].style.setProperty('--gr-kick',
+          (Math.cos(theta) * (1 + PERSP * Math.sin(theta))).toFixed(4));
+      }
+    }
+
+    /* The champagne stands on the seam at the top of the address section, so
+       that seam's distance up the viewport is the whole clock: closed as it
+       appears at the bottom, spraying by the time it reaches the top. The
+       holds are deliberately uneven — a long wait, then three states in quick
+       succession — because an even four-beat reads as a metronome rather than
+       a pop. It only ever moves forward; a cork does not go back in. It
+       re-arms if you scroll far enough back for the section to drop below the
+       fold again. */
+    if (champagne && champSec && !reduced.matches) {
+      var champBox = champSec.getBoundingClientRect();
+
+      /* A mask image on a display:none layer is never fetched, so the three
+         unseen states would each arrive late and the pop would stutter the
+         first time through. Warm them a couple of screens out, once. */
+      if (!champWarm && champBox.top < window.innerHeight * 2.5) {
+        champWarm = true;
+        for (var f = 2; f <= 8; f++) { new Image().src = 'champagne-' + f + '.png'; }
+      }
+
+      var p = 1 - champBox.top / window.innerHeight;
+      if (p <= 0) {
+        popped = 1;
+      } else {
+        var want = 1;
+        for (var k = 0; k < POP.length; k++) { if (p >= POP[k]) { want = k + 2; } }
+        if (want > popped) popped = want;
+      }
+      if (+champagne.getAttribute('data-pop') !== popped) {
+        champagne.setAttribute('data-pop', popped);
+      }
     }
 
     sweep();
