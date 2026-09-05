@@ -321,8 +321,7 @@
       setTimeout(function () { gate.classList.remove('wrong'); }, 500);
     };
 
-    gate.addEventListener('submit', function (ev) {
-      ev.preventDefault();
+    var attempt = function () {
       var typed = field.value.trim().toLowerCase();
       if (!typed) return;
       if (!window.crypto || !crypto.subtle) {   /* very old browser, or http:// */
@@ -333,9 +332,53 @@
       sha256(typed).then(function (hash) {
         if (hash === PASSWORD_SHA256) unlock(); else refuse();
       }).catch(refuse);
+    };
+
+    gate.addEventListener('submit', function (ev) { ev.preventDefault(); attempt(); });
+
+    /* Belt and braces. The submit button above should be enough to make every
+       keyboard's return key submit, but phone keyboards vary and there is no
+       second chance if one of them decides its return key only closes itself. */
+    field.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Enter' || ev.keyCode === 13) { ev.preventDefault(); attempt(); }
     });
 
     if (root.classList.contains('locked')) field.focus();
+  }
+
+  /* ---- click the dog -----------------------------------------------------
+     She speaks on a plain click, and also part-way through a press, so that
+     holding her works without waiting for you to let go. Whichever comes
+     first wins; `spoke` stops the second one firing twice. Text only — there
+     is no audio anywhere on this page. */
+  var SAY_HOLD = 550;    /* a held press speaks at this point, without release */
+  var SAY_SHOW = 1900;   /* how long she says it for */
+  if (spaniel) {
+    var sayTimer = null, sayHide = null, spoke = false;
+
+    var speak = function () {
+      spoke = true;
+      clearTimeout(sayTimer); sayTimer = null;
+      spaniel.classList.add('saying');
+      clearTimeout(sayHide);
+      sayHide = setTimeout(function () { spaniel.classList.remove('saying'); }, SAY_SHOW);
+    };
+    var cancelHold = function () { clearTimeout(sayTimer); sayTimer = null; };
+
+    spaniel.addEventListener('pointerdown', function () {
+      spoke = false;
+      cancelHold();
+      sayTimer = setTimeout(speak, SAY_HOLD);
+    });
+    spaniel.addEventListener('pointerup', function () {
+      cancelHold();
+      if (!spoke) speak();          /* a quick click counts too */
+    });
+    ['pointercancel', 'pointerleave'].forEach(function (e) {
+      spaniel.addEventListener(e, cancelHold);
+    });
+    /* a long press on a phone otherwise raises the image/share menu */
+    spaniel.addEventListener('contextmenu', function (ev) { ev.preventDefault(); });
   }
 
   /* ---- if the setting changes mid-visit, respect it immediately ---------- */

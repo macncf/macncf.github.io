@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap">
-<link rel="stylesheet" href="styles.css?v=16">
+<link rel="stylesheet" href="styles.css?v=21">
 <script>
   /* Locked first, unlocked only on proof — and locked too if storage throws,
      so a private window fails closed rather than open. Runs before the body
@@ -166,9 +166,18 @@
       <use href="#fj"/>
     </svg>
     <label class="skip" for="gate-pw">Password</label>
-    <input id="gate-pw" class="gate-pw" type="password" name="password"
-           autocomplete="current-password" spellcheck="false"
+    <!-- Deliberately a visible text field, not type="password": this is a word
+         shared with guests, not a credential, and masking it was causing more
+         failed attempts than it prevented. autocorrect and autocapitalise are
+         off so a phone keyboard cannot quietly rewrite it. -->
+    <input id="gate-pw" class="gate-pw" type="text" name="password"
+           autocomplete="off" autocapitalize="none" autocorrect="off"
+           spellcheck="false" enterkeyhint="go"
            aria-describedby="gate-msg" required>
+    <!-- A real submit button, and not only for the tap target. With no submit
+         button a phone keyboard offers a "done" tick that dismisses itself
+         instead of submitting, so there was no way in on mobile. -->
+    <button type="submit" class="gate-go">Enter</button>
     <p class="gate-msg" id="gate-msg" role="status" aria-live="polite"></p>
   </form>
 </div>
@@ -252,6 +261,10 @@
        the same point as when walking, so the cross-fade does not move her
        head off the cake. -->
   <img class="sp-sit" src="dog-sitting.svg" alt="" width="807" height="736">
+  <!-- Press and hold her while she is sitting. Deliberately NOT inside the two
+       pose elements: those are mirrored by --sp-dir when she turns round, and
+       a mirrored speech bubble reads backwards. -->
+  <span class="sp-say">bow wow</span>
 </div>
 
 <main>
@@ -553,6 +566,6 @@
 
 </main>
 
-<script src="main.js?v=13"></script>
+<script src="main.js?v=17"></script>
 </body>
 </html>

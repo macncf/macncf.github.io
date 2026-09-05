@@ -887,6 +887,66 @@ p { margin: 0; text-wrap: pretty; }
            bottom: var(--sp-paw); opacity: 0; }
 .sp-walk, .sp-sit { transition: opacity .3s var(--ease); }
 
+/* ---- click her ----------------------------------------------------------
+   Live wherever she is, walking or sitting. She was previously only clickable
+   while sitting, to stop her swallowing taps meant for the page underneath —
+   but that made her feel broken: you click the dog, nothing happens. She is
+   52px wide and pinned to the bottom edge of the viewport, so the taps she can
+   actually steal are few, and a dog that ignores you is the worse bug.      */
+.spaniel {
+  pointer-events: auto;
+  cursor: pointer;
+  -webkit-touch-callout: none;          /* no iOS share sheet on a long press */
+  -webkit-user-select: none;
+          user-select: none;
+  touch-action: manipulation;
+}
+
+.spaniel .sp-say {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + .4rem);
+  translate: -50% 0;
+  white-space: nowrap;
+  font-family: var(--font-script);
+  font-style: italic;
+  font-size: clamp(.6rem, 1.4vw, .76rem);
+  letter-spacing: .03em;
+  line-height: 1;
+  padding: .3em .65em .34em;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  /* Filled on the paper ground so it masks whatever is behind it — at the
+     bottom of the page she sits right beside the cake and the linework was
+     showing through. Left unfilled on the dark grounds, where there are two
+     different backgrounds (forest and oxblood) and one fill colour would be
+     wrong on one of them; paper ink on a dark ground reads well enough bare. */
+  background: var(--paper);
+  opacity: 0;
+  scale: .8;
+  transform-origin: 50% 150%;
+  pointer-events: none;
+  transition: opacity .2s var(--ease), scale .2s var(--ease);
+}
+/* a little stalk down towards her, rather than a filled tail: the bubble has
+   no background to cut a tail out of */
+.spaniel .sp-say::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 1px;
+  height: .34rem;
+  translate: -50% 0;
+  background: currentColor;
+}
+.spaniel.on-dark .sp-say { background: transparent; }
+.spaniel.saying .sp-say { opacity: .95; scale: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .spaniel .sp-say { transition: opacity .2s var(--ease); scale: 1; }
+}
+
 /* Pinned at the end of her walk: she stops, sits, and stays put however much
    the page bounces underneath her. */
 /* Sat down at either end of the page. Only the one at the cake is pinned to
@@ -994,7 +1054,13 @@ html.locked .gate {
 
 .gate-pw {
   display: block;
-  width: min(15rem, 68vw);
+  /* Wide enough for a comfortably long password. The old min(15rem, 68vw) left
+     about 4px of slack for the current one at 375px and went negative on a
+     320px phone, so typing to the end scrolled the first characters out of
+     sight. Tracking is the real cost here — every .1em of it adds 10% to the
+     width of the whole string — so it is now .14em rather than .3em, which
+     still reads as spaced without pricing out a longer word. */
+  width: min(21rem, 86vw);
   margin: 0 auto;
   background: transparent;
   border: 0;
@@ -1004,12 +1070,31 @@ html.locked .gate {
   text-align: center;
   font-family: var(--font);
   font-size: var(--t-lede);
-  letter-spacing: .3em;
-  text-indent: .3em;
+  letter-spacing: .14em;
+  text-indent: .14em;      /* offsets the trailing letter-space, so it centres true */
   color: var(--burgundy);
   transition: border-color .3s var(--ease);
 }
 .gate-pw:focus { outline: none; border-bottom-color: var(--burgundy); }
+
+.gate-go {
+  display: block;
+  margin: 1.5rem auto 0;
+  padding: .4rem .6rem;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--burgundy) 32%, transparent);
+  border-radius: 0;
+  font-family: var(--font-script);
+  font-style: italic;
+  font-size: var(--t-small);
+  letter-spacing: var(--track-tight);
+  color: var(--burgundy);
+  cursor: pointer;
+  transition: border-color .3s var(--ease), opacity .3s var(--ease);
+}
+.gate-go:hover { border-bottom-color: var(--burgundy); }
+.gate-go:focus-visible { outline: 2px solid var(--burgundy); outline-offset: 3px; }
 
 .gate-msg {
   min-height: 1.6em;
