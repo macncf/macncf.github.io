@@ -664,7 +664,14 @@ p { margin: 0; text-wrap: pretty; }
 .addr-alt a:hover { border-bottom-color: var(--gold); }
 
 /* ---------- 12. Closing -------------------------------------------------- */
-.closing { text-align: center; padding-bottom: clamp(7rem, 16vh, 12rem); }
+/* The bottom padding has to clear the cake, which stands at the foot of this
+   section — otherwise the closing lines run underneath it on a narrow phone.
+   Derived from the cake's own height so it keeps up if the cake is resized. */
+.closing {
+  text-align: center;
+  padding-bottom: max(clamp(7rem, 16vh, 12rem),
+                      calc(var(--cake-w) * 2.159 + var(--ground) + 2.5rem));
+}
 .closing-mono {
   display: block;
   width: clamp(3.4rem, 6vw, 4.6rem);
@@ -701,7 +708,10 @@ p { margin: 0; text-wrap: pretty; }
   /* Sized so its bottom tier sits at her nose height. The drawing is tall
      and narrow (608:1211), so this is a cake about two and a half times her
      height — which is about right for three tiers on a stand. */
-  --cake-w: calc(var(--sp-w) * 0.87);
+  /* Sized so the cake's line weight matches the dog's. Measured: her lines
+     are 2.14% of her width, the cake's are 1.07% of its own, so the cake has
+     to render about twice as wide, relative to itself, to match. */
+  --cake-w: calc(var(--sp-w) * 1.159);
   /* Sitting she is compact and nearly square (807:736). Sized so her nose
      lands at the same height as when walking, and offset right so it lands
      at the same x — the cross-fade then leaves her head exactly where it was,
@@ -718,7 +728,7 @@ p { margin: 0; text-wrap: pretty; }
   /* Negative: her box has ~7% of empty air past her nose, and the cake's has
      ~13% before the left of its bottom tier, so the boxes must overlap for
      the ink to meet. Puts her nose on the tier. */
-  --sp-gap: calc(var(--sp-w) * -0.192);
+  --sp-gap: calc(var(--sp-w) * -0.257);
 }
 
 .spaniel {
