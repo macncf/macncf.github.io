@@ -802,17 +802,54 @@ p { margin: 0; text-wrap: pretty; }
   --src: url("champagne-1.png");
 }
 
-.champ-up,
-.champ-down {
+/*  Geometry of the cut. --champ-cut is the height at which the frozen bottle
+    takes over from the per-frame artwork: y=195 of 576, chosen because at that
+    height the sealed frame and the frozen one agree on the neck's edges to the
+    pixel, so the join cannot be seen. --champ-right is the column the bottle
+    occupies, x=294 of 466 — past the glass at 292, before the cork and drips
+    that live to its right.                                                  */
+:root {
+  --champ-cut:   33.85%;   /* 195/576 — where the frozen bottle starts */
+  --champ-right: 63.09%;   /* 294/466 — the right edge of its column    */
+  --champ-still: url("champagne-4.png");   /* the frozen bottle. Frame 4 is
+       the most central of the eight: summed against all the others its body
+       disagrees least (17,281 against frame 8's 30,613), and it is dry. */
+}
+
+.ch {
   position: absolute;
   inset: 0;
   background: currentColor;
+}
+/* the six pieces: three from the moving frames, two from the frozen bottle,
+   split again at the seam so each side of the surface gets its own ink */
+.ch-fx-top, .ch-fx-side, .ch-drip, .ch-fx-foot {
   -webkit-mask: var(--src) center / 100% 100% no-repeat;
           mask: var(--src) center / 100% 100% no-repeat;
 }
-.champ-up   { color: var(--forest); clip-path: inset(0 0 calc(100% - var(--champ-seam)) 0); }
-.champ-down { color: var(--paper);  clip-path: inset(var(--champ-seam) 0 0 0); }
+.ch-body, .ch-foot {
+  -webkit-mask: var(--champ-still) center / 100% 100% no-repeat;
+          mask: var(--champ-still) center / 100% 100% no-repeat;
+}
 
+/* above the seam — forest ink on the cream ground */
+.ch-fx-top  { color: var(--forest);
+  clip-path: inset(0 0 calc(100% - var(--champ-cut)) 0); }
+.ch-fx-side { color: var(--forest);
+  clip-path: inset(var(--champ-cut) 0 calc(100% - var(--champ-seam)) var(--champ-right)); }
+.ch-body    { color: var(--forest);
+  clip-path: inset(var(--champ-cut) calc(100% - var(--champ-right)) calc(100% - var(--champ-seam)) 0); }
+
+/* below it — paper ink, where forest would vanish into the oxblood */
+.ch-foot    { color: var(--paper);
+  clip-path: inset(var(--champ-seam) calc(100% - var(--champ-right)) calc(100% - var(--champ-surface)) 0); }
+.ch-fx-foot { color: var(--paper);
+  clip-path: inset(var(--champ-seam) 0 calc(100% - var(--champ-surface)) var(--champ-right)); }
+.ch-drip    { color: var(--paper);
+  clip-path: inset(var(--champ-surface) 0 0 0); }
+
+/* --src picks which of the eight frames the moving layers mask themselves
+   with. The frozen bottle ignores it entirely. */
 .champagne[data-pop="2"] { --src: url("champagne-2.png"); }
 .champagne[data-pop="3"] { --src: url("champagne-3.png"); }
 .champagne[data-pop="4"] { --src: url("champagne-4.png"); }
@@ -854,10 +891,13 @@ p { margin: 0; text-wrap: pretty; }
   /* Her drawing has ~12% of empty box below the paws, so the box has to hang
      that far below the rule for the paws themselves to stand on it. */
   --sp-paw: calc(var(--sp-w) * 0.0843);
-  /* Negative: her box has ~7% of empty air past her nose, and the cake's has
-     ~13% before the left of its bottom tier, so the boxes must overlap for
-     the ink to meet. Puts her nose on the tier. */
-  --sp-gap: calc(var(--sp-w) * -0.257);
+  /* How far her nose stops SHORT of the cake's ink, as a fraction of her own
+     width. Measured, not guessed: at -0.257 her nose overlapped the cake's
+     bottom tier by 9.8px, so 0.124 backs her off to a clear ~10px gap at the
+     default 52px. It scales with her, so the gap stays proportional at every
+     width. More positive stops her further away; negative would push her nose
+     back into the cake. */
+  --sp-gap: calc(var(--sp-w) * 0.124);
 }
 
 .spaniel {
@@ -884,8 +924,50 @@ p { margin: 0; text-wrap: pretty; }
 .sp-walk { left: 0; width: 100%; overflow: visible; }
 .sp-walk, .sp-sit { scale: var(--sp-dir, 1) 1; transform-origin: 50% 50%; }
 .sp-sit  { left: var(--sit-x); width: var(--sit-w); height: auto;
-           bottom: var(--sp-paw); opacity: 0; }
-.sp-walk, .sp-sit { transition: opacity .3s var(--ease); }
+           bottom: var(--sp-paw); opacity: 0; overflow: visible;
+           fill: currentColor; }
+
+/* ---- she looks up at the cake, and wags -----------------------------------
+   Two supplied drawings, identical but for the tail, alternated to wag it.
+   This replaces an earlier attempt that cut the head and tail out of the one
+   sitting drawing and rotated them; that needed a shaped clip, two pivots and
+   an opaque ear to hide the join, and still tore. Two real drawings need none
+   of it.
+
+   They register with the sitting drawing without adjustment: rendered at the
+   same height the best alignment is dx=0, dy=0, 99.1% overlap, with 1% of the
+   body ink differing — antialiasing, not movement. So only the tail changes
+   between frames. If either drawing is ever replaced, re-measure that before
+   trusting it: anything the two disagree about will flicker at the wag rate,
+   the way the champagne bottle shimmered under its spray.
+
+   Masks rather than images, so they take the page's ink like everything else. */
+.sp-up {
+  left: var(--sit-x);
+  width: var(--sit-w);
+  aspect-ratio: 807.2 / 736.3;
+  bottom: var(--sp-paw);
+  opacity: 0;
+  scale: var(--sp-dir, 1) 1;
+  transform-origin: 50% 50%;
+  transition: opacity .3s var(--ease);
+}
+.sp-up i {
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;   mask-size: 100% 100%;
+}
+.up-a { -webkit-mask-image: url("dog-up-tail-up.svg");   mask-image: url("dog-up-tail-up.svg"); }
+.up-b { -webkit-mask-image: url("dog-up-tail-down.svg"); mask-image: url("dog-up-tail-down.svg"); opacity: 0; }
+
+
+@media (prefers-reduced-motion: reduce) {
+  .spaniel[data-phase="sit-end"] .up-a,
+  .spaniel[data-phase="sit-end"] .up-b { animation: none; }
+  .spaniel[data-phase="sit-end"] .up-a { opacity: 1; }
+}
 
 /* ---- click her ----------------------------------------------------------
    Live wherever she is, walking or sitting. She was previously only clickable
@@ -916,11 +998,9 @@ p { margin: 0; text-wrap: pretty; }
   padding: .3em .65em .34em;
   border: 1px solid currentColor;
   border-radius: 999px;
-  /* Filled on the paper ground so it masks whatever is behind it — at the
-     bottom of the page she sits right beside the cake and the linework was
-     showing through. Left unfilled on the dark grounds, where there are two
-     different backgrounds (forest and oxblood) and one fill colour would be
-     wrong on one of them; paper ink on a dark ground reads well enough bare. */
+  /* filled on the light grounds so the cake's linework does not show through
+     it; left bare on the dark ones, where forest and oxblood would need two
+     different fills and paper ink reads well enough on its own */
   background: var(--paper);
   opacity: 0;
   scale: .8;
@@ -928,8 +1008,6 @@ p { margin: 0; text-wrap: pretty; }
   pointer-events: none;
   transition: opacity .2s var(--ease), scale .2s var(--ease);
 }
-/* a little stalk down towards her, rather than a filled tail: the bubble has
-   no background to cut a tail out of */
 .spaniel .sp-say::after {
   content: "";
   position: absolute;
@@ -955,6 +1033,17 @@ p { margin: 0; text-wrap: pretty; }
 .spaniel[data-phase^="sit"] { animation: none; }
 .spaniel[data-phase^="sit"] .sp-walk { opacity: 0; }
 .spaniel[data-phase^="sit"] .sp-sit  { opacity: 1; }
+
+/* Only at the cake. Scrolling back up drops the phase, she cross-fades back to
+   the level-headed sitting drawing and the wag stops, so the reverse reads as
+   her losing interest rather than snapping. */
+.spaniel[data-phase="sit-end"] .sp-sit { opacity: 0; }
+.spaniel[data-phase="sit-end"] .sp-up  { opacity: 1; }
+.spaniel[data-phase="sit-end"] .up-a { animation: sp-wag-a .44s steps(1, end) infinite; }
+.spaniel[data-phase="sit-end"] .up-b { animation: sp-wag-b .44s steps(1, end) infinite; }
+@keyframes sp-wag-a { 0%, 49.99% { opacity: 1 } 50%, 100% { opacity: 0 } }
+@keyframes sp-wag-b { 0%, 49.99% { opacity: 0 } 50%, 100% { opacity: 1 } }
+
 .spaniel[data-phase^="sit"] .sp-leg,
 .spaniel[data-phase^="sit"] .sp-shin,
 .spaniel[data-phase^="sit"] .sp-tail,

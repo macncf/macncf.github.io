@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap">
-<link rel="stylesheet" href="styles.css?v=21">
+<link rel="stylesheet" href="styles.css?v=38">
 <script>
   /* Locked first, unlocked only on proof — and locked too if storage throws,
      so a private window fails closed rather than open. Runs before the body
@@ -261,6 +261,12 @@
        the same point as when walking, so the cross-fade does not move her
        head off the cake. -->
   <img class="sp-sit" src="dog-sitting.svg" alt="" width="807" height="736">
+  <!-- Looking up at the cake. Two drawings, identical but for the tail, swapped
+       back and forth to wag it. Both share the sitting drawing's canvas, so
+       nothing but the tail moves — measured at 99.1% overlap with 1% of the
+       body ink differing, which is antialiasing rather than movement. They are
+       masks rather than images so they take the page's ink. -->
+  <div class="sp-up" aria-hidden="true"><i class="up-a"></i><i class="up-b"></i></div>
   <!-- Press and hold her while she is sitting. Deliberately NOT inside the two
        pose elements: those are mirrored by --sp-dir when she turns round, and
        a mirrored speech bubble reads backwards. -->
@@ -497,14 +503,19 @@
      ============================================================ -->
 <section class="address" id="address" aria-labelledby="addr-h">
 
-  <!-- Eight states of one drawing, stacked and registered: the bottle sits at
-       x 172-292 in every frame of a 466x576 canvas, so nothing but the cork,
-       the spray and the drips move between them. The frame is chosen by
-       swapping one custom property, --src; the two layers below exist only to
-       ink the drawing differently above and below the surface it stands on. -->
+  <!-- The bottle is ONE frozen image; only the cork, the spray and the drips
+       come from the eight frames. The frames were each drawn separately, so
+       the bottle wobbled by 16-46% of its own ink between consecutive states —
+       an object that should be standing perfectly still, shimmering. The
+       layers below cut the drawing into a static column (the bottle) and the
+       moving remainder, and ink each side of the surface differently. -->
   <div class="champagne" data-pop="1" aria-hidden="true">
-    <i class="champ-up"></i>
-    <i class="champ-down"></i>
+    <i class="ch ch-fx-top"></i>    <!-- cork + spray, above the neck        -->
+    <i class="ch ch-fx-side"></i>   <!-- cork + drips beside the bottle      -->
+    <i class="ch ch-body"></i>      <!-- the frozen bottle                   -->
+    <i class="ch ch-foot"></i>      <!-- its base, below the surface line    -->
+    <i class="ch ch-fx-foot"></i>   <!-- anything beside it, below the line  -->
+    <i class="ch ch-drip"></i>      <!-- drips hanging below the surface     -->
   </div>
   <div class="wrap">
     <p class="eyebrow gold">So we can post it</p>
