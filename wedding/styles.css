@@ -928,18 +928,16 @@ p { margin: 0; text-wrap: pretty; }
            fill: currentColor; }
 
 /* ---- she looks up at the cake, and wags -----------------------------------
-   Two supplied drawings, identical but for the tail, alternated to wag it.
-   This replaces an earlier attempt that cut the head and tail out of the one
-   sitting drawing and rotated them; that needed a shaped clip, two pivots and
-   an opaque ear to hide the join, and still tore. Two real drawings need none
-   of it.
+   The champagne bottle's trick: freeze the big thing, move the small one. Her
+   body is one drawing that never changes, and the tail is a second drawing
+   turned on top of it. Nothing but the tail *can* move, so there is no frame
+   to drift out of register — the failure that made two whole drawings risky,
+   and that hid a dud pair whose tails sat in the same place.
 
-   They register with the sitting drawing without adjustment: rendered at the
-   same height the best alignment is dx=0, dy=0, 99.1% overlap, with 1% of the
-   body ink differing — antialiasing, not movement. So only the tail changes
-   between frames. If either drawing is ever replaced, re-measure that before
-   trusting it: anything the two disagree about will flicker at the wag rate,
-   the way the champagne bottle shimmered under its spray.
+   The two files are cut from the one supplied drawing along the join at the
+   rump and share its canvas, so they overlay exactly: body + tail at 0deg is
+   pixel-for-pixel the supplied tail-low drawing (IoU 1.000, not one pixel
+   different), and at 9deg it matches the tail-high one to 0.02%.
 
    Masks rather than images, so they take the page's ink like everything else. */
 .sp-up {
@@ -959,14 +957,20 @@ p { margin: 0; text-wrap: pretty; }
   -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
   -webkit-mask-size: 100% 100%;   mask-size: 100% 100%;
 }
-.up-a { -webkit-mask-image: url("dog-up-tail-up.svg");   mask-image: url("dog-up-tail-up.svg"); }
-.up-b { -webkit-mask-image: url("dog-up-tail-down.svg"); mask-image: url("dog-up-tail-down.svg"); opacity: 0; }
+.up-body { -webkit-mask-image: url("dog-up-body.svg"); mask-image: url("dog-up-body.svg"); }
 
+/* The pivot is where the tail meets the rump — (400, 1265) on the 1793x1636
+   canvas, expressed as a fraction of this box. A percentage transform-origin
+   is exact here because it resolves against the element's own border box; the
+   trap to remember is inside the SVG, where transform-box: view-box plus a
+   percentage origin does NOT land where the arithmetic says. */
+.up-tail {
+  -webkit-mask-image: url("dog-up-tail.svg"); mask-image: url("dog-up-tail.svg");
+  transform-origin: 22.309% 77.323%;
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .spaniel[data-phase="sit-end"] .up-a,
-  .spaniel[data-phase="sit-end"] .up-b { animation: none; }
-  .spaniel[data-phase="sit-end"] .up-a { opacity: 1; }
+  .spaniel[data-phase="sit-end"] .up-tail { animation: none; rotate: 0deg; }
 }
 
 /* ---- click her ----------------------------------------------------------
@@ -1039,10 +1043,14 @@ p { margin: 0; text-wrap: pretty; }
    her losing interest rather than snapping. */
 .spaniel[data-phase="sit-end"] .sp-sit { opacity: 0; }
 .spaniel[data-phase="sit-end"] .sp-up  { opacity: 1; }
-.spaniel[data-phase="sit-end"] .up-a { animation: sp-wag-a .44s steps(1, end) infinite; }
-.spaniel[data-phase="sit-end"] .up-b { animation: sp-wag-b .44s steps(1, end) infinite; }
-@keyframes sp-wag-a { 0%, 49.99% { opacity: 1 } 50%, 100% { opacity: 0 } }
-@keyframes sp-wag-b { 0%, 49.99% { opacity: 0 } 50%, 100% { opacity: 1 } }
+/* Two positions, held and swapped rather than eased between, which is how the
+   supplied pair read. --sp-wag is the whole amplitude of the wag: it was fixed
+   at 9deg while it lived in the drawings, and is now one number. */
+.spaniel[data-phase="sit-end"] .up-tail { animation: sp-wag-tail .44s steps(1, end) infinite; }
+@keyframes sp-wag-tail {
+  0%, 49.99% { rotate: 0deg; }
+  50%, 100%  { rotate: var(--sp-wag, 9deg); }
+}
 
 .spaniel[data-phase^="sit"] .sp-leg,
 .spaniel[data-phase^="sit"] .sp-shin,
