@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Freddy & Joshua — Invercharron
+   Joshua & Freddy — Invercharron
    Everything here is enhancement. With JavaScript off the page renders
    complete: the house is fully drawn, nothing is hidden, nothing moves.
    ========================================================================== */
@@ -41,7 +41,7 @@
     '.day, .led-row, .days-foot, .tap-note, ' +
     '.day-grid, .closing-mono, .closing-line, .closing-note, ' +
     '.sec-title, .eyebrow, .lede.centred, .map-cap, .map-frame, ' +
-    '.field, .addr-send, .addr-alt'
+    '.addr-send, .addr-alt'
   );
 
   var pump = null;
@@ -241,41 +241,6 @@
   }
 
 
-  /* ---- the postal address ------------------------------------------------
-     Composed into the guest's own mail app. Nothing is posted anywhere and
-     nothing is stored, so there is no backend to keep alive until 2027.
-     Without JavaScript the form's mailto action still opens a mail client,
-     and the plain address link below it always works.                      */
-  var form = document.querySelector('.addr-form');
-  if (form) {
-    var status = form.querySelector('.addr-status');
-    var to = (form.getAttribute('action') || '').replace(/^mailto:/, '');
-
-    form.addEventListener('submit', function (ev) {
-      if (!form.reportValidity || !form.reportValidity()) return;
-      ev.preventDefault();
-
-      var val = function (n) {
-        var el = form.elements[n];
-        return el && el.value ? el.value.trim() : '';
-      };
-      var name = val('name');
-      var body = 'Name\n' + name +
-                 '\n\nPostal address\n' + val('address') +
-                 (val('email') ? '\n\nEmail\n' + val('email') : '') +
-                 '\n';
-
-      window.location.href = 'mailto:' + to +
-        '?subject=' + encodeURIComponent('Address for the invitation — ' + name) +
-        '&body=' + encodeURIComponent(body);
-
-      if (status) {
-        status.textContent = 'Opening your mail app — press send and it reaches us.';
-      }
-    });
-  }
-
-
   /* ---- the gate ----------------------------------------------------------
      The password is stored as a SHA-256 hash rather than in the clear, so it
      is not sitting in the source to be read at a glance. That is the only
@@ -305,6 +270,57 @@
       });
     };
 
+    /* The same hash in plain JavaScript, for when the browser will not lend
+       its own: crypto.subtle only exists on secure (https) pages, and Safari
+       does not upgrade a typed http:// address the way Chrome does. The head
+       script redirects to https, but this means the gate cannot fail
+       whichever way a guest arrives. Checked against the browser's own
+       result and the standard "abc" test vector. */
+    var sha256js = function (msg) {
+      var ror = function (x, n) { return (x >>> n) | (x << (32 - n)); };
+      var K = [], H = [], i, j, n, c;
+      var isPrime = function (v) { for (var f = 2; f * f <= v; f++) if (v % f === 0) return false; return true; };
+      var frac = function (x) { return ((x - Math.floor(x)) * 4294967296) | 0; };
+      for (n = 2, c = 0; c < 64; n++) if (isPrime(n)) {
+        if (c < 8) H[c] = frac(Math.pow(n, 1 / 2));
+        K[c++] = frac(Math.pow(n, 1 / 3));
+      }
+      var str = unescape(encodeURIComponent(msg)), len = str.length, words = [];
+      for (i = 0; i < len; i++) words[i >> 2] |= str.charCodeAt(i) << (24 - (i % 4) * 8);
+      words[len >> 2] |= 0x80 << (24 - (len % 4) * 8);
+      words[((len + 8 >> 6) << 4) + 15] = len * 8;
+      for (i = 0; i < words.length; i += 16) {
+        /* Copied word by word, not sliced: the array has gaps, and a gap is
+           undefined, which turns the sums below into NaN. `| 0` makes it 0. */
+        var w = [], a = H.slice(0);
+        for (j = 0; j < 16; j++) w[j] = words[i + j] | 0;
+        for (j = 0; j < 64; j++) {
+          if (j >= 16) {
+            var w15 = w[j - 15], w2 = w[j - 2];
+            w[j] = (w[j - 16] + (ror(w15, 7) ^ ror(w15, 18) ^ (w15 >>> 3)) + w[j - 7] +
+                    (ror(w2, 17) ^ ror(w2, 19) ^ (w2 >>> 10))) | 0;
+          }
+          var e = a[4];
+          var t1 = (a[7] + (ror(e, 6) ^ ror(e, 11) ^ ror(e, 25)) + ((e & a[5]) ^ (~e & a[6])) +
+                    K[j] + (w[j] | 0)) | 0;
+          var t2 = ((ror(a[0], 2) ^ ror(a[0], 13) ^ ror(a[0], 22)) +
+                    ((a[0] & a[1]) ^ (a[0] & a[2]) ^ (a[1] & a[2]))) | 0;
+          a = [(t1 + t2) | 0].concat(a);
+          a[4] = (a[4] + t1) | 0;
+          a.pop();
+        }
+        for (j = 0; j < 8; j++) H[j] = (H[j] + a[j]) | 0;
+      }
+      return H.map(function (h) { return ('00000000' + (h >>> 0).toString(16)).slice(-8); }).join('');
+    };
+
+    var hashOf = function (text) {
+      if (window.crypto && crypto.subtle && window.TextEncoder) {
+        return sha256(text).catch(function () { return sha256js(text); });
+      }
+      return Promise.resolve(sha256js(text));
+    };
+
     var unlock = function () {
       try { sessionStorage.setItem('invercharron', 'ok'); } catch (e) {}
       root.classList.remove('locked');
@@ -324,12 +340,7 @@
     var attempt = function () {
       var typed = field.value.trim().toLowerCase();
       if (!typed) return;
-      if (!window.crypto || !crypto.subtle) {   /* very old browser, or http:// */
-        note.textContent = 'This browser cannot check the password.';
-        note.classList.add('show');
-        return;
-      }
-      sha256(typed).then(function (hash) {
+      hashOf(typed).then(function (hash) {
         if (hash === PASSWORD_SHA256) unlock(); else refuse();
       }).catch(refuse);
     };
