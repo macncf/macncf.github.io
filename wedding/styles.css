@@ -567,7 +567,7 @@ p { margin: 0; text-wrap: pretty; }
 }
 
 /* ---- the Sunday dress code ----------------------------------------------
-   "Summer suits" for twelve seconds, "Tarts and Vicars" for three, round and
+   "Summer suits" for thirteen seconds, "Tarts and Vicars" for two, round and
    round. Both readings occupy the same grid cell, so the cell is as
    wide as the longer of the two and nothing reflows when they change. */
 .dress-swap {
@@ -580,11 +580,11 @@ p { margin: 0; text-wrap: pretty; }
 }
 .ds-b { opacity: 0; }
 
-/* Fifteen seconds round: twelve of good advice, three of the truth. */
+/* Fifteen seconds round: thirteen of good advice, two of the truth. */
 .ds-a { animation: ds-a 15s steps(1, end) infinite; }
 .ds-b { animation: ds-b 15s steps(1, end) infinite; }
-@keyframes ds-a { 0%, 79.99% { opacity: 1 } 80%, 100% { opacity: 0 } }
-@keyframes ds-b { 0%, 79.99% { opacity: 0 } 80%, 100% { opacity: 1 } }
+@keyframes ds-a { 0%, 86.65% { opacity: 1 } 86.66%, 100% { opacity: 0 } }
+@keyframes ds-b { 0%, 86.65% { opacity: 0 } 86.66%, 100% { opacity: 1 } }
 
 @media (prefers-reduced-motion: reduce) {
   .ds-a, .ds-b { animation: none; }
