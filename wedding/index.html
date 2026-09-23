@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap">
-<link rel="stylesheet" href="styles.css?v=55">
+<link rel="stylesheet" href="styles.css?v=60">
 <script>
   /* The live site answers on plain http:// as well as https://, and does not
      redirect. Chrome upgrades a typed address to https by itself; Safari does
@@ -271,6 +271,9 @@
         <rect x="2.6" y="1.9" width="94.8" height="136.2" class="cr-in"/>
       </svg>
 
+      <i class="card-curl" aria-hidden="true"></i>
+      <i class="card-sheen" aria-hidden="true"></i>
+
       <div class="card-body">
         <svg class="card-mono" viewBox="0 0 1741.7 1214.3" aria-hidden="true"><use href="#fj"/></svg>
 
@@ -333,7 +336,11 @@
           <li><span class="dl-k">Lunch</span><span class="dl-v">Invercharron House</span></li>
           <li><span class="dl-k">Then</span><span class="dl-v">The party goes on - a few more surprises!</span></li>
           <li><span class="dl-k">Carriages</span><span class="dl-v">When the booze runs out</span></li>
-          <li><span class="dl-k">Dress</span><span class="dl-v">Summer suits</span></li>
+          <!-- Twelve seconds of good advice, three seconds of the truth. The two
+               readings are stacked in one grid cell so the column never jumps
+               between them; the joke is aria-hidden so a screen reader is told
+               the dress code once, and told it straight. -->
+          <li><span class="dl-k">Dress</span><span class="dl-v dress-swap"><i class="ds-a">Summer suits</i><i class="ds-b" aria-hidden="true">Tarts and Vicars</i></span></li>
           <li><span class="dl-k">Children</span><span class="dl-v">Welcome - just let us know</span></li>
         </ul>
       </article>
@@ -539,7 +546,7 @@
 
 </main>
 
-<script src="main.js?v=21"></script>
+<script src="main.js?v=23"></script>
 <script src="https://embed.typeform.com/next/embed.js" defer></script>
 </body>
 </html>

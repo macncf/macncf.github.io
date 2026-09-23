@@ -227,16 +227,45 @@
   }
 
   /* ---- the card resting on a surface -------------------------------------
-     Six pixels of movement, and only for a real pointer.                   */
+     A card of stock this size does not stay flat under your hand: it tips,
+     lifts, catches the light along the near edge and the far edges roll away
+     from you. Four numbers carry all of it to CSS —
+
+       --tx, --ty   the tilt, in degrees
+       --mx, --my   where the pointer is, 0 to 1 across the card
+
+     — and everything else is drawn in the stylesheet. Written on a rAF so a
+     fast pointer cannot queue up more style writes than there are frames. */
   if (card && stage && fine.matches && !reduced.matches) {
+    var tilting = false, px = 0, py = 0;
+
+    var applyTilt = function () {
+      tilting = false;
+      card.style.setProperty('--tx', ((px - 0.5) * 9).toFixed(2));
+      card.style.setProperty('--ty', ((py - 0.5) * 7).toFixed(2));
+      card.style.setProperty('--mx', px.toFixed(3));
+      card.style.setProperty('--my', py.toFixed(3));
+    };
+
     stage.addEventListener('pointermove', function (ev) {
-      var r = stage.getBoundingClientRect();
-      card.style.setProperty('--tx', (((ev.clientX - r.left) / r.width  - 0.5) * 5).toFixed(2));
-      card.style.setProperty('--ty', (((ev.clientY - r.top)  / r.height - 0.5) * 4).toFixed(2));
+      /* Measured across the CARD, not the stage around it. The stage is half
+         as wide again, so normalising against it spent most of the range on
+         empty paper either side and the card barely moved under your hand. */
+      var r = card.getBoundingClientRect();
+      px = (ev.clientX - r.left) / r.width;
+      py = (ev.clientY - r.top) / r.height;
+      if (px < 0) px = 0; else if (px > 1) px = 1;
+      if (py < 0) py = 0; else if (py > 1) py = 1;
+      card.classList.add('lifted');
+      if (!tilting) { tilting = true; requestAnimationFrame(applyTilt); }
     });
+
     stage.addEventListener('pointerleave', function () {
+      card.classList.remove('lifted');
       card.style.setProperty('--tx', 0);
       card.style.setProperty('--ty', 0);
+      card.style.setProperty('--mx', 0.5);
+      card.style.setProperty('--my', 0.5);
     });
   }
 
