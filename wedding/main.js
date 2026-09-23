@@ -145,22 +145,6 @@
       lastY = y;
     }
 
-    /* Their legs dangle front to back as you scroll, and hold wherever you
-       stop. THETA is the swing angle; what reaches the page is the apparent
-       length of a leg at that angle, cos(theta), which is what foreshortening
-       does to a leg swung towards or away from you. PERSP adds a little on the
-       near half of the arc and takes it off the far half, so swinging forward
-       does not look identical to swinging back. The two of them run on
-       different phases — one kicks forward as the other comes back. */
-    if (legs.length && !reduced.matches) {
-      var t = window.scrollY / 70;
-      for (var i = 0; i < legs.length; i++) {
-        var theta = SWING * Math.sin(t + i * PHASE);
-        legs[i].style.setProperty('--gr-kick',
-          (Math.cos(theta) * (1 + PERSP * Math.sin(theta))).toFixed(4));
-      }
-    }
-
     /* The champagne stands on the seam at the top of the address section, so
        that seam's distance up the viewport is the whole clock: closed as it
        appears at the bottom, spraying by the time it reaches the top. The
@@ -224,6 +208,51 @@
        reveal deterministic whatever moved the page, and clears itself the
        moment the last section is in. */
     pump = setInterval(sweep, 120);
+  }
+
+  /* ---- the legs, swinging ------------------------------------------------
+     They used to swing on scroll and hold wherever you stopped; now they keep
+     going on their own. THETA is the swing angle; what reaches the page is the
+     apparent length of a leg at that angle, cos(theta), which is what
+     foreshortening does to a leg swung towards or away from you. PERSP adds a
+     little on the near half of the arc and takes it off the far half, so
+     swinging forward does not look identical to swinging back. The two of them
+     run on different phases — one kicks forward as the other comes back.
+
+     Done in JS rather than @keyframes because the shape of the motion is that
+     cosine, not an ease: the feet bob at twice the frequency of the swing and
+     sit lowest as the legs pass vertical, which is the whole cue that they are
+     dangling rather than sweeping side to side.
+
+     The loop only runs while they are actually on screen — an observer starts
+     and stops it — so nothing turns over while you are reading the rest. */
+  if (legs.length && !reduced.matches) {
+    var PERIOD = 2.6;               /* seconds for a full swing, there and back */
+    var swinging = false, swingRAF = null;
+
+    var swing = function (now) {
+      var t = (now / 1000) * (Math.PI * 2 / PERIOD);
+      for (var i = 0; i < legs.length; i++) {
+        var theta = SWING * Math.sin(t + i * PHASE);
+        legs[i].style.setProperty('--gr-kick',
+          (Math.cos(theta) * (1 + PERSP * Math.sin(theta))).toFixed(4));
+      }
+      if (swinging) swingRAF = requestAnimationFrame(swing);
+    };
+
+    var grooms = document.querySelector('.grooms');
+    if (grooms && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        var on = entries[0].isIntersecting;
+        if (on === swinging) return;
+        swinging = on;
+        if (on) swingRAF = requestAnimationFrame(swing);
+        else { cancelAnimationFrame(swingRAF); swingRAF = null; }
+      }, { rootMargin: '120px' }).observe(grooms);
+    } else {
+      swinging = true;
+      swingRAF = requestAnimationFrame(swing);
+    }
   }
 
   /* ---- the card resting on a surface -------------------------------------
