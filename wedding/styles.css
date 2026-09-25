@@ -306,7 +306,13 @@ p { margin: 0; text-wrap: pretty; }
 
 .card {
   width: min(100% - var(--gut) * 2, 30rem);
-  aspect-ratio: 100 / 140;
+  /* The shape of a real card, but as a floor rather than a cage: if the type
+     is ever taller than the ratio allows — a phone with a minimum font size
+     set, a fallback face with deeper metrics — the card grows instead of
+     letting "invitation to follow" fall off the bottom edge. */
+  aspect-ratio: 100 / 125;        /* the artwork is 1600 x 2000 */
+  min-height: fit-content;
+  display: grid;
   position: relative;
   transform-style: preserve-3d;
   /* translateZ is what makes it lift off the page rather than merely turn. */
@@ -320,7 +326,8 @@ p { margin: 0; text-wrap: pretty; }
 .card.lifted { --lift: 26px; transition: transform .18s var(--ease); }
 
 .card-face {
-  position: absolute; inset: 0;
+  /* in flow, so its height can be driven by the print on it */
+  position: relative;
   container-type: inline-size;
   background: var(--paper-neve);
   /* The shadow leans away from the tilt, as though the light stayed put. */
@@ -392,13 +399,29 @@ p { margin: 0; text-wrap: pretty; }
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.006 0.09' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23f)'/%3E%3C/svg%3E");
 }
 
+/* ---- the card as artwork -------------------------------------------------
+   One image carries the mark, the painting, the writing and the ruled border.
+   The stock texture is switched off behind it: the art has its own paper, and
+   two papers multiplied together read as grubby rather than woven. */
+.card-art { display: block; width: 100%; height: auto; }
+.card-face.is-art { background: transparent; }
+.card-face.is-art::before { display: none; }
+
+/* The words are in the markup but not on the screen, so a screen reader and a
+   search engine get the card's text while everyone else sees the painting. */
+.card-words {
+  position: absolute; width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  clip-path: inset(50%); overflow: hidden; white-space: nowrap;
+}
+
 .card-rules { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .card-rules rect { fill: none; stroke: var(--burgundy-lift); vector-effect: non-scaling-stroke; }
 .card-rules .cr-out { stroke-width: 1.1; }
 .card-rules .cr-in  { stroke-width: .5; opacity: .7; }
 
 .card-body {
-  position: absolute; inset: 0;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -408,7 +431,7 @@ p { margin: 0; text-wrap: pretty; }
      by-product of centring. Vertical percentages resolve against width,
      which is what we want: the card's height is locked to its width by
      aspect-ratio, so the whole rhythm scales as one. */
-  padding: 10.3% 11% 0;
+  padding: 10.3% 11% 5.5%;
 }
 
 .card-mono {
@@ -567,7 +590,7 @@ p { margin: 0; text-wrap: pretty; }
 }
 
 /* ---- the Sunday dress code ----------------------------------------------
-   "Summer suits" for thirteen seconds, "Tarts and Vicars" for two, round and
+   "Summer suits" for eighteen seconds, "Tarts and Vicars" for two, round and
    round. Both readings occupy the same grid cell, so the cell is as
    wide as the longer of the two and nothing reflows when they change. */
 .dress-swap {
@@ -580,17 +603,59 @@ p { margin: 0; text-wrap: pretty; }
 }
 .ds-b { opacity: 0; }
 
-/* Fifteen seconds round: thirteen of good advice, two of the truth. */
-.ds-a { animation: ds-a 15s steps(1, end) infinite; }
-.ds-b { animation: ds-b 15s steps(1, end) infinite; }
-@keyframes ds-a { 0%, 86.65% { opacity: 1 } 86.66%, 100% { opacity: 0 } }
-@keyframes ds-b { 0%, 86.65% { opacity: 0 } 86.66%, 100% { opacity: 1 } }
+/* Twenty seconds round: eighteen of good advice, two of the truth. */
+.ds-a { animation: ds-a 20s steps(1, end) infinite; }
+.ds-b { animation: ds-b 20s steps(1, end) infinite; }
+@keyframes ds-a { 0%, 89.99% { opacity: 1 } 90%, 100% { opacity: 0 } }
+@keyframes ds-b { 0%, 89.99% { opacity: 0 } 90%, 100% { opacity: 1 } }
 
 @media (prefers-reduced-motion: reduce) {
   .ds-a, .ds-b { animation: none; }
   .ds-a { opacity: 1; }
 }
 @media print { .ds-b { display: none; } }
+
+/* A note under the two days, for the one thing a guest may have to go and
+   organise. Deliberately not .days-foot: that one is the bold instruction
+   about flights, and two emphatic lines in a row emphasise neither. */
+/* the lead-in sits where the note's own top margin used to be */
+.dress-lead { margin-top: clamp(2.4rem, 6vh, 4rem); margin-bottom: .6rem; }
+.dress-note {
+  margin: 0 auto;
+  max-width: 34rem;
+  text-align: center;
+  font-style: italic;
+  font-family: var(--font-script);
+  font-size: var(--t-small);
+  letter-spacing: var(--track-tight);
+  line-height: 1.9;
+  color: color-mix(in srgb, var(--paper) 82%, transparent);
+}
+.dress-note + .dress-warning { margin-top: clamp(1.4rem, 3.5vh, 2.2rem); }
+.dress-warning + .days-foot { margin-top: clamp(1.4rem, 3.5vh, 2.2rem); }
+
+/* Its own paragraph so it is not buried in the note above, but set exactly as
+   that note is: same size, same weight, same colour. Separation alone is
+   enough to make it land. */
+.dress-warning {
+  margin: 0 auto;
+  max-width: 34rem;
+  text-align: center;
+  font-style: italic;
+  font-family: var(--font-script);
+  font-size: var(--t-small);
+  letter-spacing: var(--track-tight);
+  line-height: 1.9;
+  color: color-mix(in srgb, var(--paper) 82%, transparent);
+}
+.dress-note a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+  padding-bottom: .1em;
+  transition: border-color .3s var(--ease);
+}
+.dress-note a:hover { border-bottom-color: var(--gold); }
 
 .days-foot, .map-cap {
   margin-top: clamp(2.4rem, 6vh, 4rem);
@@ -700,15 +765,6 @@ p { margin: 0; text-wrap: pretty; }
   font-size: .82em;
   letter-spacing: .12em;
   color: var(--gold);
-}
-.cost-key {
-  margin: clamp(1.4rem, 3.5vh, 2.2rem) auto 0;
-  max-width: 34rem;
-  text-align: center;
-  font-size: var(--t-small);
-  font-style: italic;
-  line-height: 1.9;
-  color: var(--ink-soft);
 }
 
 /* the second list in Where to Stay: a heading part-way down the section */

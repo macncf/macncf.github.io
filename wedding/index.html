@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap">
-<link rel="stylesheet" href="styles.css?v=61">
+<link rel="stylesheet" href="styles.css?v=69">
 <script>
   /* The live site answers on plain http:// as well as https://, and does not
      redirect. Chrome upgrades a typed address to https by itself; Safari does
@@ -265,31 +265,25 @@
      ============================================================ -->
 <section class="card-stage" id="card" aria-labelledby="card-h">
   <div class="card" data-tilt>
-    <div class="card-face">
-      <svg class="card-rules" viewBox="0 0 100 140" preserveAspectRatio="none" aria-hidden="true">
-        <rect x="1.1" y="0.8" width="97.8" height="138.4" class="cr-out"/>
-        <rect x="2.6" y="1.9" width="94.8" height="136.2" class="cr-in"/>
-      </svg>
+    <div class="card-face is-art">
+      <!-- The card is now a single piece of artwork: the mark, the painting,
+           the writing and the ruled border are all in it. The words are kept
+           below in the markup, hidden from view, so a screen reader and a
+           search engine still get them. -->
+      <img class="card-art" src="save-the-date.webp" width="1100" height="1375"
+           alt="Save the date, for the wedding of Joshua and Freddy, Saturday 29th and
+                Sunday 30th May 2027, Dornoch Cathedral and Invercharron House. Formal
+                invitation to follow.">
 
       <i class="card-curl" aria-hidden="true"></i>
       <i class="card-sheen" aria-hidden="true"></i>
 
-      <div class="card-body">
-        <svg class="card-mono" viewBox="0 0 1741.7 1214.3" aria-hidden="true"><use href="#fj"/></svg>
-
-        <img class="card-illo house" src="house.webp" width="1100" height="785"
-             alt="Invercharron House among its trees, in watercolour">
-
-        <h2 id="card-h" class="card-title">Save the Date</h2>
-        <p class="card-sub">for the wedding of</p>
-        <p class="card-names">Joshua &amp; Freddy</p>
-        <span class="card-dash" aria-hidden="true"></span>
-        <p class="card-date">29 &amp; 30.05.27</p>
-        <address class="card-addr">
-          Invercharron House<br>
-          Ardgay, Sutherland, IV24 3DN
-        </address>
-        <p class="card-foot">invitation to follow</p>
+      <div class="card-words">
+        <h2 id="card-h">Please save the date</h2>
+        <p>For the wedding of Joshua &amp; Freddy</p>
+        <p>Saturday 29th &amp; Sunday 30th May 2027</p>
+        <p>Dornoch Cathedral &middot; Invercharron House</p>
+        <p>Formal invitation to follow</p>
       </div>
     </div>
   </div>
@@ -336,7 +330,7 @@
           <li><span class="dl-k">Lunch</span><span class="dl-v">Invercharron House</span></li>
           <li><span class="dl-k">Then</span><span class="dl-v">The party goes on - a few more surprises!</span></li>
           <li><span class="dl-k">Carriages</span><span class="dl-v">When the booze runs out</span></li>
-          <!-- Thirteen seconds of good advice, two seconds of the truth. The two
+          <!-- Eighteen seconds of good advice, two seconds of the truth. The two
                readings are stacked in one grid cell so the column never jumps
                between them; the joke is aria-hidden so a screen reader is told
                the dress code once, and told it straight. -->
@@ -345,6 +339,15 @@
         </ul>
       </article>
     </div>
+
+    <p class="eyebrow gold dress-lead">A note on the dress code</p>
+    <p class="dress-note">Black tie on the Saturday. Full collars, please &ndash; Joshua is
+      keen on a consistent vibe for the photos. And if you would rather hire than buy,
+      <a href="https://www.oliverbrownlondon.com/collections/black-tie-hire"
+         target="_blank" rel="noopener">Oliver Brown</a> in London do a good one.</p>
+
+    <p class="dress-warning">No heels, or you will sink &ndash; there is a good deal of
+      grass between one part of the day and the next.</p>
 
     <p class="days-foot">Don&rsquo;t book your flights home until late Sunday evening, or
       we would strongly recommend bank holiday Monday morning!</p>
@@ -394,7 +397,8 @@
       </div>
       <div class="led-row">
         <dt>taxis</dt>
-        <dd><strong>Mackays</strong> in Dornoch are the ones we would call first.
+        <dd><strong>Mackays</strong> in Dornoch are the ones we would call first,
+          <a href="tel:+441862810162">01862 810162</a>.
           Further afield: <strong>Luxury Highland Chauffeur</strong>
           <a href="tel:+447561468143">07561 468143</a>,
           <strong>Inverness Taxis</strong> <a href="tel:+441463222222">01463 222 222</a>,
@@ -444,9 +448,6 @@
       </div>
     </dl>
 
-    <p class="cost-key">&pound; under &pound;100 a night &middot; &pound;&pound; about &pound;100-175 &middot;
-      &pound;&pound;&pound; &pound;175-275 &middot; &pound;&pound;&pound;&pound; more than that.
-      A rough guide only: 2027 rates are not published yet.</p>
 
     <p class="eyebrow stay-more">Also in Dornoch</p>
     <p class="lede centred">No arrangement with these. The hotels are all an easy walk to
