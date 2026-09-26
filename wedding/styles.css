@@ -750,7 +750,12 @@ p { margin: 0; text-wrap: pretty; }
 /* The spray needs somewhere to go, so the last line of this section has to
    clear the top of the champagne's canvas standing on the seam below it. Same
    bargain the cake strikes with the closing section. */
+/* Getting Here and Where to Stay are both on paper, so the usual section gap
+   between them reads as a blank page rather than a change of subject. Half of
+   it is enough where there is no change of colour to carry the pause. */
+.travel { padding-bottom: calc(var(--sec-pad) * 0.42); }
 .stay {
+  padding-top: calc(var(--sec-pad) * 0.42);
   background: var(--paper);
   padding-bottom: max(var(--sec-pad),
                       calc(var(--champ-w) / var(--champ-bottle) * 0.95 + 2rem));
